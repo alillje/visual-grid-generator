@@ -1,7 +1,7 @@
 import "./layout.css";
 import * as React from "react";
-import { gridlify } from '/node_modules/gridlify/lib/index.js'
 import Header from "../header/header";
+import GridMenu from "../grid-menu/grid-menu";
 /**
  * Layout Component.
  * Sets the page layout with CSS grid and inserts the children into the main HTML div element.
@@ -25,7 +25,9 @@ import Header from "../header/header";
             <div className="layoutMain">
             {this.children}
             </div>
-            <div className="layoutRight"></div>
+            <div className="layoutRight">
+              <GridMenu />
+            </div>
           </div>
           )
     }

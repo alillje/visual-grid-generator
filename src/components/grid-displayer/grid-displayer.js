@@ -1,7 +1,5 @@
 import * as React from "react";
 import GridBox from "../grid-box/grid-box";
-import { useState, useEffect } from "react";
-import { gridlify } from "/node_modules/gridlify/lib/index.js";
 import "./grid-displayer.css";
 
 /**
@@ -30,11 +28,14 @@ class GridDisplayer extends React.Component {
       gridColumnGap: this.gridColumnGap,
     };
     this.currentDivNumber = 0;
+    this.state = {
+
+    }
   }
 
   setNumberOfChildComponents() {
     this.numberOfChildComponents =
-      this.gridRows.length * this.gridColumns.length;
+    this.gridRows.length * this.gridColumns.length;
   }
 
   incrementDivNumber () {
@@ -45,12 +46,12 @@ class GridDisplayer extends React.Component {
     this.incrementDivNumber();
     return this.currentDivNumber
   }
+  
   componentDidMount() {
     // gridlify.setGrid(this.grid, '.gridDisplayerContainer')
     this.setNumberOfChildComponents();
     console.log(this.numberOfChildComponents);
   }
-
 
   render() {
     return (
