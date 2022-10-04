@@ -20,10 +20,10 @@ class GridMenu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      numberOfRows: "",
-      numberOfColumns: "",
-      rowGap: "",
-      columnGap: "",
+      numberOfRows: store.getState().rows.numberOfRows,
+      numberOfColumns: store.getState().columns.numberOfColumns,
+      rowGap: store.getState().rows.rowGap,
+      columnGap: store.getState().columns.columnsGap,
     };
   }
 
@@ -88,7 +88,6 @@ class GridMenu extends React.Component {
 
   setGrid(event) {
     event.preventDefault();
-    console.log(store.getState());
   }
 
   render() {

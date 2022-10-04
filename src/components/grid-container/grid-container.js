@@ -3,6 +3,9 @@ import { useState, useEffect } from "react"
 import { gridlify } from '/node_modules/gridlify/lib/index.js'
 import './grid-container.css'
 import GridDisplayer from "../grid-displayer/grid-displayer";
+
+import store from "../../redux/store";
+
 /**
  * GridBox Component.
  * Displays a grid box.
@@ -14,7 +17,7 @@ import GridDisplayer from "../grid-displayer/grid-displayer";
     render() {
         return (
             <div className="gridContainerContainer">
-                <GridDisplayer />
+                <GridDisplayer props={store.getState()} />
             </div>
           )
     }
