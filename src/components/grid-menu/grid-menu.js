@@ -6,6 +6,10 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
+import store from "../../redux/store";
+import { numberOfRows, rowGap } from "../../redux/reducers/rows";
+import { numberOfColumns, columnGap } from "../../redux/reducers/columns";
+
 /**
  * GridBox Component.
  * Displays a grid box.
@@ -29,6 +33,13 @@ class GridMenu extends React.Component {
    */
   setNumberOfRows(newNumberOfRows) {
     this.setState({ numberOfRows: newNumberOfRows });
+    // Set global state of numberOfRows using redux
+    store.dispatch(
+      numberOfRows({
+        numberOfRows: parseInt(newNumberOfRows),
+      })
+    );
+    this.setState({ numberOfRows: newNumberOfRows });
   }
 
   /**
@@ -37,6 +48,13 @@ class GridMenu extends React.Component {
    */
   setNumberOfColumns(newNumberOfColumns) {
     this.setState({ numberOfColumns: newNumberOfColumns });
+    // Set global state of numberOfColumns using redux
+    store.dispatch(
+      numberOfColumns({
+        numberOfColumns: parseInt(newNumberOfColumns),
+      })
+    );
+    this.setState({ numberOfRows: newNumberOfColumns });
   }
 
   /**
@@ -45,6 +63,13 @@ class GridMenu extends React.Component {
    */
   setRowGap(newRowGap) {
     this.setState({ rowGap: newRowGap });
+    // Set global state of numberOfRows using redux
+    store.dispatch(
+      rowGap({
+        rowGap: parseInt(newRowGap),
+      })
+    );
+    this.setState({ numberOfRows: rowGap });
   }
   /**
    * Sets the column gap.
@@ -52,11 +77,18 @@ class GridMenu extends React.Component {
    */
   setColumnGap(newColumnGap) {
     this.setState({ columnGap: newColumnGap });
+    // Set global state of numberOfRows using redux
+    store.dispatch(
+      columnGap({
+        columnGap: parseInt(newColumnGap),
+      })
+    );
+    this.setState({ columnGap: newColumnGap });
   }
 
   setGrid(event) {
     event.preventDefault();
-    console.log(event.target)
+    console.log(store.getState());
   }
 
   render() {
