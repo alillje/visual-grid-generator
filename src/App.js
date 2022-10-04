@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import Layout from './components/layout/layout';
-import GridBox from './components/grid-box/grid-box';
+import GridContainer from './components/grid-container/grid-container';
 
 function App() {
   return (
-    <Layout><GridBox></GridBox></Layout>
+    <Layout><GridContainer /></Layout>
   );
 }
 

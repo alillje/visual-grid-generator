@@ -1,0 +1,20 @@
+.gridDisplayerContainer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 100px);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: rgba(168, 168, 168, 0.385);
+}
+
+/* .gridDisplayerContainer {
+    width: 90%;
+    height: 90%;
+
+} */
+
+.gridDisplayerContainer {
+    grid-area: 2 / 2 / 7 / 7;
+}

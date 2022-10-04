@@ -1,0 +1,12 @@
+.gridContainerContainer {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 40px repeat(5, 1fr);
+    grid-template-rows: 40px repeat(5, 100px);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: #b3b3b340;
+    border: 1px solid #b6b6b698;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
