@@ -1,3 +1,4 @@
+import * as React from 'react'
 import './header.css'
 
 /**
@@ -6,12 +7,14 @@ import './header.css'
  *
  * @returns {React.ReactElement} - Sidebar Component.
  */
-const Header = () => {
+ class Header extends React.Component {
 
-  return (
-    <div className="headerContainer">
-        GRID APP
-    </div>
-  )
-}
+    render() {
+        return (
+            <div className="headerContainer">
+                GRID APP
+            </div>
+          )
+    }
+  }
 export default Header

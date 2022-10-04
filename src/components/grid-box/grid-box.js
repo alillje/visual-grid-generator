@@ -1,3 +1,4 @@
+import * as React from "react";
 import './grid-box.css'
 
 /**
@@ -6,12 +7,16 @@ import './grid-box.css'
  *
  * @returns {React.ReactElement} - GridBox Component.
  */
-const GridBox = () => {
+ class GridBox extends React.Component {
 
-  return (
-    <div className="gridBoxContainer">
-        
-    </div>
-  )
-}
-export default GridBox
+    render() {
+        return (
+            <div className="gridBoxContainer">
+                
+            </div>
+          )
+    }
+  }
+
+export default GridBox;
+
