@@ -16,82 +16,8 @@ import { numberOfColumns, columnGap } from "../../redux/reducers/columns";
  *
  * @returns {React.ReactElement} - GridBox Component.
  */
-class GridMenu extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      numberOfRows: store.getState().rows.numberOfRows,
-      numberOfColumns: store.getState().columns.numberOfColumns,
-      rowGap: store.getState().rows.rowGap,
-      columnGap: store.getState().columns.columnGap,
-    };
-  }
+const GridMenu = () =>  {
 
-  /**
-   * Sets the number of rows.
-   * @param {string} newNumberOfRows
-   */
-  setNumberOfRows(newNumberOfRows) {
-    this.setState({ numberOfRows: newNumberOfRows });
-    // Set global state of numberOfRows using redux
-    store.dispatch(
-      numberOfRows({
-        numberOfRows: parseInt(newNumberOfRows),
-      })
-    );
-    this.setState({ numberOfRows: newNumberOfRows });
-  }
-
-  /**
-   * Sets the number of columns.
-   * @param {string} newNumberOfColumns
-   */
-  setNumberOfColumns(newNumberOfColumns) {
-    this.setState({ numberOfColumns: newNumberOfColumns });
-    // Set global state of numberOfColumns using redux
-    store.dispatch(
-      numberOfColumns({
-        numberOfColumns: parseInt(newNumberOfColumns),
-      })
-    );
-    this.setState({ numberOfRows: newNumberOfColumns });
-  }
-
-  /**
-   * Sets the row gap.
-   * @param {string} newRowGap
-   */
-  setRowGap(newRowGap) {
-    this.setState({ rowGap: newRowGap });
-    // Set global state of numberOfRows using redux
-    store.dispatch(
-      rowGap({
-        rowGap: parseInt(newRowGap),
-      })
-    );
-    this.setState({ numberOfRows: rowGap });
-  }
-  /**
-   * Sets the column gap.
-   * @param {string} newColumnGap
-   */
-  setColumnGap(newColumnGap) {
-    this.setState({ columnGap: newColumnGap });
-    // Set global state of numberOfRows using redux
-    store.dispatch(
-      columnGap({
-        columnGap: parseInt(newColumnGap),
-      })
-    );
-    this.setState({ columnGap: newColumnGap });
-  }
-
-  setGrid(event) {
-    event.preventDefault();
-    this.props.sendData(store.getState())
-  }
-
-  render() {
     return (
       <div className="gridMenuContainer">
         <Box
@@ -137,15 +63,6 @@ class GridMenu extends React.Component {
         </Box>
       </div>
     );
-  }
 }
 
 export default GridMenu;
-
-
-
-{/* <FormControl
-sx={{ width: "25ch", margin: "20px" }}
-value={this.state.columnGap}
-onChange={(event) => this.setColumnGap(event.target.value)}
-> */}
