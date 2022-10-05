@@ -23,7 +23,7 @@ class GridMenu extends React.Component {
       numberOfRows: store.getState().rows.numberOfRows,
       numberOfColumns: store.getState().columns.numberOfColumns,
       rowGap: store.getState().rows.rowGap,
-      columnGap: store.getState().columns.columnsGap,
+      columnGap: store.getState().columns.columnGap,
     };
   }
 
@@ -88,6 +88,7 @@ class GridMenu extends React.Component {
 
   setGrid(event) {
     event.preventDefault();
+    this.props.sendData(store.getState())
   }
 
   render() {
@@ -104,28 +105,28 @@ class GridMenu extends React.Component {
         >
           <FormControl
             sx={{ width: "25ch", margin: "20px" }}
-            value={this.state.numberOfRows}
+            value={""}
             onChange={(event) => this.setNumberOfRows(event.target.value)}
           >
             <OutlinedInput placeholder="Number of rows" />
           </FormControl>
           <FormControl
             sx={{ width: "25ch", margin: "20px" }}
-            value={this.state.numberOfColumns}
+            value={""}
             onChange={(event) => this.setNumberOfColumns(event.target.value)}
           >
             <OutlinedInput placeholder="Number of columns" />
           </FormControl>
           <FormControl
             sx={{ width: "25ch", margin: "20px" }}
-            value={this.state.rowGap}
+            value={""}
             onChange={(event) => this.setRowGap(event.target.value)}
           >
             <OutlinedInput placeholder="Row gap (px)" />
           </FormControl>
           <FormControl
             sx={{ width: "25ch", margin: "20px" }}
-            value={this.state.columnGap}
+            value={""}
             onChange={(event) => this.setColumnGap(event.target.value)}
           >
             <OutlinedInput placeholder="Column Gap (px)" />
@@ -140,3 +141,11 @@ class GridMenu extends React.Component {
 }
 
 export default GridMenu;
+
+
+
+{/* <FormControl
+sx={{ width: "25ch", margin: "20px" }}
+value={this.state.columnGap}
+onChange={(event) => this.setColumnGap(event.target.value)}
+> */}

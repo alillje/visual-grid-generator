@@ -10,3 +10,8 @@
     border: 1px solid #b6b6b698;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+.gridContainerSideMenu {
+    grid-area: 2 / 6 / 7 / 6;
+    align-self: center;
+}

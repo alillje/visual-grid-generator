@@ -1,7 +1,6 @@
 import "./layout.css";
 import * as React from "react";
 import Header from "../header/header";
-import GridMenu from "../grid-menu/grid-menu";
 /**
  * Layout Component.
  * Sets the page layout with CSS grid and inserts the children into the main HTML div element.
@@ -26,7 +25,6 @@ import GridMenu from "../grid-menu/grid-menu";
             {this.children}
             </div>
             <div className="layoutRight">
-              <GridMenu />
             </div>
           </div>
           )

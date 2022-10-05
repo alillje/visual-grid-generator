@@ -30,7 +30,7 @@ export const rowsSlice = createSlice({
      * @param {object} action - Object containing the different state values to be set.
      */
     rowGap: (state, action) => {
-      state.rowGap = `${action.payload.rowGap}px`;
+      state.rowGap = `${action.payload.rowGap}px`
     },
   },
 });

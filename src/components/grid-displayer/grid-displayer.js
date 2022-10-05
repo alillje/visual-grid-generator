@@ -1,6 +1,7 @@
 import * as React from "react";
 import GridBox from "../grid-box/grid-box";
 import "./grid-displayer.css";
+import { gridlify } from "/node_modules/gridlify/lib/index.js";
 
 import store from "../../redux/store";
 
@@ -13,41 +14,31 @@ import store from "../../redux/store";
 class GridDisplayer extends React.Component {
   constructor(props) {
     super(props);
-    this.gridRows = props.rows;
-    this.gridColumns = props.columns;
-    this.gridRowGap = props.rowGap;
-    this.gridColumnGap = props.columnGap;
+    this.props = props;;
   }
 
   componentDidMount() {
-    // gridlify.setGrid(this.grid, '.gridDisplayerContainer')
-    console.log(this.props.props.gridRow);
-    // this.setState({
-    //   gridRows: store.getState().rows.rows,
-    //   gridColumns: store.getState().columns.columns,
-    //   gridRowGap: store.getState().rows.rowGap,
-    //   gridColumnGap: store.getState().columns.columnGap,
-    // });
+    this.setState({
+      currentState: Object.assign({}, store.getState())
+    });
+  
   }
 
   componentDidUpdate(prevProps) {
-    console.log(prevProps);
-    if (prevProps.rowGap !== this.state.rowGap) {
-      this.setState({
-        rowGap: store.getState().rows.rowGap,
-      });
+    console.log(this.props)
+    if (prevProps !== this.props) {
+      console.log(this.props.rowGap)
+
+     gridlify.setRowGap(this.props.rowGap, '.gridDisplayerContainer')
     }
   }
+
+
 
   render() {
     return (
       <div className="gridDisplayerContainer">
-        {this.props.gridRowGap}
-        {/* {this.state.gridColumns.map(() => {
-          return this.state.gridRows.map(() => {
-            return <div>{this.state.gridRowGap}</div>;
-          });
-        })}{" "} */}
+
       </div>
     );
   }
