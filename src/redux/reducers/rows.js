@@ -20,7 +20,7 @@ export const rowsSlice = createSlice({
      * @param {object} state - Redux state object.
      * @param {object} action - Object containing the different state values to be set.
      */
-    numberOfRows: (state, action) => {
+    setAmountOfRows: (state, action) => {
       state.numberOfRows = action.payload.numberOfRows;
     },
     /**
@@ -29,11 +29,11 @@ export const rowsSlice = createSlice({
      * @param {object} state - Redux state object.
      * @param {object} action - Object containing the different state values to be set.
      */
-    rowGap: (state, action) => {
+     globalSetRowGap: (state, action) => {
       state.rowGap = `${action.payload.rowGap}px`
     },
   },
 });
 
-export const { numberOfRows, rowGap } = rowsSlice.actions;
+export const { setAmountOfRows, globalSetRowGap } = rowsSlice.actions;
 export default rowsSlice.reducer;
