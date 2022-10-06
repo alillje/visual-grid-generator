@@ -12,3 +12,7 @@
 .gridDisplayerContainer {
     grid-area: 2 / 2 / 7 / 7;
 }
+
+.gridBox {
+    background-color: #373737;
+}
