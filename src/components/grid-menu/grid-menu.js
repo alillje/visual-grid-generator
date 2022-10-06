@@ -26,9 +26,9 @@ const GridMenu = () => {
   const [columnGap, setColumnGap] = useState("");
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    console.log(numberOfRows);
-  }, [numberOfRows]);
+  // useEffect(() => {
+  //   console.log(numberOfRows);
+  // }, [numberOfRows]);
 
   const setGrid = (event) => {
     event.preventDefault();
