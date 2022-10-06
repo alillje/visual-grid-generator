@@ -7,14 +7,16 @@ import './header.css'
  *
  * @returns {React.ReactElement} - Sidebar Component.
  */
- class Header extends React.Component {
-
-    render() {
-        return (
+class Header extends React.Component {
+  /**
+   *
+   */
+  render () {
+    return (
             <div className="headerContainer">
                 GRID APP
             </div>
-          )
-    }
+    )
   }
+}
 export default Header

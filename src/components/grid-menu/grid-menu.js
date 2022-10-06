@@ -1,19 +1,19 @@
-import * as React from "react";
-import "./grid-menu.css";
-import { useState } from "react";
+import * as React from 'react'
+import './grid-menu.css'
+import { useState } from 'react'
 
-import FormControl from "@mui/material/FormControl";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
+import FormControl from '@mui/material/FormControl'
+import OutlinedInput from '@mui/material/OutlinedInput'
+import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
 
-import { setAmountOfRows, globalSetRowGap } from "../../redux/reducers/rows";
+import { setAmountOfRows, globalSetRowGap } from '../../redux/reducers/rows'
 import {
   setAmountOfColumns,
-  globalSetColumnGap,
-} from "../../redux/reducers/columns";
+  globalSetColumnGap
+} from '../../redux/reducers/columns'
 
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux'
 
 /**
  * GridBox Component.
@@ -22,87 +22,103 @@ import { useDispatch } from "react-redux";
  * @returns {React.ReactElement} - GridBox Component.
  */
 const GridMenu = () => {
-  const [numberOfRows, setNumberOfRows] = useState(5);
-  const [numberOfColumns, setNumberOfColumns] = useState(5);
-  const [rowGap, setRowGap] = useState(0);
-  const [columnGap, setColumnGap] = useState(0);
-  const dispatch = useDispatch();
+  const [numberOfRows, setNumberOfRows] = useState(5)
+  const [numberOfColumns, setNumberOfColumns] = useState(5)
+  const [rowGap, setRowGap] = useState(0)
+  const [columnGap, setColumnGap] = useState(0)
+  const dispatch = useDispatch()
 
+  /**
+   *
+   */
   const sendRowAmmountToGlobalState = () => {
     dispatch(
       setAmountOfRows({
-        numberOfRows: numberOfRows
+        numberOfRows
       })
-    );
-  };
+    )
+  }
 
+  /**
+   *
+   */
   const sendColumnAmmountToGlobalState = () => {
     dispatch(
       setAmountOfColumns({
-        numberOfColumns: numberOfColumns
+        numberOfColumns
       })
-    );
-  };
+    )
+  }
 
+  /**
+   *
+   */
   const sendRowGapToGlobalState = () => {
     dispatch(
       globalSetRowGap({
-        rowGap: rowGap
+        rowGap
       })
-    );
-  };
+    )
+  }
 
+  /**
+   *
+   */
   const sendColumnGapToGlobalState = () => {
     dispatch(
       globalSetColumnGap({
-        columnGap: columnGap
+        columnGap
       })
-    );
-  };
+    )
+  }
 
+  /**
+   *
+   * @param event
+   */
   const setGrid = (event) => {
-    event.preventDefault();
-    sendRowAmmountToGlobalState();
-    sendColumnAmmountToGlobalState();
-    sendRowGapToGlobalState();
-    sendColumnGapToGlobalState();
-  };
+    event.preventDefault()
+    sendRowAmmountToGlobalState()
+    sendColumnAmmountToGlobalState()
+    sendRowGapToGlobalState()
+    sendColumnGapToGlobalState()
+  }
 
   return (
     <div className="gridMenuContainer">
       <Box
         component="form"
         sx={{
-          "& > :not(style)": { m: 3, width: "90%" },
+          '& > :not(style)': { m: 3, width: '90%' }
         }}
         noValidate
         autoComplete="off"
         onSubmit={(event) => setGrid(event)}
       >
         <FormControl
-          sx={{ width: "25ch", margin: "20px" }}
-          value={""}
+          sx={{ width: '25ch', margin: '20px' }}
+          value={''}
           onChange={(event) => setNumberOfRows(event.target.value)}
         >
           <OutlinedInput placeholder="Number of rows" />
         </FormControl>
         <FormControl
-          sx={{ width: "25ch", margin: "20px" }}
-          value={""}
+          sx={{ width: '25ch', margin: '20px' }}
+          value={''}
           onChange={(event) => setNumberOfColumns(event.target.value)}
         >
           <OutlinedInput placeholder="Number of columns" />
         </FormControl>
         <FormControl
-          sx={{ width: "25ch", margin: "20px" }}
-          value={""}
+          sx={{ width: '25ch', margin: '20px' }}
+          value={''}
           onChange={(event) => setRowGap(event.target.value)}
         >
           <OutlinedInput placeholder="Row gap (px)" />
         </FormControl>
         <FormControl
-          sx={{ width: "25ch", margin: "20px" }}
-          value={""}
+          sx={{ width: '25ch', margin: '20px' }}
+          value={''}
           onChange={(event) => setColumnGap(event.target.value)}
         >
           <OutlinedInput placeholder="Column Gap (px)" />
@@ -112,7 +128,7 @@ const GridMenu = () => {
         </Button>
       </Box>
     </div>
-  );
-};
+  )
+}
 
-export default GridMenu;
+export default GridMenu

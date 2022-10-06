@@ -1,7 +1,7 @@
-import "./layout.css";
-import * as React from "react";
-import Header from "../header/header";
-import GridMenu from "../grid-menu/grid-menu";
+import './layout.css'
+import * as React from 'react'
+import Header from '../header/header'
+import GridMenu from '../grid-menu/grid-menu'
 
 /**
  * Layout Component.
@@ -10,15 +10,14 @@ import GridMenu from "../grid-menu/grid-menu";
  * @param {React.ReactElement} children - The React Element to insert into the component.
  * @returns {React.ReactElement} - Layout Component.
  */
- const Layout = ({ children }) =>  {
-
-        return (
+const Layout = ({ children }) => {
+  return (
             <div className="layoutContainer">
             <div className="layoutHeader">
               <Header />
             </div>
             <div className="layoutLeft"></div>
-      
+
             <div className="layoutMain">
             { children }
             </div>
@@ -26,7 +25,7 @@ import GridMenu from "../grid-menu/grid-menu";
               <GridMenu />
             </div>
           </div>
-          )
-          }
+  )
+}
 
-export default Layout;
+export default Layout

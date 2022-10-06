@@ -1,13 +1,13 @@
-import * as React from "react";
-import "./grid-displayer.css";
-import { RowCalculator } from "../../classes/row-calculator.js"
-import { ColumnCalculator } from "../../classes/column-calculator.js"
+import * as React from 'react'
+import './grid-displayer.css'
+import { RowCalculator } from '../../classes/row-calculator.js'
+import { ColumnCalculator } from '../../classes/column-calculator.js'
 
-import { gridlify } from "/node_modules/gridlify/lib/index.js";
-import { useState, useEffect } from "react"
+import { gridlify } from '/node_modules/gridlify/lib/index.js'
+import { useState, useEffect } from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { grid } from "@mui/system";
+import { grid } from '@mui/system'
 
 /**
  * GridBox Component.
@@ -53,18 +53,17 @@ const GridDisplayer = () => {
     const grid = {
       rows: rowCalculator.getRows(),
       columns: columnCalculator.getColumns(),
-      rowGap: rowGap,
-      columnGap: columnGap
+      rowGap,
+      columnGap
     }
     gridlify.setGrid(grid, '.gridDisplayerContainer')
   }, [numberOfRows, numberOfColumns, rowGap, columnGap])
 
-    return (
+  return (
       <div className="gridDisplayerContainer">
 
       </div>
-    );
-  }
+  )
+}
 
-
-export default GridDisplayer;
+export default GridDisplayer

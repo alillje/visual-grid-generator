@@ -1,5 +1,5 @@
-import * as React from "react";
-import "./grid-box.css";
+import * as React from 'react'
+import './grid-box.css'
 /**
  * GridBox Component.
  * Displays a grid box.
@@ -7,7 +7,7 @@ import "./grid-box.css";
  * @returns {React.ReactElement} - GridBox Component.
  */
 const GridContainer = () => {
-  return <div></div>;
-};
+  return <div></div>
+}
 
-export default GridContainer;
+export default GridContainer

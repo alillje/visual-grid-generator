@@ -19,7 +19,7 @@ export const columnsSlice = createSlice({
      * @param {object} state - Redux state object.
      * @param {object} action - Object containing the different state values to be set.
      */
-     setAmountOfColumns: (state, action) => {
+    setAmountOfColumns: (state, action) => {
       state.numberOfColumns = action.payload.numberOfColumns
     },
     /**
@@ -28,9 +28,9 @@ export const columnsSlice = createSlice({
      * @param {object} state - Redux state object.
      * @param {object} action - Object containing the different state values to be set.
      */
-     globalSetColumnGap: (state, action) => {
-      state.columnGap = `${action.payload.columnGap}px`;
-    },
+    globalSetColumnGap: (state, action) => {
+      state.columnGap = `${action.payload.columnGap}px`
+    }
 
   }
 })
