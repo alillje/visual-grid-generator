@@ -29,7 +29,7 @@ export const columnsSlice = createSlice({
      * @param {object} action - Object containing the different state values to be set.
      */
      globalSetColumnGap: (state, action) => {
-      state.rowGap = `${action.payload.columnGap}px`;
+      state.columnGap = `${action.payload.columnGap}px`;
     },
 
   }

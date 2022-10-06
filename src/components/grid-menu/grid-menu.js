@@ -1,17 +1,19 @@
 import * as React from "react";
 import "./grid-menu.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
-import store from "../../redux/store";
 import { setAmountOfRows, globalSetRowGap } from "../../redux/reducers/rows";
-import { setAmountOfColumns, globalSetColumnGap } from "../../redux/reducers/columns";
+import {
+  setAmountOfColumns,
+  globalSetColumnGap,
+} from "../../redux/reducers/columns";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 /**
  * GridBox Component.
@@ -20,32 +22,50 @@ import { useSelector, useDispatch } from "react-redux";
  * @returns {React.ReactElement} - GridBox Component.
  */
 const GridMenu = () => {
-  const [numberOfRows, setNumberOfRows] = useState("");
-  const [numberOfColumns, setNumberOfColumns] = useState("");
-  const [rowGap, setRowGap] = useState("");
-  const [columnGap, setColumnGap] = useState("");
+  const [numberOfRows, setNumberOfRows] = useState(5);
+  const [numberOfColumns, setNumberOfColumns] = useState(5);
+  const [rowGap, setRowGap] = useState(0);
+  const [columnGap, setColumnGap] = useState(0);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   console.log(numberOfRows);
-  // }, [numberOfRows]);
+  const sendRowAmmountToGlobalState = () => {
+    dispatch(
+      setAmountOfRows({
+        numberOfRows: numberOfRows
+      })
+    );
+  };
+
+  const sendColumnAmmountToGlobalState = () => {
+    dispatch(
+      setAmountOfColumns({
+        numberOfColumns: numberOfColumns
+      })
+    );
+  };
+
+  const sendRowGapToGlobalState = () => {
+    dispatch(
+      globalSetRowGap({
+        rowGap: rowGap
+      })
+    );
+  };
+
+  const sendColumnGapToGlobalState = () => {
+    dispatch(
+      globalSetColumnGap({
+        columnGap: columnGap
+      })
+    );
+  };
 
   const setGrid = (event) => {
     event.preventDefault();
-    dispatch(
-      setAmountOfRows({
-        numberOfRows: numberOfRows,
-      }),
-      setAmountOfColumns({
-        numberOfColumns: numberOfColumns,
-      }),
-      globalSetRowGap({
-        rowGap: rowGap,
-      }),
-      globalSetColumnGap({
-        columnGap: columnGap,
-      })
-    );
+    sendRowAmmountToGlobalState();
+    sendColumnAmmountToGlobalState();
+    sendRowGapToGlobalState();
+    sendColumnGapToGlobalState();
   };
 
   return (
