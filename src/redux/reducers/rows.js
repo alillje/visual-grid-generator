@@ -10,7 +10,7 @@ export const rowsSlice = createSlice({
   name: 'rows',
   initialState: {
     numberOfRows: 5,
-    rowGap: undefined
+    rowGap: '5px'
   },
   reducers: {
     /**

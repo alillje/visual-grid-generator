@@ -10,7 +10,7 @@ export const columnsSlice = createSlice({
   name: 'columns',
   initialState: {
     numberOfColumns: 5,
-    columnGap: undefined
+    columnGap: '5px'
   },
   reducers: {
     /**

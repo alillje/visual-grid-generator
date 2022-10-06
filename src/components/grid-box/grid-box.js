@@ -7,7 +7,7 @@ import './grid-box.css'
  * @returns {React.ReactElement} - GridBox Component.
  */
 const GridContainer = () => {
-  return <div></div>
+  return <div className="gridBoxContainer"></div>
 }
 
 export default GridContainer

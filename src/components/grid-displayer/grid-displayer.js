@@ -2,12 +2,10 @@ import * as React from 'react'
 import './grid-displayer.css'
 import { RowCalculator } from '../../classes/row-calculator.js'
 import { ColumnCalculator } from '../../classes/column-calculator.js'
-
-import { gridlify } from '/node_modules/gridlify/lib/index.js'
 import { useState, useEffect } from 'react'
-
-import { useSelector, useDispatch } from 'react-redux'
-import { grid } from '@mui/system'
+import { useSelector } from 'react-redux'
+import { gridlify } from '../../../node_modules/gridlify/lib/index.js'
+import GridBox from '../grid-box/grid-box'
 
 /**
  * GridBox Component.
@@ -20,36 +18,24 @@ const GridDisplayer = () => {
   const numberOfColumns = useSelector((state) => state.columns.numberOfColumns)
   const rowGap = useSelector((state) => state.rows.rowGap)
   const columnGap = useSelector((state) => state.columns.columnGap)
-  // const calculateRows = () => {
-  //   let rows = undefined
-  //   if (numberOfRows > 0) {
-  //     rows = []
-  //   for (let i = 0; i < numberOfRows; i++) {
-  //     rows.push('1fr')
-  //   }
-  // }
-  //   return rows;
-  // }
+  const [numberOfChildElements, setNumberOfChildElements] = useState(Array.from({ length: numberOfRows * numberOfColumns }))
+  const rowCalculator = new RowCalculator()
+  const columnCalculator = new ColumnCalculator()
 
-  // const calculateColumns = () => {
-  //   let columns = undefined
-  //   if (numberOfColumns > 0) {
-  //     columns = []
-  //   for (let i = 0; i < numberOfColumns; i++) {
-  //     columns.push('1fr')
-  //   }
-  // }
-  //   return columns;
-  // }
-
-  useEffect(() => {
-    const rowCalculator = new RowCalculator()
-    const columnCalculator = new ColumnCalculator()
-
+  /**
+   *
+   */
+  const setRowAndColumns = () => {
     rowCalculator.setRows(numberOfRows)
     columnCalculator.setColumns(numberOfColumns)
+  }
 
-    console.log(columnCalculator.getColumns())
+  /**
+   *
+   *
+   */
+  const setParentElementGrid = () => {
+    setRowAndColumns()
     const grid = {
       rows: rowCalculator.getRows(),
       columns: columnCalculator.getColumns(),
@@ -57,11 +43,21 @@ const GridDisplayer = () => {
       columnGap
     }
     gridlify.setGrid(grid, '.gridDisplayerContainer')
-  }, [numberOfRows, numberOfColumns, rowGap, columnGap])
+  }
+
+  useEffect(() => {
+    setParentElementGrid()
+    setNumberOfChildElements(Array.from({ length: numberOfRows * numberOfColumns }))
+    console.log(numberOfChildElements)
+  }, [numberOfRows, numberOfColumns, rowGap, columnGap, numberOfRows])
 
   return (
       <div className="gridDisplayerContainer">
-
+        {numberOfChildElements.map((childElement) => {
+          return (
+          <GridBox key={numberOfChildElements.indexOf(childElement, 0)} className={`div${numberOfChildElements.indexOf(childElement, 0)}`} />
+          )
+        })}
       </div>
   )
 }

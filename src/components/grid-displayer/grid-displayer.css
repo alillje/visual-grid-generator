@@ -6,14 +6,8 @@
     grid-template-rows: repeat(5, 100px);
     grid-column-gap: 2px;
     grid-row-gap: 2px;
-    background-color: rgba(168, 168, 168, 0.385);
+    background-color: hsla(0, 0%, 87%, 0.548);
 }
-
-/* .gridDisplayerContainer {
-    width: 90%;
-    height: 90%;
-
-} */
 
 .gridDisplayerContainer {
     grid-area: 2 / 2 / 7 / 7;
