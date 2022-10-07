@@ -1,0 +1,1 @@
+- Funktionellt programmerings språk, hur bibehålla struktur och inkapsling på bästa sätt?

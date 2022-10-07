@@ -2,6 +2,7 @@ import * as React from 'react'
 import './grid-displayer.css'
 import { RowCalculator } from '../../classes/row-calculator.js'
 import { ColumnCalculator } from '../../classes/column-calculator.js'
+import { ChildElementCalculator } from '../../classes/child-element-calculator'
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { gridlify } from '../../../node_modules/gridlify/lib/index.js'
@@ -18,10 +19,11 @@ const GridDisplayer = () => {
   const numberOfColumns = useSelector((state) => state.columns.numberOfColumns)
   const rowGap = useSelector((state) => state.rows.rowGap)
   const columnGap = useSelector((state) => state.columns.columnGap)
-  const [numberOfChildElements, setNumberOfChildElements] = useState(Array.from({ length: numberOfRows * numberOfColumns }))
   const rowCalculator = new RowCalculator()
   const columnCalculator = new ColumnCalculator()
-  let i = 0
+  const childElementCalculator = new ChildElementCalculator()
+  childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
+  const [classNames, setClassNames] = useState(childElementCalculator.getClassNameArray())
 
   /**
    *
@@ -65,16 +67,26 @@ const GridDisplayer = () => {
 
   useEffect(() => {
     setParentElementGrid()
-    setNumberOfChildElements(Array.from({ length: numberOfRows * numberOfColumns }))
-    // console.log(numberOfChildElements)
-  }, [numberOfRows, numberOfColumns, rowGap, columnGap, numberOfRows])
+    childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
+    setClassNames([...childElementCalculator.getClassNameArray()])
+    // for (let i = 0; i < classNames.length; i++) {
+    //   console.log(classNames[i])
+    //   gridlify.setPosition({ startRow: i + 1, startColumn: i + 1 }, `.${classNames[i]}`)
+    // }
+
+    for (let i = 0; i < numberOfRows; i++) {
+      for (let j = 0; j < numberOfColumns; j++) {
+        console.log(classNames[i])
+        gridlify.setPosition({ startRow: i + 1, startColumn: j + 1 }, `.${classNames[i]}`)
+      }
+    }
+  }, [numberOfRows, numberOfColumns, rowGap, columnGap])
 
   return (
       <div className="gridDisplayerContainer" onMouseDown={(event) => handleMouseDown(event)} onMouseUp={(event) => handleMouseUp(event)}>
-        {numberOfChildElements.map((childElement) => {
-          i++
+        {classNames.map((className) => {
           return (
-          <div key={i} className={`gridBox div${i}`}></div>
+          <div key={childElementCalculator.getClassNameArray().indexOf(className)} className={`gridBox ${className}`}></div>
           )
         })}
       </div>
