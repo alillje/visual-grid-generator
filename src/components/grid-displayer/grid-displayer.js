@@ -45,23 +45,32 @@ const GridDisplayer = () => {
     }
     gridlify.setGrid(grid, '.gridDisplayerContainer')
   }
+  /**
+   *
+   *
+   * @param {*} event
+   */
+  const handleMouseDown = (event) => {
+    console.log(event.target)
+  }
+
+  /**
+   *
+   *
+   * @param {*} event
+   */
+  const handleMouseUp = (event) => {
+    console.log(event.target)
+  }
 
   useEffect(() => {
     setParentElementGrid()
     setNumberOfChildElements(Array.from({ length: numberOfRows * numberOfColumns }))
-    window.document.querySelector('.gridBox').addEventListener('mousedown', (event) => {
-      event.stopPropagation()
-      console.log(event.target)
-    })
-    window.document.querySelector('.gridBox').addEventListener('mouseup', (event) => {
-      event.stopPropagation()
-      console.log(event.target)
-    })
-    console.log(numberOfChildElements)
+    // console.log(numberOfChildElements)
   }, [numberOfRows, numberOfColumns, rowGap, columnGap, numberOfRows])
 
   return (
-      <div className="gridDisplayerContainer">
+      <div className="gridDisplayerContainer" onMouseDown={(event) => handleMouseDown(event)} onMouseUp={(event) => handleMouseUp(event)}>
         {numberOfChildElements.map((childElement) => {
           i++
           return (
