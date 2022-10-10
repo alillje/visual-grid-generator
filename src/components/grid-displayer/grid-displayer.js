@@ -1,5 +1,6 @@
 import * as React from 'react'
 import './grid-displayer.css'
+import { RandomColorGenerator } from '../../classes/random-color-generator.js'
 import { RowCalculator } from '../../classes/row-calculator.js'
 import { ColumnCalculator } from '../../classes/column-calculator.js'
 import { ChildElementCalculator } from '../../classes/child-element-calculator'
@@ -18,18 +19,17 @@ const GridDisplayer = () => {
   const numberOfColumns = useSelector((state) => state.columns.numberOfColumns)
   const rowGap = useSelector((state) => state.rows.rowGap)
   const columnGap = useSelector((state) => state.columns.columnGap)
+  const [startRow, setStartRow] = useState(0)
+  const [startColumn, setStartColumn] = useState(0)
+  const [templateBoxNumber, setTemplateBoxNumber] = useState(0)
+  const randomColorGenerator = new RandomColorGenerator()
   const rowCalculator = new RowCalculator()
   const columnCalculator = new ColumnCalculator()
   const childElementCalculator = new ChildElementCalculator()
   childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
-  // const [classNames, setClassNames] = useState(childElementCalculator.getClassNameArray())
-  let classNames = childElementCalculator.getClassNameArray()
-  const [startRow, setStartRow] = useState(0)
-  const [startColumn, setStartColumn] = useState(0)
-  // const [uniqueIdentifier, setUniqueIdentifier] = useState(crypto.randomUUID().substring(0, 8))
   let endRow
   let endColumn
-  const [templateBoxNumber, setTemplateBoxNumber] = useState(0)
+  let classNames = childElementCalculator.getClassNameArray()
 
   /**
    *
@@ -44,6 +44,7 @@ const GridDisplayer = () => {
    *
    */
   const setParentElementGrid = () => {
+    clearTemplateBoxes()
     setRowAndColumns()
     const grid = {
       rows: rowCalculator.getRows(),
@@ -54,7 +55,6 @@ const GridDisplayer = () => {
     gridlify.setGrid(grid, '.gridDisplayerContainer')
     childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
     classNames = childElementCalculator.getClassNameArray()
-    // setClassNames([...childElementCalculator.getClassNameArray()])
   }
   /**
    *
@@ -65,22 +65,12 @@ const GridDisplayer = () => {
     const elementGridAreaStartPosition = event.target.getAttribute('style').substring(11, event.target.getAttribute('style').length - 1)
     setStartRow(elementGridAreaStartPosition.substring(0, 1))
     setStartColumn(elementGridAreaStartPosition.substring(4, 5))
-    // setUniqueIdentifier(generateRandomId())
     const div = window.document.createElement('div')
-    // div.classList.add('templateBox')
     div.classList.add('templateBox')
     div.setAttribute('id', `box${templateBoxNumber}`)
+    div.style.backgroundColor = randomColorGenerator.getRandomColor()
     window.document.querySelector('.gridDisplayerContainer').appendChild(div)
   }
-
-  // /**
-  //  *
-  //  *
-  //  * @returns {string} - A random identifier.
-  //  */
-  // const generateRandomId = () => {
-  //   return crypto.randomUUID().substring(0, 8)
-  // }
 
   /**
    *
@@ -105,9 +95,6 @@ const GridDisplayer = () => {
    * Sets positions for children elemnts in the parent element grid layout.
    */
   const setPositionsForChildElementsInGridLayout = () => {
-    // for (const child of document.querySelectorAll('.gridBox')) {
-    //   child.remove()
-    // }
     console.log(classNames)
     let className = 0
     for (let i = 0; i < numberOfRows; i++) {
@@ -118,10 +105,18 @@ const GridDisplayer = () => {
     }
   }
 
+  /**
+   *
+   *
+   */
+  const clearTemplateBoxes = () => {
+    for (const templateBox of document.querySelectorAll('.templateBox')) {
+      templateBox.remove()
+    }
+  }
+
   useEffect(() => {
     setParentElementGrid()
-    // childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
-    // setClassNames([...childElementCalculator.getClassNameArray()])
     setPositionsForChildElementsInGridLayout()
   }, [numberOfRows, numberOfColumns, rowGap, columnGap])
 
