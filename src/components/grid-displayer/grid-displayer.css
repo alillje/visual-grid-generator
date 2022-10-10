@@ -16,3 +16,12 @@
 .gridBox {
     background-color: #373737;
 }
+
+.templateBox {
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    background-color: #ffffff;
+    z-index: 1000;
+}

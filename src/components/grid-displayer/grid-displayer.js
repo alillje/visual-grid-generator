@@ -6,7 +6,6 @@ import { ChildElementCalculator } from '../../classes/child-element-calculator'
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { gridlify } from '../../../node_modules/gridlify/lib/index.js'
-// import GridBox from '../grid-box/grid-box'
 
 /**
  * GridBox Component.
@@ -24,6 +23,12 @@ const GridDisplayer = () => {
   const childElementCalculator = new ChildElementCalculator()
   childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
   const [classNames, setClassNames] = useState(childElementCalculator.getClassNameArray())
+  const [startRow, setStartRow] = useState(0)
+  const [startColumn, setStartColumn] = useState(0)
+  // const [uniqueIdentifier, setUniqueIdentifier] = useState(crypto.randomUUID().substring(0, 8))
+  let endRow
+  let endColumn
+  const [templateBoxNumber, setTemplateBoxNumber] = useState(0)
 
   /**
    *
@@ -53,8 +58,25 @@ const GridDisplayer = () => {
    * @param {*} event
    */
   const handleMouseDown = (event) => {
-    console.log(event.target)
+    const elementGridAreaStartPosition = event.target.getAttribute('style').substring(11, event.target.getAttribute('style').length - 1)
+    setStartRow(elementGridAreaStartPosition.substring(0, 1))
+    setStartColumn(elementGridAreaStartPosition.substring(4, 5))
+    // setUniqueIdentifier(generateRandomId())
+    const div = window.document.createElement('div')
+    // div.classList.add('templateBox')
+    div.classList.add('templateBox')
+    div.setAttribute('id', `box${templateBoxNumber}`)
+    window.document.querySelector('.gridDisplayerContainer').appendChild(div)
   }
+
+  // /**
+  //  *
+  //  *
+  //  * @returns {string} - A random identifier.
+  //  */
+  // const generateRandomId = () => {
+  //   return crypto.randomUUID().substring(0, 8)
+  // }
 
   /**
    *
@@ -62,24 +84,37 @@ const GridDisplayer = () => {
    * @param {*} event
    */
   const handleMouseUp = (event) => {
-    console.log(event.target)
+    const elementGridAreaStartPosition = event.target.getAttribute('style').substring(11, event.target.getAttribute('style').length - 1)
+    endRow = elementGridAreaStartPosition.substring(8, 9)
+    endColumn = elementGridAreaStartPosition.substring(12, 13)
+    const positions = {
+      startRow,
+      startColumn,
+      endRow: parseInt(endRow) + 1,
+      endColumn: parseInt(endColumn) + 1
+    }
+    gridlify.setPosition(positions, `#box${templateBoxNumber}`)
+    setTemplateBoxNumber(templateBoxNumber + 1)
+  }
+
+  /**
+   * Sets positions for children elemnts in the parent element grid layout.
+   */
+  const setPositionsForChildElementsInGridLayout = () => {
+    let className = 0
+    for (let i = 0; i < numberOfRows; i++) {
+      for (let j = 0; j < numberOfColumns; j++) {
+        gridlify.setPosition({ startRow: i + 1, startColumn: j + 1 }, `.${classNames[className]}`)
+        className++
+      }
+    }
   }
 
   useEffect(() => {
     setParentElementGrid()
     childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
     setClassNames([...childElementCalculator.getClassNameArray()])
-    // for (let i = 0; i < classNames.length; i++) {
-    //   console.log(classNames[i])
-    //   gridlify.setPosition({ startRow: i + 1, startColumn: i + 1 }, `.${classNames[i]}`)
-    // }
-
-    for (let i = 0; i < numberOfRows; i++) {
-      for (let j = 0; j < numberOfColumns; j++) {
-        console.log(classNames[i])
-        gridlify.setPosition({ startRow: i + 1, startColumn: j + 1 }, `.${classNames[i]}`)
-      }
-    }
+    setPositionsForChildElementsInGridLayout()
   }, [numberOfRows, numberOfColumns, rowGap, columnGap])
 
   return (
