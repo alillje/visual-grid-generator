@@ -22,7 +22,8 @@ const GridDisplayer = () => {
   const columnCalculator = new ColumnCalculator()
   const childElementCalculator = new ChildElementCalculator()
   childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
-  const [classNames, setClassNames] = useState(childElementCalculator.getClassNameArray())
+  // const [classNames, setClassNames] = useState(childElementCalculator.getClassNameArray())
+  let classNames = childElementCalculator.getClassNameArray()
   const [startRow, setStartRow] = useState(0)
   const [startColumn, setStartColumn] = useState(0)
   // const [uniqueIdentifier, setUniqueIdentifier] = useState(crypto.randomUUID().substring(0, 8))
@@ -51,6 +52,9 @@ const GridDisplayer = () => {
       columnGap
     }
     gridlify.setGrid(grid, '.gridDisplayerContainer')
+    childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
+    classNames = childElementCalculator.getClassNameArray()
+    // setClassNames([...childElementCalculator.getClassNameArray()])
   }
   /**
    *
@@ -101,6 +105,10 @@ const GridDisplayer = () => {
    * Sets positions for children elemnts in the parent element grid layout.
    */
   const setPositionsForChildElementsInGridLayout = () => {
+    // for (const child of document.querySelectorAll('.gridBox')) {
+    //   child.remove()
+    // }
+    console.log(classNames)
     let className = 0
     for (let i = 0; i < numberOfRows; i++) {
       for (let j = 0; j < numberOfColumns; j++) {
@@ -112,8 +120,8 @@ const GridDisplayer = () => {
 
   useEffect(() => {
     setParentElementGrid()
-    childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
-    setClassNames([...childElementCalculator.getClassNameArray()])
+    // childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
+    // setClassNames([...childElementCalculator.getClassNameArray()])
     setPositionsForChildElementsInGridLayout()
   }, [numberOfRows, numberOfColumns, rowGap, columnGap])
 

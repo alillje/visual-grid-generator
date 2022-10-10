@@ -22,6 +22,7 @@
     width: 100%;
     padding: 0px;
     margin: 0px;
-    background-color: #ffffff;
+    background-color: #b61e1e;
+    opacity: 70%;
     z-index: 1000;
 }
