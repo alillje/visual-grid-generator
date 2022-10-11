@@ -1,4 +1,4 @@
-import { CssColors } from '../enum/colors.js'
+import { CssColors } from './enum/colors.js'
 
 /**
  * RandomColorGenerator class, responsible for generating a random color.
