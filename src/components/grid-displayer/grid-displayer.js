@@ -34,13 +34,13 @@ const GridDisplayer = () => {
   const [startColumn, setStartColumn] = useState(0)
   const [templateBoxNumber, setTemplateBoxNumber] = useState(1)
   const [userIsSelectingAnArea, setUserIsSelectingAnArea] = useState(false)
-  const dispatch = useDispatch()
   const randomColorGenerator = new RandomColorGenerator()
   const rowCalculator = new RowCalculator()
   const columnCalculator = new ColumnCalculator()
   const childElementCalculator = new ChildElementCalculator()
   childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
   let classNames = childElementCalculator.getClassNameArray()
+  const dispatch = useDispatch()
 
   /**
    * Sets the dimensions of the main grid.
@@ -51,33 +51,61 @@ const GridDisplayer = () => {
   }
 
   /**
-   *
-   *
+   * Calls the childElementCalculator to remove all child elements.
    */
-  const setParentElementGrid = () => {
+  const removeChildElements = () => {
     childElementCalculator.removeChildElements('.templateBox')
-    setGridDimensions()
+  }
+
+  /**
+   * Creates a grid object.
+   *
+   * @returns {object} - An object containing all grid properties.
+   */
+  const createGrid = () => {
     const grid = {
       rows: rowCalculator.getRows(),
       columns: columnCalculator.getColumns(),
       rowGap,
       columnGap
     }
-    gridlify.setGrid(grid, '.gridDisplayerContainer')
+    return grid
+  }
+
+  /**
+   * Creates a position object.
+   *
+   * @returns {object} - An object containing all position properties.
+   */
+  const createPositions = () => {
+    const positions = {
+      startRow,
+      startColumn,
+      endRow: parseInt(endRow) + 1,
+      endColumn: parseInt(endColumn) + 1
+    }
+    return positions
+  }
+
+  /**
+   * Sets the parent grid element dimensions.
+   */
+  const setParentElementGrid = () => {
+    removeChildElements()
+    setGridDimensions()
+    gridlify.setGrid(createGrid(), '.gridDisplayerContainer')
     childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
-    classNames = childElementCalculator.getClassNameArray()
   }
   /**
+   * Sets the start position of the html element to append.
    *
-   *
-   * @param {*} event
+   * @param {object} event - An event object.
    */
-  const handleMouseDown = (event) => {
+  const setStartPosition = (event) => {
     if (event.target.getAttribute('class') !== 'templateBox') {
       setUserIsSelectingAnArea(true)
-      const elementGridAreaStartPosition = event.target.getAttribute('style').substring(11, event.target.getAttribute('style').length - 1)
-      setStartRow(elementGridAreaStartPosition.substring(0, 1))
-      setStartColumn(elementGridAreaStartPosition.substring(4, 5))
+      setStartRow(childElementCalculator.getStartRowPosition(event.target))
+      setStartColumn(childElementCalculator.getStartColumnPosition(event.target))
       const div = window.document.createElement('div')
       div.classList.add('templateBox')
       div.setAttribute('id', `box${templateBoxNumber}`)
@@ -87,22 +115,15 @@ const GridDisplayer = () => {
   }
 
   /**
+   * Sets the end position of the html element to append.
    *
-   *
-   * @param {*} event
+   * @param {object} event - An event object.
    */
-  const handleMouseUp = (event) => {
+  const setEndPosition = (event) => {
     if (userIsSelectingAnArea) {
-      const elementGridAreaStartPosition = event.target.getAttribute('style').substring(11, event.target.getAttribute('style').length - 1)
-      endRow = elementGridAreaStartPosition.substring(8, 9)
-      endColumn = elementGridAreaStartPosition.substring(12, 13)
-      const positions = {
-        startRow,
-        startColumn,
-        endRow: parseInt(endRow) + 1,
-        endColumn: parseInt(endColumn) + 1
-      }
-      gridlify.setPosition(positions, `#box${templateBoxNumber}`)
+      endRow = childElementCalculator.getEndRowPosition(event.target)
+      endColumn = childElementCalculator.getEndColumnPosition(event.target)
+      gridlify.setPosition(createPositions(), `#box${templateBoxNumber}`)
       setTemplateBoxNumber(templateBoxNumber + 1)
       setUserIsSelectingAnArea(false)
     }
@@ -112,39 +133,15 @@ const GridDisplayer = () => {
    * Sets positions for children elemnts in the parent element grid layout.
    */
   const setPositionsForChildElementsInGridLayout = () => {
-    let className = 0
+    classNames = childElementCalculator.getClassNameArray()
+    let count = 0
     for (let i = 0; i < numberOfRows; i++) {
       for (let j = 0; j < numberOfColumns; j++) {
-        gridlify.setPosition({ startRow: i + 1, startColumn: j + 1 }, `.${classNames[className]}`)
-        className++
+        gridlify.setPosition({ startRow: i + 1, startColumn: j + 1 }, `.${classNames[count]}`)
+        count++
       }
     }
   }
-  // /**
-  //  *
-  //  *
-  //  */
-  // const getChildrenPositions = () => {
-  //   const childrenElementPositions = []
-  //   for (const childrenElement of document.querySelectorAll('.templateBox')) {
-  //     const identifier = childrenElement.getAttribute('id')
-  //     const styleAttributes = childrenElement.getAttribute('style')
-  //     const positionCss = styleAttributes.substring(styleAttributes.length - 25)
-  //     const childrenElementPosition = `${identifier} { ${positionCss} }; `
-  //     childrenElementPositions.push(childrenElementPosition)
-  //   }
-  //   return childrenElementPositions
-  // }
-
-  // /**
-  //  *
-  //  *
-  //  */
-  // const clearTemplateBoxes = () => {
-  //   for (const templateBox of document.querySelectorAll('.templateBox')) {
-  //     templateBox.remove()
-  //   }
-  // }
 
   /**
    * Resets all grid values to their initial state.
@@ -198,7 +195,7 @@ const GridDisplayer = () => {
   const sendChildrenCssCodeToGlobalState = () => {
     dispatch(
       setChildrenCssCode({
-        childrenCss: childElementCalculator.getChildrenPositionsAssCssCode('.templateBox')
+        childrenCss: childElementCalculator.getChildrenPositionsAsCssCode('.templateBox')
       })
     )
   }
@@ -221,7 +218,7 @@ const GridDisplayer = () => {
   }, [numberOfRows, numberOfColumns, rowGap, columnGap, userHasResetGrid, viewingCssCode])
 
   return (
-      <div className="gridDisplayerContainer" onMouseDown={(event) => handleMouseDown(event)} onMouseUp={(event) => handleMouseUp(event)}>
+      <div className="gridDisplayerContainer" onMouseDown={(event) => setStartPosition(event)} onMouseUp={(event) => setEndPosition(event)}>
         {classNames.map((className) => {
           return (
           <div key={childElementCalculator.getClassNameArray().indexOf(className)} className={`gridBox ${className}`}></div>
@@ -232,3 +229,29 @@ const GridDisplayer = () => {
 }
 
 export default GridDisplayer
+
+// /**
+//  *
+//  *
+//  */
+// const getChildrenPositions = () => {
+//   const childrenElementPositions = []
+//   for (const childrenElement of document.querySelectorAll('.templateBox')) {
+//     const identifier = childrenElement.getAttribute('id')
+//     const styleAttributes = childrenElement.getAttribute('style')
+//     const positionCss = styleAttributes.substring(styleAttributes.length - 25)
+//     const childrenElementPosition = `${identifier} { ${positionCss} }; `
+//     childrenElementPositions.push(childrenElementPosition)
+//   }
+//   return childrenElementPositions
+// }
+
+// /**
+//  *
+//  *
+//  */
+// const clearTemplateBoxes = () => {
+//   for (const templateBox of document.querySelectorAll('.templateBox')) {
+//     templateBox.remove()
+//   }
+// }
