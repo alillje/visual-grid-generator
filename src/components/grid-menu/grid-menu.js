@@ -16,7 +16,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 /**
  * GridMenu Component.
- * Displays a grid box.
+ * Displays a grid menu.
  *
  * @returns {React.ReactElement} - GridBox Component.
  */
@@ -25,11 +25,12 @@ const GridMenu = () => {
   const [numberOfColumns, setNumberOfColumns] = useState('')
   const [rowGap, setRowGap] = useState('')
   const [columnGap, setColumnGap] = useState('')
-  const userResetGrid = useSelector((state) => state.grid.reset)
+  const userHasResetGrid = useSelector((state) => state.grid.reset)
   const dispatch = useDispatch()
 
   /**
-   *
+   * Dispatches/Sends the number of rows to the global state, making it accessable to
+   * other components in the application.
    */
   const sendRowAmmountToGlobalState = () => {
     dispatch(
@@ -40,7 +41,8 @@ const GridMenu = () => {
   }
 
   /**
-   *
+   * Dispatches/Sends the number of columns to the global state, making it accessable to
+   * other components in the application.
    */
   const sendColumnAmmountToGlobalState = () => {
     dispatch(
@@ -51,7 +53,8 @@ const GridMenu = () => {
   }
 
   /**
-   *
+   * Dispatches/Sends the row gap to the global state, making it accessable to
+   * other components in the application.
    */
   const sendRowGapToGlobalState = () => {
     dispatch(
@@ -62,7 +65,8 @@ const GridMenu = () => {
   }
 
   /**
-   *
+   * Dispatches/Sends the column gap to the global state, making it accessable to
+   * other components in the application.
    */
   const sendColumnGapToGlobalState = () => {
     dispatch(
@@ -73,10 +77,11 @@ const GridMenu = () => {
   }
 
   /**
+   * Responsible for calling methods to send user input values to the global state.
    *
-   * @param event
+   * @param {object} event - An event object.
    */
-  const setGrid = (event) => {
+  const sendGridValuesToGlobalState = (event) => {
     event.preventDefault()
     sendRowAmmountToGlobalState()
     sendColumnAmmountToGlobalState()
@@ -85,9 +90,9 @@ const GridMenu = () => {
   }
 
   /**
-   * Dispatches a message to the global state that the grid should be reset.
+   * Dispatches/sends a message to the global state that the grid should be reset.
    */
-  const resetGrid = () => {
+  const sendResetGridMessage = () => {
     dispatch(
       grid({
         reset: true
@@ -107,10 +112,9 @@ const GridMenu = () => {
   }
 
   /**
-   *
-   *
+   * Dispatches/sends a message to the global state that the user is viewing the generated css code.
    */
-  const viewCssCode = () => {
+  const sendViewCssCodeMessage = () => {
     dispatch(
       setViewCssCode({
         viewCssCode: true
@@ -118,15 +122,18 @@ const GridMenu = () => {
     )
   }
 
+  /**
+   * React useEffect callback method re-renders the component when
+   * one of the values in the `Dependency Array`is updated or changed.
+   */
   useEffect(() => {
-    console.log(numberOfRows)
-    if (userResetGrid) {
+    if (userHasResetGrid) {
       setNumberOfRows('')
       setNumberOfColumns('')
       setRowGap('')
       setColumnGap('')
     }
-  }, [numberOfRows, numberOfColumns, rowGap, columnGap, userResetGrid])
+  }, [numberOfRows, numberOfColumns, rowGap, columnGap, userHasResetGrid])
 
   return (
     <div className="gridMenuContainer">
@@ -137,7 +144,6 @@ const GridMenu = () => {
         }}
         noValidate
         autoComplete="off"
-        // onSubmit={(event) => setGrid(event)}
       >
         <FormControl
           sx={ {
@@ -211,13 +217,13 @@ const GridMenu = () => {
         >
           <OutlinedInput placeholder="Column Gap (px)" />
         </FormControl>
-        <Button onClick={(event) => setGrid(event)} variant="text" sx={ { color: 'white', border: '1px solid grey' } }>
+        <Button onClick={(event) => sendGridValuesToGlobalState(event)} variant="text" sx={ { color: 'white', border: '1px solid grey' } }>
           Set grid
         </Button>
-        <Button onClick={(event) => resetGrid(event)} variant="text" sx={ { color: 'white', border: '1px solid grey' } }>
+        <Button onClick={(event) => sendResetGridMessage(event)} variant="text" sx={ { color: 'white', border: '1px solid grey' } }>
           Reset grid
         </Button>
-        <Button onClick={(event) => viewCssCode(event)} variant="text" sx={ { color: 'white', border: '1px solid grey' } }>
+        <Button onClick={(event) => sendViewCssCodeMessage(event)} variant="text" sx={ { color: 'white', border: '1px solid grey' } }>
           View CSS Code
         </Button>
       </Box>

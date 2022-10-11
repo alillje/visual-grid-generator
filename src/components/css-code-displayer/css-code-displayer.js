@@ -18,8 +18,8 @@ const CssCodeDisplayer = ({ children }) => {
    * Closes the pop up by setting state to not viewing Css Code.
    */
   const closePopUp = () => {
-    console.log(parentCssCode)
-    console.log(childrenCssCode)
+    // console.log(parentCssCode)
+    // console.log(childrenCssCode)
     dispatch(
       setViewCssCode({
         viewCssCode: false

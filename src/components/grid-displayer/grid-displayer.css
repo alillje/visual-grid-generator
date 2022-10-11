@@ -1,32 +1,32 @@
 .gridDisplayerContainer {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 100px);
-    grid-column-gap: 2px;
-    grid-row-gap: 2px;
-    background-color: hsla(0, 0%, 100%, 0.91);
-    background-color: #121212;
-
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 100px);
+  grid-column-gap: 2px;
+  grid-row-gap: 2px;
+  background-color: hsla(0, 0%, 100%, 0.91);
+  background-color: #121212;
+  cursor: move;
 }
 
 .gridDisplayerContainer {
-    grid-area: 1 / 1 / 6 / 6;
+  grid-area: 1 / 1 / 6 / 6;
 }
 
 .gridBox {
-    background-color: #121212;
-    border: 1px solid rgb(115, 115, 115);
-    border-radius: 0px;
+  background-color: #121212;
+  border: 1px solid rgb(115, 115, 115);
+  border-radius: 0px;
 }
 
 .templateBox {
-    height: 100%;
-    width: 100%;
-    padding: 0px;
-    margin: 0px;
-    background-color: #b61e1e;
-    opacity: 30%;
-    z-index: 1000;
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  background-color: #b61e1e;
+  opacity: 30%;
+  z-index: 1000;
 }
