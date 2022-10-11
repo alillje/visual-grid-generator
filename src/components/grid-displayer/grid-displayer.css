@@ -6,7 +6,9 @@
     grid-template-rows: repeat(5, 100px);
     grid-column-gap: 2px;
     grid-row-gap: 2px;
-    background-color: hsla(0, 0%, 87%, 0.548);
+    background-color: hsla(0, 0%, 100%, 0.91);
+    background-color: #121212;
+
 }
 
 .gridDisplayerContainer {
@@ -14,7 +16,9 @@
 }
 
 .gridBox {
-    background-color: #373737;
+    background-color: #121212;
+    border: 1px solid rgb(115, 115, 115);
+    border-radius: 0px;
 }
 
 .templateBox {
@@ -23,6 +27,6 @@
     padding: 0px;
     margin: 0px;
     background-color: #b61e1e;
-    opacity: 70%;
+    opacity: 30%;
     z-index: 1000;
 }
