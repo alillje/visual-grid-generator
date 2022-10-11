@@ -15,20 +15,21 @@
   z-index: 11000;
   background-color: #000000;
   display: grid;
-  grid-template-columns: 0.5fr repeat(3, 1fr) 0.5fr;
-  grid-template-rows: 0.5fr repeat(3, 1fr) 0.5fr;;
+  grid-template-columns: 0.3fr repeat(3, 1fr) 0.3fr;
+  grid-template-rows: 0.3fr 1fr 0.3fr 1fr 0.3fr;
   grid-column-gap: 2px;
   grid-row-gap: 2px;
 }
 
 .parentCssContainer {
   grid-area: 2 / 2 / 3 / 5;
-  background-color: #161616;
+  background-color: #212027;
 }
 
 .childrenCssContainer {
   grid-area: 4 / 2 / 5 / 5;
-  background-color: #161616;
+  overflow: scroll;
+  background-color: #212027;
 }
 
 .closeCssContainerButton {

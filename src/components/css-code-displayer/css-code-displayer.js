@@ -32,11 +32,15 @@ const CssCodeDisplayer = ({ children }) => {
                 <div className="cssCodeDisplayerPopup">
                     <div onClick={closePopUp} className="closeCssContainerButton">X</div>
                     <div className="parentCssContainer">
-                      {parentCssCode ? `parent${'\n'} ${parentCssCode.replace(';', ';\n')}` : null}
+                      {/* {parentCssCode ? <code>parent <br></br>{parentCssCode}</code> : null} */}
+                      {parentCssCode ? parentCssCode.split(';').map((line) => {
+                        return <code key={line}>{line}<br></br></code>
+                      }) : null}
+
                     </div>
                     <div className="childrenCssContainer">
                       {childrenCssCode ? childrenCssCode.map((child) => {
-                        return child
+                        return <code key={child}>{child}<br></br></code>
                       }) : null}
                     </div>
                 </div>

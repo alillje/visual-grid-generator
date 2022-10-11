@@ -15,7 +15,7 @@ import { setViewCssCode } from '../../redux/reducers/css-code'
 import { useSelector, useDispatch } from 'react-redux'
 
 /**
- * GridBox Component.
+ * GridMenu Component.
  * Displays a grid box.
  *
  * @returns {React.ReactElement} - GridBox Component.
@@ -133,7 +133,7 @@ const GridMenu = () => {
       <Box
         component="form"
         sx={{
-          '& > :not(style)': { m: 3, width: '90%', height: '40px' }
+          '& > :not(style)': { m: '15px', width: '90%', height: '40px' }
         }}
         noValidate
         autoComplete="off"
