@@ -5,8 +5,14 @@ import { RowCalculator } from '../../classes/row-calculator.js'
 import { ColumnCalculator } from '../../classes/column-calculator.js'
 import { ChildElementCalculator } from '../../classes/child-element-calculator'
 import { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { gridlify } from '../../../node_modules/gridlify/lib/index.js'
+import { setAmountOfRows, globalSetRowGap } from '../../redux/reducers/rows'
+import {
+  setAmountOfColumns,
+  globalSetColumnGap
+} from '../../redux/reducers/columns'
+// import { grid } from '../../redux/reducers/grid'
 
 /**
  * GridBox Component.
@@ -19,6 +25,8 @@ const GridDisplayer = () => {
   const numberOfColumns = useSelector((state) => state.columns.numberOfColumns)
   const rowGap = useSelector((state) => state.rows.rowGap)
   const columnGap = useSelector((state) => state.columns.columnGap)
+  const userResetGrid = useSelector((state) => state.grid.reset)
+  const dispatch = useDispatch()
   const [startRow, setStartRow] = useState(0)
   const [startColumn, setStartColumn] = useState(0)
   const [templateBoxNumber, setTemplateBoxNumber] = useState(0)
@@ -95,7 +103,6 @@ const GridDisplayer = () => {
    * Sets positions for children elemnts in the parent element grid layout.
    */
   const setPositionsForChildElementsInGridLayout = () => {
-    console.log(classNames)
     let className = 0
     for (let i = 0; i < numberOfRows; i++) {
       for (let j = 0; j < numberOfColumns; j++) {
@@ -115,10 +122,43 @@ const GridDisplayer = () => {
     }
   }
 
+  /**
+   * Resets all values to their initial state.
+   */
+  const resetGrid = () => {
+    dispatch(
+      setAmountOfRows({
+        numberOfRows: undefined
+      })
+    )
+
+    dispatch(
+      setAmountOfColumns({
+        numberOfColumns: undefined
+      })
+    )
+
+    dispatch(
+      globalSetRowGap({
+        rowGap: undefined
+      })
+    )
+
+    dispatch(
+      globalSetColumnGap({
+        columnGap: undefined
+      })
+    )
+  }
+
   useEffect(() => {
-    setParentElementGrid()
-    setPositionsForChildElementsInGridLayout()
-  }, [numberOfRows, numberOfColumns, rowGap, columnGap])
+    if (userResetGrid) {
+      resetGrid()
+    } else {
+      setParentElementGrid()
+      setPositionsForChildElementsInGridLayout()
+    }
+  }, [numberOfRows, numberOfColumns, rowGap, columnGap, userResetGrid])
 
   return (
       <div className="gridDisplayerContainer" onMouseDown={(event) => handleMouseDown(event)} onMouseUp={(event) => handleMouseUp(event)}>

@@ -20,7 +20,7 @@ export const rowsSlice = createSlice({
      * @param {object} action - Object containing the different state values to be set.
      */
     setAmountOfRows: (state, action) => {
-      state.numberOfRows = action.payload.numberOfRows
+      state.numberOfRows = action.payload.numberOfRows ? action.payload.numberOfRows : rowsSlice.getInitialState().numberOfRows
     },
     /**
      * Dispatched on user login and sets all state variables to values defined in the action object.
@@ -29,7 +29,7 @@ export const rowsSlice = createSlice({
      * @param {object} action - Object containing the different state values to be set.
      */
     globalSetRowGap: (state, action) => {
-      state.rowGap = `${action.payload.rowGap}px`
+      state.rowGap = action.payload.rowGap ? `${action.payload.rowGap}px` : rowsSlice.getInitialState().rowGap
     }
   }
 })

@@ -20,7 +20,7 @@ export const columnsSlice = createSlice({
      * @param {object} action - Object containing the different state values to be set.
      */
     setAmountOfColumns: (state, action) => {
-      state.numberOfColumns = action.payload.numberOfColumns
+      state.numberOfColumns = action.payload.numberOfColumns ? action.payload.numberOfColumns : columnsSlice.getInitialState().numberOfColumns
     },
     /**
      * Dispatched on user login and sets all state variables to values defined in the action object.
@@ -29,7 +29,7 @@ export const columnsSlice = createSlice({
      * @param {object} action - Object containing the different state values to be set.
      */
     globalSetColumnGap: (state, action) => {
-      state.columnGap = `${action.payload.columnGap}px`
+      state.columnGap = action.payload.columnGap ? `${action.payload.columnGap}px` : columnsSlice.getInitialState().columnGap
     }
 
   }
