@@ -11,7 +11,7 @@ export const cssCodeSlice = createSlice({
   initialState: {
     viewCssCode: false,
     parentCss: null,
-    positionsCss: []
+    childrenCss: []
   },
   reducers: {
     /**
@@ -39,7 +39,7 @@ export const cssCodeSlice = createSlice({
      * @param {object} action - Object containing the different state values to be set.
      */
     setChildrenCssCode: (state, action) => {
-      state.columnGap = action.payload.childrenCssCode
+      state.childrenCss = action.payload.childrenCss
     }
 
   }

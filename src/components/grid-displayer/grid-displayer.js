@@ -31,7 +31,7 @@ const GridDisplayer = () => {
   const dispatch = useDispatch()
   const [startRow, setStartRow] = useState(0)
   const [startColumn, setStartColumn] = useState(0)
-  const [templateBoxNumber, setTemplateBoxNumber] = useState(0)
+  const [templateBoxNumber, setTemplateBoxNumber] = useState(1)
   const randomColorGenerator = new RandomColorGenerator()
   const rowCalculator = new RowCalculator()
   const columnCalculator = new ColumnCalculator()
@@ -119,10 +119,12 @@ const GridDisplayer = () => {
    */
   const getChildrenPositions = () => {
     const childrenElementPositions = []
-    for (const childrenElement of document.querySelectorAll('.gridBox')) {
-      const classNames = childrenElement.getAttribute('class')
-      const className = classNames.substring(8, classNames.length)
-      const childrenElementPosition = `${className} { ${childrenElement.getAttribute('style')} }`
+    for (const childrenElement of document.querySelectorAll('.templateBox')) {
+      const identifier = childrenElement.getAttribute('id')
+      console.log(identifier)
+      const styleAttributes = childrenElement.getAttribute('style')
+      const positionCss = styleAttributes.substring(styleAttributes.length - 25)
+      const childrenElementPosition = `${identifier} { ${positionCss} }; `
       childrenElementPositions.push(childrenElementPosition)
     }
     return childrenElementPositions
@@ -142,6 +144,7 @@ const GridDisplayer = () => {
    * Resets all values to their initial state.
    */
   const resetGrid = () => {
+    setTemplateBoxNumber(1)
     dispatch(
       setAmountOfRows({
         numberOfRows: undefined
@@ -194,7 +197,7 @@ const GridDisplayer = () => {
     getChildrenPositions()
     dispatch(
       setChildrenCssCode({
-        childrenCssCode: getChildrenPositions()
+        childrenCss: getChildrenPositions()
       })
     )
   }
@@ -205,6 +208,7 @@ const GridDisplayer = () => {
     } else if (viewingCssCode) {
       sendParentCssCodeToGlobalState()
       sendChildrenCssCodeToGlobalState()
+      resetGrid()
     } else {
       setParentElementGrid()
       setPositionsForChildElementsInGridLayout()

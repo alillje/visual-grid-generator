@@ -1,8 +1,7 @@
 import './css-code-displayer.css'
 import * as React from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { setViewCssCode } from '../../redux/reducers/css-code'
-// import { useSelector } from 'react-redux'
 
 /**
  * CssCodeDisplayer Component.
@@ -12,25 +11,34 @@ import { setViewCssCode } from '../../redux/reducers/css-code'
  */
 const CssCodeDisplayer = ({ children }) => {
   const dispatch = useDispatch()
-  //   const parentCssCode = useSelector((state) => state.csscode.parentCssCode)
+  const parentCssCode = useSelector((state) => state.csscode.parentCss)
+  const childrenCssCode = useSelector((state) => state.csscode.childrenCss)
 
   /**
    * Closes the pop up by setting state to not viewing Css Code.
    */
   const closePopUp = () => {
+    console.log(parentCssCode)
+    console.log(childrenCssCode)
     dispatch(
       setViewCssCode({
         viewCssCode: false
       })
     )
   }
+
   return (
             <div className="cssCodeDisplayerContainer">
                 <div className="cssCodeDisplayerPopup">
                     <div onClick={closePopUp} className="closeCssContainerButton">X</div>
-                    <div className="parentCssContainer"></div>
-                    <div className="childrenCssContainer"></div>
-
+                    <div className="parentCssContainer">
+                      {parentCssCode ? `parent${'\n'} ${parentCssCode.replace(';', ';\n')}` : null}
+                    </div>
+                    <div className="childrenCssContainer">
+                      {childrenCssCode ? childrenCssCode.map((child) => {
+                        return child
+                      }) : null}
+                    </div>
                 </div>
           </div>
   )
