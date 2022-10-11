@@ -13,6 +13,7 @@ import {
   globalSetColumnGap
 } from '../../redux/reducers/columns'
 import { grid } from '../../redux/reducers/grid'
+import { setParentCssCode, setChildrenCssCode } from '../../redux/reducers/css-code'
 
 /**
  * GridBox Component.
@@ -26,6 +27,7 @@ const GridDisplayer = () => {
   const rowGap = useSelector((state) => state.rows.rowGap)
   const columnGap = useSelector((state) => state.columns.columnGap)
   const userResetGrid = useSelector((state) => state.grid.reset)
+  const viewingCssCode = useSelector((state) => state.csscode.viewCssCode)
   const dispatch = useDispatch()
   const [startRow, setStartRow] = useState(0)
   const [startColumn, setStartColumn] = useState(0)
@@ -111,6 +113,20 @@ const GridDisplayer = () => {
       }
     }
   }
+  /**
+   *
+   *
+   */
+  const getChildrenPositions = () => {
+    const childrenElementPositions = []
+    for (const childrenElement of document.querySelectorAll('.gridBox')) {
+      const classNames = childrenElement.getAttribute('class')
+      const className = classNames.substring(8, classNames.length)
+      const childrenElementPosition = `${className} { ${childrenElement.getAttribute('style')} }`
+      childrenElementPositions.push(childrenElementPosition)
+    }
+    return childrenElementPositions
+  }
 
   /**
    *
@@ -157,14 +173,43 @@ const GridDisplayer = () => {
     )
   }
 
+  /**
+   *
+   *
+   */
+  const sendParentCssCodeToGlobalState = () => {
+    setRowAndColumns()
+    dispatch(
+      setParentCssCode({
+        parentCss: gridlify.getGridCss({ rows: rowCalculator.getRows(), columns: columnCalculator.getColumns(), rowGap, columnGap })
+      })
+    )
+  }
+
+  /**
+   *
+   *
+   */
+  const sendChildrenCssCodeToGlobalState = () => {
+    getChildrenPositions()
+    dispatch(
+      setChildrenCssCode({
+        childrenCssCode: getChildrenPositions()
+      })
+    )
+  }
+
   useEffect(() => {
     if (userResetGrid) {
       resetGrid()
+    } else if (viewingCssCode) {
+      sendParentCssCodeToGlobalState()
+      sendChildrenCssCodeToGlobalState()
     } else {
       setParentElementGrid()
       setPositionsForChildElementsInGridLayout()
     }
-  }, [numberOfRows, numberOfColumns, rowGap, columnGap, userResetGrid])
+  }, [numberOfRows, numberOfColumns, rowGap, columnGap, userResetGrid, viewingCssCode])
 
   return (
       <div className="gridDisplayerContainer" onMouseDown={(event) => handleMouseDown(event)} onMouseUp={(event) => handleMouseUp(event)}>

@@ -11,6 +11,7 @@ import {
   globalSetColumnGap
 } from '../../redux/reducers/columns'
 import { grid } from '../../redux/reducers/grid'
+import { setViewCssCode } from '../../redux/reducers/css-code'
 import { useSelector, useDispatch } from 'react-redux'
 
 /**
@@ -105,6 +106,18 @@ const GridMenu = () => {
     setColumnGap('')
   }
 
+  /**
+   *
+   *
+   */
+  const viewCssCode = () => {
+    dispatch(
+      setViewCssCode({
+        viewCssCode: true
+      })
+    )
+  }
+
   useEffect(() => {
     console.log(numberOfRows)
     if (userResetGrid) {
@@ -120,7 +133,7 @@ const GridMenu = () => {
       <Box
         component="form"
         sx={{
-          '& > :not(style)': { m: 3, width: '90%' }
+          '& > :not(style)': { m: 3, width: '90%', height: '40px' }
         }}
         noValidate
         autoComplete="off"
@@ -129,7 +142,7 @@ const GridMenu = () => {
         <FormControl
           sx={ {
             width: '25ch',
-            margin: '20px',
+            margin: '0px',
             input: {
               color: 'white',
               background: '#4e4e4e;',
@@ -145,7 +158,7 @@ const GridMenu = () => {
         <FormControl
           sx={ {
             width: '25ch',
-            margin: '20px',
+            margin: '15px',
             input: {
               color: 'white',
               background: '#4e4e4e;',
@@ -161,7 +174,7 @@ const GridMenu = () => {
         <FormControl
           sx={ {
             width: '25ch',
-            margin: '20px',
+            margin: '15px',
             input: {
               color: 'white',
               background: '#4e4e4e;',
@@ -177,7 +190,7 @@ const GridMenu = () => {
         <FormControl
           sx={ {
             width: '25ch',
-            margin: '20px',
+            margin: '15px',
             input: {
               color: 'white',
               background: '#4e4e4e;',
@@ -190,11 +203,14 @@ const GridMenu = () => {
         >
           <OutlinedInput placeholder="Column Gap (px)" />
         </FormControl>
-        <Button onClick={(event) => setGrid(event)} variant="text">
+        <Button onClick={(event) => setGrid(event)} variant="text" sx={ { color: 'white', border: '1px solid grey' } }>
           Set grid
         </Button>
-        <Button onClick={(event) => resetGrid(event)} variant="text">
+        <Button onClick={(event) => resetGrid(event)} variant="text" sx={ { color: 'white', border: '1px solid grey' } }>
           Reset grid
+        </Button>
+        <Button onClick={(event) => viewCssCode(event)} variant="text" sx={ { color: 'white', border: '1px solid grey' } }>
+          View CSS Code
         </Button>
       </Box>
     </div>

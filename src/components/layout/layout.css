@@ -7,8 +7,6 @@
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   background-color: #161616;
-  /* background-color: #4e4e4e; */
-
 }
 
 .layoutLeft {
@@ -26,4 +24,14 @@
 }
 .layoutRight {
   grid-area: 2 / 6 / 6 / 7;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  margin: 0;
+}
+
+.layoutFooter {
+  grid-area: 7 / 4 / 7 / 4;
+  display: flex;
+  justify-content: center;
 }

@@ -2,6 +2,9 @@ import './layout.css'
 import * as React from 'react'
 import Header from '../header/header'
 import GridMenu from '../grid-menu/grid-menu'
+import Footer from '../footer/footer'
+import { useSelector } from 'react-redux'
+import CssCodeDisplayer from '../css-code-displayer/css-code-displayer'
 
 /**
  * Layout Component.
@@ -11,8 +14,11 @@ import GridMenu from '../grid-menu/grid-menu'
  * @returns {React.ReactElement} - Layout Component.
  */
 const Layout = ({ children }) => {
+  const viewingCssCode = useSelector((state) => state.csscode.viewCssCode)
+
   return (
             <div className="layoutContainer">
+              {viewingCssCode ? <CssCodeDisplayer /> : null}
             <div className="layoutHeader">
               <Header />
             </div>
@@ -23,6 +29,9 @@ const Layout = ({ children }) => {
             </div>
             <div className="layoutRight">
               <GridMenu />
+            </div>
+            <div className="layoutFooter">
+              <Footer />
             </div>
           </div>
   )
