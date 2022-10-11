@@ -34,7 +34,7 @@ const CssCodeDisplayer = ({ children }) => {
                     <div className="parentCssContainer">
                       {/* {parentCssCode ? <code>parent <br></br>{parentCssCode}</code> : null} */}
                       {parentCssCode ? parentCssCode.split(';').map((line) => {
-                        return <code key={line}>{line}<br></br></code>
+                        return <code key={line}>{line};<br></br></code>
                       }) : null}
 
                     </div>

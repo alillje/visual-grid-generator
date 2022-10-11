@@ -35,3 +35,7 @@
   display: flex;
   justify-content: center;
 }
+
+.layoutInfo {
+  grid-area: 4 / 3 / 4 / 6;
+}

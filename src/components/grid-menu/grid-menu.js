@@ -133,7 +133,7 @@ const GridMenu = () => {
       <Box
         component="form"
         sx={{
-          '& > :not(style)': { m: '15px', width: '90%', height: '40px' }
+          '& > :not(style)': { m: '15px 0px 15px 0px', width: '90%', height: '40px' }
         }}
         noValidate
         autoComplete="off"
@@ -142,11 +142,13 @@ const GridMenu = () => {
         <FormControl
           sx={ {
             width: '25ch',
-            margin: '0px',
             input: {
-              color: 'white',
-              background: '#4e4e4e;',
-              borderRadius: 2
+              color: '#ffffff',
+              background: '#1e1e1e;',
+              borderRadius: 2,
+              '&:hover': {
+                background: '#303030'
+              }
             }
           }
           }
@@ -158,11 +160,13 @@ const GridMenu = () => {
         <FormControl
           sx={ {
             width: '25ch',
-            margin: '15px',
             input: {
-              color: 'white',
-              background: '#4e4e4e;',
-              borderRadius: 2
+              color: '#ffffff',
+              background: '#1e1e1e;',
+              borderRadius: 2,
+              '&:hover': {
+                background: '#303030'
+              }
             }
           }
           }
@@ -174,11 +178,13 @@ const GridMenu = () => {
         <FormControl
           sx={ {
             width: '25ch',
-            margin: '15px',
             input: {
-              color: 'white',
-              background: '#4e4e4e;',
-              borderRadius: 2
+              color: '#ffffff',
+              background: '#1e1e1e;',
+              borderRadius: 2,
+              '&:hover': {
+                background: '#303030'
+              }
             }
           }
           }
@@ -190,11 +196,13 @@ const GridMenu = () => {
         <FormControl
           sx={ {
             width: '25ch',
-            margin: '15px',
             input: {
-              color: 'white',
-              background: '#4e4e4e;',
-              borderRadius: 2
+              color: '#ffffff',
+              background: '#1e1e1e;',
+              borderRadius: 2,
+              '&:hover': {
+                background: '#303030'
+              }
             }
           }
           }

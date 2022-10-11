@@ -1,22 +1,18 @@
 import * as React from 'react'
 import './header.css'
+import Logo from './img/visual-grid-generator-logo.png'
 
 /**
  * Header Component.
- * Displays a header with a log.
+ * Displays a header with a logo.
  *
  * @returns {React.ReactElement} - Sidebar Component.
  */
-class Header extends React.Component {
-  /**
-   *
-   */
-  render () {
-    return (
+const Header = () => {
+  return (
             <div className="headerContainer">
-                GRID APP
+                <img src={Logo} alt="Logo"></img>
             </div>
-    )
-  }
+  )
 }
 export default Header
