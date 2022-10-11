@@ -1,4 +1,4 @@
-- Funktionellt programmerings språk, hur bibehålla struktur och inkapsling på bästa sätt?
+- Funktionellt programmeringsspråk, hur bibehålla struktur och inkapsling på bästa sätt?
 
 - Utmaning att använda ett ramverk och ändå göra koden förståelig för utomstående. 
 
@@ -6,3 +6,5 @@
 
 - När jag börjat flytta ut till klasser känns detta som ett mycket bättre sätt att jobba även i react på. Komponenterna blir mycket mindre och mycket lättare att läsa. Abstraktionsnivån höjs. 
 När jag tidigare jobbat med react har det varit svårt att behålla en så hög abstraktions nivå som möjligt, men att arbeta objektorienterad underlättar verkligen detta då jag kan flytta ut funktionalitet. 
+
+- Blir fler rader kod än man helst hade sett ibland med Javascript, då man måste göra vissa saker i steg, t. ex. skapa element, sätta attribut osv. 

@@ -102,16 +102,23 @@ const GridDisplayer = () => {
    * @param {object} event - An event object.
    */
   const setStartPosition = (event) => {
-    if (event.target.getAttribute('class') !== 'templateBox') {
+    if (!childElementCalculator.isAlreadySelected(event.target)) {
       setUserIsSelectingAnArea(true)
       setStartRow(childElementCalculator.getStartRowPosition(event.target))
       setStartColumn(childElementCalculator.getStartColumnPosition(event.target))
-      const div = window.document.createElement('div')
-      div.classList.add('templateBox')
-      div.setAttribute('id', `box${templateBoxNumber}`)
-      div.style.backgroundColor = randomColorGenerator.getRandomColor()
-      window.document.querySelector('.gridDisplayerContainer').appendChild(div)
     }
+  }
+
+  /**
+   * Creates and appends a HTML element, representing the child element of a grid layout.
+   *
+   */
+  const createAndAppendChildElement = () => {
+    const childElement = window.document.createElement('div')
+    childElement.classList.add('templateBox')
+    childElement.setAttribute('id', `box${templateBoxNumber}`)
+    childElement.style.backgroundColor = randomColorGenerator.getRandomColor()
+    window.document.querySelector('.gridDisplayerContainer').appendChild(childElement)
   }
 
   /**
@@ -120,13 +127,30 @@ const GridDisplayer = () => {
    * @param {object} event - An event object.
    */
   const setEndPosition = (event) => {
-    if (userIsSelectingAnArea) {
+    if (userIsSelectingAnArea && !childElementCalculator.isAlreadySelected(event.target) && !endIsLessThanStart(event.target)) {
+      createAndAppendChildElement()
       endRow = childElementCalculator.getEndRowPosition(event.target)
       endColumn = childElementCalculator.getEndColumnPosition(event.target)
       gridlify.setPosition(createPositions(), `#box${templateBoxNumber}`)
       setTemplateBoxNumber(templateBoxNumber + 1)
-      setUserIsSelectingAnArea(false)
     }
+    setUserIsSelectingAnArea(false)
+  }
+
+  /**
+   * Validates if start row and column values are bigger than end values.
+   *
+   * @param {object} htmlElement *
+   * @returns {boolean} true if start row and column are bigger than end values.
+   */
+  const endIsLessThanStart = (htmlElement) => {
+    let endIsLessThanStart = false
+    if (childElementCalculator.endIsLessThanStartValue(startRow, childElementCalculator.getEndRowPosition(htmlElement))) {
+      endIsLessThanStart = true
+    } else if (childElementCalculator.endIsLessThanStartValue(startColumn, childElementCalculator.getEndColumnPosition(htmlElement))) {
+      endIsLessThanStart = true
+    }
+    return endIsLessThanStart
   }
 
   /**
