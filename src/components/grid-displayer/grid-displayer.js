@@ -12,7 +12,7 @@ import {
   setAmountOfColumns,
   globalSetColumnGap
 } from '../../redux/reducers/columns'
-// import { grid } from '../../redux/reducers/grid'
+import { grid } from '../../redux/reducers/grid'
 
 /**
  * GridBox Component.
@@ -147,6 +147,12 @@ const GridDisplayer = () => {
     dispatch(
       globalSetColumnGap({
         columnGap: undefined
+      })
+    )
+
+    dispatch(
+      grid({
+        reset: false
       })
     )
   }

@@ -6,7 +6,9 @@
   grid-template-rows: 200px repeat(5, 1fr) auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  background-color: #424242;
+  background-color: #161616;
+  /* background-color: #4e4e4e; */
+
 }
 
 .layoutLeft {

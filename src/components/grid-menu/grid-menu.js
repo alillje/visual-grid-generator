@@ -92,27 +92,26 @@ const GridMenu = () => {
         reset: true
       })
     )
+    resetInputFieldValues()
   }
 
   /**
    * Sets all input field values initial values.
    */
   const resetInputFieldValues = () => {
-    setNumberOfRows(5)
-    setNumberOfColumns(5)
-    setRowGap(0)
-    setColumnGap(0)
-    // dispatch(
-    //   grid({
-    //     reset: false
-    //   })
-    // )
+    setNumberOfRows('')
+    setNumberOfColumns('')
+    setRowGap('')
+    setColumnGap('')
   }
 
   useEffect(() => {
-    console.log(userResetGrid)
+    console.log(numberOfRows)
     if (userResetGrid) {
-      resetInputFieldValues()
+      setNumberOfRows('')
+      setNumberOfColumns('')
+      setRowGap('')
+      setColumnGap('')
     }
   }, [numberOfRows, numberOfColumns, rowGap, columnGap, userResetGrid])
 
@@ -125,40 +124,76 @@ const GridMenu = () => {
         }}
         noValidate
         autoComplete="off"
-        onSubmit={(event) => setGrid(event)}
+        // onSubmit={(event) => setGrid(event)}
       >
         <FormControl
-          sx={{ width: '25ch', margin: '20px' }}
+          sx={ {
+            width: '25ch',
+            margin: '20px',
+            input: {
+              color: 'white',
+              background: '#4e4e4e;',
+              borderRadius: 2
+            }
+          }
+          }
           value={numberOfRows}
           onChange={(event) => setNumberOfRows(event.target.value)}
         >
           <OutlinedInput placeholder="Number of rows" />
         </FormControl>
         <FormControl
-          sx={{ width: '25ch', margin: '20px' }}
+          sx={ {
+            width: '25ch',
+            margin: '20px',
+            input: {
+              color: 'white',
+              background: '#4e4e4e;',
+              borderRadius: 2
+            }
+          }
+          }
           value={numberOfColumns}
           onChange={(event) => setNumberOfColumns(event.target.value)}
         >
           <OutlinedInput placeholder="Number of columns" />
         </FormControl>
         <FormControl
-          sx={{ width: '25ch', margin: '20px' }}
+          sx={ {
+            width: '25ch',
+            margin: '20px',
+            input: {
+              color: 'white',
+              background: '#4e4e4e;',
+              borderRadius: 2
+            }
+          }
+          }
           value={rowGap}
           onChange={(event) => setRowGap(event.target.value)}
         >
           <OutlinedInput placeholder="Row gap (px)" />
         </FormControl>
         <FormControl
-          sx={{ width: '25ch', margin: '20px' }}
+          sx={ {
+            width: '25ch',
+            margin: '20px',
+            input: {
+              color: 'white',
+              background: '#4e4e4e;',
+              borderRadius: 2
+            }
+          }
+          }
           value={columnGap}
           onChange={(event) => setColumnGap(event.target.value)}
         >
           <OutlinedInput placeholder="Column Gap (px)" />
         </FormControl>
-        <Button type="submit" variant="text">
-          Set
+        <Button onClick={(event) => setGrid(event)} variant="text">
+          Set grid
         </Button>
-        <Button onClick={resetGrid} variant="text">
+        <Button onClick={(event) => resetGrid(event)} variant="text">
           Reset grid
         </Button>
       </Box>
