@@ -4,6 +4,7 @@ import { RandomColorGenerator } from '../../classes/random-color-generator.js'
 import { RowCalculator } from '../../classes/row-calculator.js'
 import { ColumnCalculator } from '../../classes/column-calculator.js'
 import { ChildElementCalculator } from '../../classes/child-element-calculator'
+import { Validator } from '../../classes/validator.js'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { gridlify } from '../../../node_modules/gridlify/lib/index.js'
@@ -38,6 +39,7 @@ const GridDisplayer = () => {
   const rowCalculator = new RowCalculator()
   const columnCalculator = new ColumnCalculator()
   const childElementCalculator = new ChildElementCalculator()
+  const validator = new Validator()
   childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
   let classNames = childElementCalculator.getClassNameArray()
   const dispatch = useDispatch()
@@ -102,7 +104,7 @@ const GridDisplayer = () => {
    * @param {object} event - An event object.
    */
   const setStartPosition = (event) => {
-    if (!childElementCalculator.isAlreadySelected(event.target)) {
+    if (!validator.isAlreadySelected(event.target)) {
       setUserIsSelectingAnArea(true)
       setStartRow(childElementCalculator.getStartRowPosition(event.target))
       setStartColumn(childElementCalculator.getStartColumnPosition(event.target))
@@ -127,7 +129,7 @@ const GridDisplayer = () => {
    * @param {object} event - An event object.
    */
   const setEndPosition = (event) => {
-    if (userIsSelectingAnArea && !childElementCalculator.isAlreadySelected(event.target) && !endIsLessThanStart(event.target)) {
+    if (userIsSelectingAnArea && !validator.isAlreadySelected(event.target) && !endIsLessThanStart(event.target)) {
       createAndAppendChildElement()
       endRow = childElementCalculator.getEndRowPosition(event.target)
       endColumn = childElementCalculator.getEndColumnPosition(event.target)
@@ -145,9 +147,9 @@ const GridDisplayer = () => {
    */
   const endIsLessThanStart = (htmlElement) => {
     let endIsLessThanStart = false
-    if (childElementCalculator.endIsLessThanStartValue(startRow, childElementCalculator.getEndRowPosition(htmlElement))) {
+    if (validator.endIsLessThanStartValue(startRow, childElementCalculator.getEndRowPosition(htmlElement))) {
       endIsLessThanStart = true
-    } else if (childElementCalculator.endIsLessThanStartValue(startColumn, childElementCalculator.getEndColumnPosition(htmlElement))) {
+    } else if (validator.endIsLessThanStartValue(startColumn, childElementCalculator.getEndColumnPosition(htmlElement))) {
       endIsLessThanStart = true
     }
     return endIsLessThanStart
