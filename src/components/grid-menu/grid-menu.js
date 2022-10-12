@@ -22,7 +22,7 @@ import { useSelector, useDispatch } from 'react-redux'
  * @returns {React.ReactElement} - GridBox Component.
  */
 const GridMenu = () => {
-  const validator = new Validator()
+  const validator = new Validator(15)
   const [numberOfRows, setNumberOfRows] = useState('')
   const [numberOfColumns, setNumberOfColumns] = useState('')
   const [rowGap, setRowGap] = useState('')
@@ -81,17 +81,19 @@ const GridMenu = () => {
 
   /**
    * Responsible for calling methods to send user input values to the global state.
-   *
    */
   const sendGridValuesToGlobalState = () => {
-    if (userInputAreValidNumbers()) {
+    if (!userInputAreValidNumbers()) {
+      setErrorMessage('Only integer values are allowed')
+    } else if (rowsAndColsAreLessThanAllowedMax()) {
+      setErrorMessage('Number of rows and columns can only be set to a maximum of 15')
+    } else {
+      setErrorMessage('Only integer values are allowed')
       sendRowAmmountToGlobalState()
       sendColumnAmmountToGlobalState()
       sendRowGapToGlobalState()
       sendColumnGapToGlobalState()
       setErrorMessage(null)
-    } else {
-      setErrorMessage('Only integer values are allowed')
     }
   }
 
@@ -110,6 +112,15 @@ const GridMenu = () => {
       }
     }
     return userInputIsValid
+  }
+
+  /**
+   * Checks if user input for number of rows and columns are less than allowed size.
+   *
+   * @returns {boolean} - true if less than allowed size, otherwise false.
+   */
+  const rowsAndColsAreLessThanAllowedMax = () => {
+    return validator.isBiggerThanMaxAmmount(numberOfRows) && validator.isBiggerThanMaxAmmount(numberOfColumns)
   }
 
   /**

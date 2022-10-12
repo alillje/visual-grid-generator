@@ -1,4 +1,15 @@
 export class Validator {
+  #maxAmmount
+
+  /**
+   * Creates an instance of Validator.
+   *
+   * @param {number} maxAmmount *
+   */
+  constructor (maxAmmount) {
+    this.#maxAmmount = maxAmmount
+  }
+
   /**
    * Validates if an html element has already been selected.
    *
@@ -28,5 +39,15 @@ export class Validator {
    */
   isParseableToNumber (gridProperty) {
     return (typeof gridProperty === 'number') && !Number.isNaN(gridProperty) && Number.isInteger(gridProperty)
+  }
+
+  /**
+   * Validates if a value is greater that the maximun allowed ammount value.
+   *
+   * @param {number} numberOfRowsOrColumns - The ammount of rows or columns.
+   * @returns {boolean} - True if the argument is a parseble value, otherwise false.
+   */
+  isBiggerThanMaxAmmount (numberOfRowsOrColumns) {
+    return numberOfRowsOrColumns > this.#maxAmmount
   }
 }

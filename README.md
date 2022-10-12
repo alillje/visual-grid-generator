@@ -3,10 +3,15 @@
 ## CSS Grids made easy
 ________________________
 Ever struggled with building layouts for your website?
+**Visual Grid Generator** is the easiest and fastest way for web developers to create a CSS Layout.
 
-With Visual Grid Generator, you can build your layouts visually, and generate the CSS code you need. 
+With **Visual Grid Generator**, you can build your layouts visually, and generate the CSS code you need. 
 
-Build the layout by setting the number of rows and columns, and select the areas where you want to insert your child elements by pressing down your left mouse button and dragging it. 
+* Build the layout by setting the number of rows and columns
+
+* Select the areas where you want to insert your child elements by pressing down your left mouse button and dragging it. 
+
+* Get the CSS code for the entire layout and all child elements.
 
 ## Example
 

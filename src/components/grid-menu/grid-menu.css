@@ -22,10 +22,12 @@
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   background-color: #1e1e1e;
+  padding-bottom: 10px;
+
 }
 
 .errorMessageContainer {
-  height: 50px;
+  height: 60px;
   grid-area: 2 / 2 / 3 / 1;
   color: #d75656;
   padding: 0px 2px 6px 2px;
