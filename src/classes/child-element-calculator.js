@@ -54,37 +54,15 @@ export class ChildElementCalculator {
   }
 
   /**
-   * Returns the end row position of an html element.
-   *
-   * @param {object} htmlElement *
-   * @returns {number} - The end position of the element.
-   */
-  getEndRowPosition (htmlElement) {
-    const endRow = htmlElement.getAttribute('style').substring(11, htmlElement.getAttribute('style').length - 1)
-    return parseInt(endRow.substring(8, 9))
-  }
-
-  /**
-   * Returns the end column position of an html element.
-   *
-   * @param {object} htmlElement *
-   * @returns {number} - The end position of the element.
-   */
-  getEndColumnPosition (htmlElement) {
-    const endColumn = htmlElement.getAttribute('style').substring(11, htmlElement.getAttribute('style').length - 1)
-    console.log(endColumn.substring(12, 13))
-    return parseInt(endColumn.substring(12, 13))
-  }
-
-  /**
    * Returns the start row position of an html element.
    *
    * @param {object} htmlElement *
    * @returns {number} - The start position of the element.
    */
   getStartRowPosition (htmlElement) {
-    const startRow = htmlElement.getAttribute('style').substring(11, htmlElement.getAttribute('style').length - 1)
-    return parseInt(startRow.substring(0, 1))
+    const allPositionValues = htmlElement.getAttribute('style').substring(11, htmlElement.getAttribute('style').length - 1)
+    const startRow = allPositionValues.split('/')[0]
+    return parseInt(startRow)
   }
 
   /**
@@ -94,7 +72,32 @@ export class ChildElementCalculator {
    * @returns {number} - The start position of the element.
    */
   getStartColumnPosition (htmlElement) {
-    const startColumn = htmlElement.getAttribute('style').substring(11, htmlElement.getAttribute('style').length - 1)
-    return parseInt(startColumn.substring(4, 5))
+    const allPositionValues = htmlElement.getAttribute('style').substring(11, htmlElement.getAttribute('style').length - 1)
+    const startColumn = allPositionValues.split('/')[1]
+    return parseInt(startColumn)
+  }
+
+  /**
+   * Returns the end row position of an html element.
+   *
+   * @param {object} htmlElement *
+   * @returns {number} - The end position of the element.
+   */
+  getEndRowPosition (htmlElement) {
+    const allPositionValues = htmlElement.getAttribute('style').substring(11, htmlElement.getAttribute('style').length - 1)
+    const endRow = allPositionValues.split('/')[2]
+    return parseInt(endRow)
+  }
+
+  /**
+   * Returns the end column position of an html element.
+   *
+   * @param {object} htmlElement *
+   * @returns {number} - The end position of the element.
+   */
+  getEndColumnPosition (htmlElement) {
+    const allPositionValues = htmlElement.getAttribute('style').substring(11, htmlElement.getAttribute('style').length - 1)
+    const endColumn = allPositionValues.split('/')[3]
+    return parseInt(endColumn)
   }
 }
