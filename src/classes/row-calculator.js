@@ -12,7 +12,7 @@ export class RowCalculator {
   }
 
   /**
-   * Sets an array represetation of row values based on number of rows.
+   * Sets an array represetation of row values based on number of rows
    *
    * @param {number} numberOfRows - The number of rows to add.
    */
