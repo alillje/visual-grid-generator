@@ -42,4 +42,13 @@ Jag har använt automatisk och manuelt testning. Nedan beskrivs krav, testspecif
 | --------- |:----:|
 | TC5.1     | OK |
 | TC5.2     | OK |
-| COVERAGE & SUCCESS   | 2/2 OK 
+| COVERAGE & SUCCESS   | 2/2 OK
+
+## Automatic Unit Tests 
+### Test suite 1
+* Date 12/10 2022
+* version (git commit hash) 07b1b94e943c3e905cd13fb4c5d29deba91db3b3
+
+*Notes:* - 
+
+<img src="./img/test-suites/12oct22.png" alt="Test suite" width="400px"></img>
