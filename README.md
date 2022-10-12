@@ -9,7 +9,8 @@ With Visual Grid Generator, you can build your layouts visually, and generate th
 Build the layout by setting the number of rows and columns, and select the areas where you want to insert your child elements by pressing down your left mouse button and dragging it. 
 
 ## Example
-________________________
+
+<img src="./release/img/examples/visual-grid-generator-example.gif" alt="example" width="800px">
 
 ## Development
 ________________________
