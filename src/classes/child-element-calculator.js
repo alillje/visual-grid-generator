@@ -62,7 +62,7 @@ export class ChildElementCalculator {
   getStartRowPosition (htmlElement) {
     const allPositionValues = htmlElement.getAttribute('style').substring(11, htmlElement.getAttribute('style').length - 1)
     const startRow = allPositionValues.split('/')[0]
-    return parseInt(startRow)
+    return parseInt(startRow.substring(startRow.length - 2))
   }
 
   /**

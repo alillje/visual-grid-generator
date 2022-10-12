@@ -45,6 +45,17 @@ Jag har använt automatisk och manuelt testning. Nedan beskrivs krav, testspecif
 | COVERAGE & SUCCESS   | 2/2 OK
 
 ## Automatic Unit Tests 
+
+### Test suite 2
+* Date 12/10 2022
+* version (git commit hash) 914719f6298e6dd50e7a67de3198b93f31301958
+
+*Notes:* Added more unit tests. Two test suites fail, need further investigation.
+
+<img src="./img/test-suites/12oct22-2.png" alt="Test suite" width="400px"></img>
+<img src="./img/test-suites/12oct22-3.png" alt="Test suite" width="400px"></img>
+
+
 ### Test suite 1
 * Date 12/10 2022
 * version (git commit hash) 07b1b94e943c3e905cd13fb4c5d29deba91db3b3
