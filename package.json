@@ -23,7 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "npx --node-options=--experimental-vm-modules jest || exit 0",
+    "test": "npx --node-options=--experimental-vm-modules jest --verbose=true || exit 0",
     "eject": "react-scripts eject",
     "lint": "npx eslint ./src || exit 0",
     "lint:fix": "npx eslint ./src --fix || exit 0"

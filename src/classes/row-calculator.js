@@ -2,13 +2,14 @@
  * RowCalculator class, responsible for calculate the rows.
  */
 export class RowCalculator {
+  #rows
   /**
    * Creates an instance of RowCalculator.
    *
    * @memberof RandomColorGenerator
    */
   constructor () {
-    this.rows = undefined
+    this.#rows = undefined
   }
 
   /**
@@ -18,7 +19,7 @@ export class RowCalculator {
    */
   setRows (numberOfRows) {
     if (numberOfRows > 0) {
-      this.rows = this.addRows(numberOfRows)
+      this.#rows = this.#addRows(numberOfRows)
     }
   }
 
@@ -28,7 +29,7 @@ export class RowCalculator {
    * @param {number} ammountOfRows - The number of rows to add.
    * @returns {string[]} - Collection of row values.
    */
-  addRows (ammountOfRows) {
+  #addRows (ammountOfRows) {
     const rows = []
     for (let i = 0; i < ammountOfRows; i++) {
       rows.push('1fr')
@@ -42,6 +43,6 @@ export class RowCalculator {
    * @returns {Array} - representing row values.
    */
   getRows () {
-    return this.rows
+    return this.#rows
   }
 }

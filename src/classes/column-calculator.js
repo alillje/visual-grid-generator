@@ -2,13 +2,14 @@
  * ColumnCalculator class, responsible for calculate the rows.
  */
 export class ColumnCalculator {
+  #columns
   /**
    * Creates an instance of ColumnCalculator.
    *
    * @memberof RandomColorGenerator
    */
   constructor () {
-    this.columns = undefined
+    this.#columns = undefined
   }
 
   /**
@@ -18,11 +19,23 @@ export class ColumnCalculator {
    */
   setColumns (numberOfColumns) {
     if (numberOfColumns > 0) {
-      this.columns = []
-      for (let i = 0; i < numberOfColumns; i++) {
-        this.columns.push('1fr')
-      }
+      this.#columns = this.#addColumns(numberOfColumns)
     }
+  }
+
+  /**
+   * Creates a collection of column values fro a given number of rows.
+   *
+   * @param {number} numberOfColumns - The number of columns to add.
+   * @param ammountOfColumns
+   * @returns {string[]} - Collection of columns values.
+   */
+  #addColumns (ammountOfColumns) {
+    const columns = []
+    for (let i = 0; i < ammountOfColumns; i++) {
+      columns.push('1fr')
+    }
+    return columns
   }
 
   /**
@@ -31,6 +44,6 @@ export class ColumnCalculator {
    * @returns {Array} - representing column values.
    */
   getColumns () {
-    return this.columns
+    return this.#columns
   }
 }
