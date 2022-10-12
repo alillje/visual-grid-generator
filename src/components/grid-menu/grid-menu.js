@@ -81,8 +81,7 @@ const GridMenu = () => {
    *
    * @param {object} event - An event object.
    */
-  const sendGridValuesToGlobalState = (event) => {
-    event.preventDefault()
+  const sendGridValuesToGlobalState = () => {
     sendRowAmmountToGlobalState()
     sendColumnAmmountToGlobalState()
     sendRowGapToGlobalState()
@@ -98,7 +97,6 @@ const GridMenu = () => {
         reset: true
       })
     )
-    resetInputFieldValues()
   }
 
   /**
@@ -109,6 +107,11 @@ const GridMenu = () => {
     setNumberOfColumns('')
     setRowGap('')
     setColumnGap('')
+    dispatch(
+      grid({
+        reset: false
+      })
+    )
   }
 
   /**
@@ -124,14 +127,11 @@ const GridMenu = () => {
 
   /**
    * React useEffect callback method re-renders the component when
-   * one of the values in the `Dependency Array`is updated or changed.
+   * one of the values in the `Dependency Array` is updated or changed.
    */
   useEffect(() => {
     if (userHasResetGrid) {
-      setNumberOfRows('')
-      setNumberOfColumns('')
-      setRowGap('')
-      setColumnGap('')
+      resetInputFieldValues()
     }
   }, [numberOfRows, numberOfColumns, rowGap, columnGap, userHasResetGrid])
 

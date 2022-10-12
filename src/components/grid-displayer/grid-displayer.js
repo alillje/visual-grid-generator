@@ -13,7 +13,7 @@ import {
   setAmountOfColumns,
   globalSetColumnGap
 } from '../../redux/reducers/columns'
-import { grid } from '../../redux/reducers/grid'
+// import { grid } from '../../redux/reducers/grid'
 import { setParentCssCode, setChildrenCssCode } from '../../redux/reducers/css-code'
 
 /**
@@ -194,11 +194,11 @@ const GridDisplayer = () => {
         columnGap: undefined
       })
     )
-    dispatch(
-      grid({
-        reset: false
-      })
-    )
+    // dispatch(
+    //   grid({
+    //     reset: false
+    //   })
+    // )
   }
 
   /**
@@ -236,7 +236,6 @@ const GridDisplayer = () => {
     } else if (viewingCssCode) {
       sendParentCssCodeToGlobalState()
       sendChildrenCssCodeToGlobalState()
-      resetGrid()
     } else {
       setParentElementGrid()
       setPositionsForChildElementsInGridLayout()
@@ -255,29 +254,3 @@ const GridDisplayer = () => {
 }
 
 export default GridDisplayer
-
-// /**
-//  *
-//  *
-//  */
-// const getChildrenPositions = () => {
-//   const childrenElementPositions = []
-//   for (const childrenElement of document.querySelectorAll('.templateBox')) {
-//     const identifier = childrenElement.getAttribute('id')
-//     const styleAttributes = childrenElement.getAttribute('style')
-//     const positionCss = styleAttributes.substring(styleAttributes.length - 25)
-//     const childrenElementPosition = `${identifier} { ${positionCss} }; `
-//     childrenElementPositions.push(childrenElementPosition)
-//   }
-//   return childrenElementPositions
-// }
-
-// /**
-//  *
-//  *
-//  */
-// const clearTemplateBoxes = () => {
-//   for (const templateBox of document.querySelectorAll('.templateBox')) {
-//     templateBox.remove()
-//   }
-// }
