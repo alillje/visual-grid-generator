@@ -79,7 +79,6 @@ const GridMenu = () => {
   /**
    * Responsible for calling methods to send user input values to the global state.
    *
-   * @param {object} event - An event object.
    */
   const sendGridValuesToGlobalState = () => {
     sendRowAmmountToGlobalState()
@@ -94,22 +93,7 @@ const GridMenu = () => {
   const sendResetGridMessage = () => {
     dispatch(
       grid({
-        reset: true
-      })
-    )
-  }
-
-  /**
-   * Sets all input field values initial values.
-   */
-  const resetInputFieldValues = () => {
-    setNumberOfRows('')
-    setNumberOfColumns('')
-    setRowGap('')
-    setColumnGap('')
-    dispatch(
-      grid({
-        reset: false
+        reset: !userHasResetGrid
       })
     )
   }
@@ -131,7 +115,7 @@ const GridMenu = () => {
    */
   useEffect(() => {
     if (userHasResetGrid) {
-      resetInputFieldValues()
+      sendResetGridMessage()
     }
   }, [numberOfRows, numberOfColumns, rowGap, columnGap, userHasResetGrid])
 
@@ -158,7 +142,7 @@ const GridMenu = () => {
             }
           }
           }
-          value={numberOfRows}
+          value={!numberOfRows ? '' : numberOfRows}
           onChange={(event) => setNumberOfRows(event.target.value)}
         >
           <OutlinedInput placeholder="Number of rows" />

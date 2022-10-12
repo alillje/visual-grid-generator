@@ -8,6 +8,8 @@
   grid-row-gap: 2px;
   background-color: hsla(0, 0%, 100%, 0.91);
   background-color: #121212;
+  border: 0.5px solid rgba(234, 12, 82, 0.647);
+  border-image: linear-gradient(45deg, #c5be39, rgb(194, 20, 43)) 10;
   cursor: move;
 }
 
