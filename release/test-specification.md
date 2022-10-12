@@ -158,7 +158,7 @@ In development, start the application by running the `npm start` command in the 
 
 * (Requirements 6)
 
-### TC2.1
+### TC5.1
 *INPUT*
 1. Press `RESET GRID`
 2. Press down the mouse on the first cell. (Position: Row 1, Column 1)
@@ -170,19 +170,19 @@ In development, start the application by running the `npm start` command in the 
 *OUTPUT*
 1. A new selection should not have been created on top of the first one.
 
-### TC2.2
+### TC5.2
 1. Press `RESET GRID`
 2. Set number of rows to 7
 3. Set number of rows to 6
 4. Set row gap to 1
 5. Set column gap to 3
 
-2. Press down the mouse on the cell (Position: Row 1, Column 1)
-3. Keep the mouse pressed down and drag the mouse pointer to cell (Position Row 4, Column 4) and release the mouse button.
-4. An area should be selected.
-5. Press down the mouse on the first cell. (Position: Row 1
-4, Column 1)
-6. Keep the mouse pressed down and drag the mouse pointer to cell (Position Row 3, Column 3) and release the mouse button.
+6. Press down the mouse on the cell (Position: Row 1, Column 1)
+7. Keep the mouse pressed down and drag the mouse pointer to cell (Position Row 4, Column 4) and release the mouse button.
+8. An area should be selected.
+9. Press down the mouse on the first cell. (Position: Row 1
+10. Column 1)
+11. Keep the mouse pressed down and drag the mouse pointer to cell (Position Row 3, Column 3) and release the mouse button.
 
 *OUTPUT*
 1. Only one area (the first) should be selected.
