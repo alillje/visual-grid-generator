@@ -3,9 +3,10 @@
   height: 100%;
   display: grid;
   grid-template-columns: 100px repeat(5, 1fr) 100px;
-  grid-template-rows: 200px repeat(5, 1fr) auto;
+  grid-template-rows: 200px repeat(4, 1fr);
   grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-row-gap: 0px;
+  margin-bottom: 20px;
   background-color: #161616;
 }
 
@@ -15,9 +16,13 @@
 .layoutHeader {
   grid-area: 1 / 1 / 2 / 8;
   z-index: 1500;
+  margin-bottom: 50px;
+
 }
 .layoutMain {
   grid-area: 2 / 2 / auto / 6;
+  margin-bottom: 50px;
+
 }
 
 .layoutRight {
@@ -29,11 +34,15 @@
 }
 
 .layoutFooter {
-  grid-area: 7 / 4 / 7 / 4;
+  grid-area: 5 / 4 / 6 / 4;
   display: flex;
   justify-content: center;
+  margin-bottom: 5px;
+
 }
 
 .layoutInfo {
   grid-area: 4 / 3 / 4 / 6;
+  margin-bottom: 10px;
+
 }

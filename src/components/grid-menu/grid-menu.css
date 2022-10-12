@@ -1,5 +1,15 @@
+.gridMenuWrapper {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
+;
+}
+
 .gridMenuContainer {
-  height: 500px;
+  grid-area: 1 / 1 / 2 / 1;
+  height: 510px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,4 +22,12 @@
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   background-color: #1e1e1e;
+}
+
+.errorMessageContainer {
+  height: 50px;
+  grid-area: 2 / 2 / 3 / 1;
+  color: #d75656;
+  padding: 0px 2px 6px 2px;
+  font-size: 14px;
 }

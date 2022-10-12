@@ -1,5 +1,6 @@
 import * as React from 'react'
 import './grid-menu.css'
+import { Validator } from '../../classes/validator.js'
 import { useState, useEffect } from 'react'
 import FormControl from '@mui/material/FormControl'
 import OutlinedInput from '@mui/material/OutlinedInput'
@@ -21,10 +22,12 @@ import { useSelector, useDispatch } from 'react-redux'
  * @returns {React.ReactElement} - GridBox Component.
  */
 const GridMenu = () => {
+  const validator = new Validator()
   const [numberOfRows, setNumberOfRows] = useState('')
   const [numberOfColumns, setNumberOfColumns] = useState('')
   const [rowGap, setRowGap] = useState('')
   const [columnGap, setColumnGap] = useState('')
+  const [errorMessage, setErrorMessage] = useState(null)
   const userHasResetGrid = useSelector((state) => state.grid.reset)
   const dispatch = useDispatch()
 
@@ -81,10 +84,32 @@ const GridMenu = () => {
    *
    */
   const sendGridValuesToGlobalState = () => {
-    sendRowAmmountToGlobalState()
-    sendColumnAmmountToGlobalState()
-    sendRowGapToGlobalState()
-    sendColumnGapToGlobalState()
+    if (userInputAreValidNumbers()) {
+      sendRowAmmountToGlobalState()
+      sendColumnAmmountToGlobalState()
+      sendRowGapToGlobalState()
+      sendColumnGapToGlobalState()
+      setErrorMessage(null)
+    } else {
+      setErrorMessage('Only integer values are allowed')
+    }
+  }
+
+  /**
+   * Validates if all user input parameters are valid numbers.
+   *
+   * @returns {boolean} - true if all values are valid, otherwise false
+   */
+  const userInputAreValidNumbers = () => {
+    let userInputIsValid = true
+    const allInputParams = [numberOfRows, numberOfColumns, rowGap, columnGap]
+    for (const inputParam of allInputParams) {
+      if (!validator.isParseableToNumber(parseInt(inputParam))) {
+        userInputIsValid = false
+        break
+      }
+    }
+    return userInputIsValid
   }
 
   /**
@@ -117,10 +142,11 @@ const GridMenu = () => {
     if (userHasResetGrid) {
       sendResetGridMessage()
     }
-  }, [numberOfRows, numberOfColumns, rowGap, columnGap, userHasResetGrid])
+  }, [numberOfRows, numberOfColumns, rowGap, columnGap, errorMessage, userHasResetGrid])
 
   return (
-    <div className="gridMenuContainer">
+    <div className="gridMenuWrapper">
+   <div className="gridMenuContainer">
       <Box
         component="form"
         sx={{
@@ -211,6 +237,8 @@ const GridMenu = () => {
           View CSS Code
         </Button>
       </Box>
+      <div className="errorMessageContainer">{errorMessage}</div>
+    </div>
     </div>
   )
 }
