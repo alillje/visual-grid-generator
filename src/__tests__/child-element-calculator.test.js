@@ -1,8 +1,6 @@
 import { ChildElementCalculator } from '../classes/child-element-calculator.js'
 const childElementCalculator = new ChildElementCalculator()
 
-// const childElementCalculator = require('../src/classes/child-element-calculator')
-
 describe('Validates if end rows position values can be get correctly', () => {
   test('Should be 3', () => {
     const div = document.createElement('div')

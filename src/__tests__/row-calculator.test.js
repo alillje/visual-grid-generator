@@ -1,8 +1,6 @@
 import { RowCalculator } from '../classes/row-calculator.js'
 const rowCalculator = new RowCalculator()
 
-// const rowCalculator = require('../src/classes/row-calculator')
-
 describe('Validates if rows are set and can be get correctly', () => {
   test('Should be 3', () => {
     rowCalculator.setRows(

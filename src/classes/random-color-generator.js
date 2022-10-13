@@ -4,36 +4,22 @@ import { CssColors } from './enum/colors.js'
  * RandomColorGenerator class, responsible for generating a random color.
  */
 export class RandomColorGenerator {
-  #color
-
-  /**
-   * Creates an instance of RandomColorGenerator
-   *
-   * @memberof RandomColorGenerator
-   */
-  constructor () {
-    this.#color = this.#setColor(Object.values(CssColors)[this.#getRandomNumber()])
-  }
-
-  /**
-   * Sets the current color.
-   *
-   * @param {string} newColor - The new color to set.
-   */
-  #setColor (newColor) {
-    while (this.#color !== newColor) {
-      this.#color = newColor
-    }
-  }
-
   /**
    * Returns CSS code represnting a color.
    *
    * @returns {string} - The random color as CSS code.
    */
   getRandomColor () {
-    this.#setColor(Object.values(CssColors)[this.#getRandomNumber()])
-    return this.#color
+    return this.#randomizeColor()
+  }
+
+  /**
+   * Returns random color.
+   *
+   * @returns {string} - A random color as CSS code.
+   */
+  #randomizeColor () {
+    return Object.values(CssColors)[this.#getRandomNumber()]
   }
 
   /**
@@ -42,18 +28,18 @@ export class RandomColorGenerator {
    * @returns {number} A random number based on a given length.
    */
   #getRandomNumber () {
-    return Math.round(Math.random() * this.#getLengthOfObjectKeyAndValues(CssColors))
+    return Math.round(Math.random() * this.#getLengthOfObjectKeyValuePairs(CssColors))
   }
 
   /**
-   * Calculates size/length of a Javascript object.
+   * Calculates size/length of a color object.
    *
-   * @param {object} object - Javascript object to calculate size/length of
-   * @returns {number} - The ammount of key/value pairs in object.
+   * @param {object} colors *
+   * @returns {number} - The ammount of key/value pairs in the color object.
    */
-  #getLengthOfObjectKeyAndValues (object) {
+  #getLengthOfObjectKeyValuePairs (colors) {
     let numberOfKeyValuePairs = 0
-    numberOfKeyValuePairs = Object.values(object).map(() => {
+    numberOfKeyValuePairs = Object.values(colors).map(() => {
       return numberOfKeyValuePairs++
     })
     return numberOfKeyValuePairs.length

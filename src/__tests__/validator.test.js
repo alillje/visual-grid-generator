@@ -1,8 +1,6 @@
 import { Validator } from '../classes/validator.js'
 const validator = new Validator(20)
 
-// const validator = require('../src/classes/validator')
-
 describe('Validates if a given ammount is bigger than the given max value (15)', () => {
   test('Should not throw error', () => {
     expect(
