@@ -1,5 +1,5 @@
 # Visual Grid Generator
-### Go to the application:
+### Go to the application
 **https://visual-grid-generator.netlify.app/**
 
 ## CSS Grids made easy
@@ -14,6 +14,10 @@ With **Visual Grid Generator**, you can build your layouts visually, and generat
 
 * Get the CSS code for the entire layout and all child elements.
 
+Starting in web development, I found that setting grids with CSS could be confusing and complicated. 
+The purpose of this application is to provide a way to start building grid layouts in an easy manner. 
+
+To read more about CSS Grid Layouts, check out <a href="https://www.w3schools.com/css/css_grid.asp" alt="W3Schools" target="_blank">W3Schools</a>.
 ## Example
 
 <img src="./release/img/examples/visual-grid-generator-example.gif" alt="example" width="800px">
