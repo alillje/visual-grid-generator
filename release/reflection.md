@@ -91,6 +91,14 @@ Nedan är ett exempel på alla koncept från boken som tagits upp i min reflekti
 <br>
 
 ### Kapitel 6
+Mina klasser är inte strukturerade som **Data Structures**, utan för att instansieras med objekt, som döljer sin data, men visar beteenden (I form av metoder). 
+
+Jag har inga data strukurer alls i detta projekt, alltså klasser vars enda uppgift är att hålla data. 
+
+Exempel:
+<br>
+<img src="./img/code-examples/code-example-6.png" alt="examples" width="900px">
+<br>
 
 ### Kapitel 7
 

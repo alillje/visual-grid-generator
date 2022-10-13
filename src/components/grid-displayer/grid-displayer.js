@@ -41,7 +41,7 @@ const GridDisplayer = () => {
   const childElementCalculator = new ChildElementCalculator()
   const validator = new Validator()
   childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
-  let classNames = childElementCalculator.getClassNameArray()
+  let classNames = childElementCalculator.getClassNames()
   const dispatch = useDispatch()
 
   /**
@@ -159,7 +159,7 @@ const GridDisplayer = () => {
    * Sets positions for children elemnts in the parent element grid layout.
    */
   const setPositionsForChildElementsInGridLayout = () => {
-    classNames = childElementCalculator.getClassNameArray()
+    classNames = childElementCalculator.getClassNames()
     let count = 0
     for (let i = 0; i < numberOfRows; i++) {
       for (let j = 0; j < numberOfColumns; j++) {
@@ -246,7 +246,7 @@ const GridDisplayer = () => {
       <div className="gridDisplayerContainer" onMouseDown={(event) => setStartPosition(event)} onMouseUp={(event) => setEndPosition(event)}>
         {classNames.map((className) => {
           return (
-          <div key={childElementCalculator.getClassNameArray().indexOf(className)} className={`gridBox ${className}`}></div>
+          <div key={childElementCalculator.getClassNames().indexOf(className)} className={`gridBox ${className}`}></div>
           )
         })}
       </div>

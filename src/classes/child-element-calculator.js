@@ -1,6 +1,8 @@
+/**
+ * ColumnCalculator class, responsible for calculating child element properties.
+ */
 export class ChildElementCalculator {
   #numberOfChildElements
-
   /**
    * Sets the number of child elements.
    *
@@ -15,13 +17,15 @@ export class ChildElementCalculator {
    *
    * @returns {string[]} - An array of different css class names.
    */
-  getClassNameArray () {
-    const classNameArray = []
+  getClassNames () {
+    const classNames = []
     for (let i = 1; i <= this.#numberOfChildElements; i++) {
-      classNameArray.push(`child${i}`)
+      classNames.push(`child${i}`)
     }
-    return classNameArray
+    return classNames
   }
+  // ...
+  // ...
 
   /**
    * Responsible for looking at a collection of HTML elements and their
