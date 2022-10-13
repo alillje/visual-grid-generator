@@ -112,6 +112,15 @@ Jag har använt automatisk och manuelt testning. Nedan beskrivs krav, testspecif
 
 ## Automatic Unit Tests 
 
+### Test suite 5
+* Date 13/10 2022
+* version (git commit hash) d4c3643e578eefc66ef0067ec1190a3b7c1b4d96
+
+*Notes:* Add more tests.
+
+<img src="./img/test-suites/13oct22-3.png" alt="Test suite" width="400px"></img>
+
+
 ### Test suite 4
 * Date 13/10 2022
 * version (git commit hash) e7c6939e1ee16c4a987ce96f70dc2f31335b5a46
@@ -119,8 +128,6 @@ Jag har använt automatisk och manuelt testning. Nedan beskrivs krav, testspecif
 *Notes:* Fix tests that previously failed, added more unit tests.
 
 <img src="./img/test-suites/13oct22-2.png" alt="Test suite" width="400px"></img>
-
-
 
 ### Test suite 3
 * Date 13/10 2022
