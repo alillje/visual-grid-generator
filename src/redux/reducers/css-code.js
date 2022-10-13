@@ -1,6 +1,7 @@
 /**
- * Redux number of rows module.
+ * Redux csscode module.
  * Create a user slice with different actions
+ * https://redux-toolkit.js.org/api/createslice
  *
  * @author Andreas Lillje <a.lillje@gmail.com>
  */
@@ -15,7 +16,7 @@ export const cssCodeSlice = createSlice({
   },
   reducers: {
     /**
-     * Dispatched on user login and sets all state variables to values defined in the action object.
+     * Sets the global state for if the user has choosen to view the CSS code.
      *
      * @param {object} state - Redux state object.
      * @param {object} action - Object containing the different state values to be set.
@@ -24,7 +25,7 @@ export const cssCodeSlice = createSlice({
       state.viewCssCode = action.payload.viewCssCode
     },
     /**
-     * Dispatched on user login and sets all state variables to values defined in the action object.
+     * Sets the global state for the parent element CSS code.
      *
      * @param {object} state - Redux state object.
      * @param {object} action - Object containing the different state values to be set.
@@ -33,7 +34,7 @@ export const cssCodeSlice = createSlice({
       state.parentCss = action.payload.parentCss
     },
     /**
-     * Dispatched on user login and sets all state variables to values defined in the action object.
+     * Sets the global state for the children element CSS code.
      *
      * @param {object} state - Redux state object.
      * @param {object} action - Object containing the different state values to be set.

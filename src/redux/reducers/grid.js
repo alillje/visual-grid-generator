@@ -1,28 +1,29 @@
 /**
- * Redux number grid module.
- * Create a grid slice with different actions
+ * Redux gridReset.
+ * Create a user slice with different actions
+ * https://redux-toolkit.js.org/api/createslice
  *
  * @author Andreas Lillje <a.lillje@gmail.com>
  */
 
 import { createSlice } from '@reduxjs/toolkit'
-export const gridSlice = createSlice({
+export const gridResetSlice = createSlice({
   name: 'grid',
   initialState: {
     reset: false
   },
   reducers: {
     /**
-     * Dispatched on user login and sets all state variables to values defined in the action object.
+     * Sets the global state for grid reset status.
      *
      * @param {object} state - Redux state object.
      * @param {object} action - Object containing the different state values to be set.
      */
-    grid: (state, action) => {
+    gridReset: (state, action) => {
       state.reset = action.payload.reset
     }
   }
 })
 
-export const { grid } = gridSlice.actions
-export default gridSlice.reducer
+export const { gridReset } = gridResetSlice.actions
+export default gridResetSlice.reducer

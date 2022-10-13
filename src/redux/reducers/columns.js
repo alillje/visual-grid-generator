@@ -1,6 +1,7 @@
 /**
- * Redux number of rows module.
+ * Redux number of columns module.
  * Create a user slice with different actions
+ * https://redux-toolkit.js.org/api/createslice
  *
  * @author Andreas Lillje <a.lillje@gmail.com>
  */
@@ -14,7 +15,7 @@ export const columnsSlice = createSlice({
   },
   reducers: {
     /**
-     * Dispatched on user login and sets all state variables to values defined in the action object.
+     * Sets the global state for ammount of columns.
      *
      * @param {object} state - Redux state object.
      * @param {object} action - Object containing the different state values to be set.
@@ -23,7 +24,7 @@ export const columnsSlice = createSlice({
       state.numberOfColumns = action.payload.numberOfColumns ? action.payload.numberOfColumns : columnsSlice.getInitialState().numberOfColumns
     },
     /**
-     * Dispatched on user login and sets all state variables to values defined in the action object.
+     * Sets the global state for columns gap.
      *
      * @param {object} state - Redux state object.
      * @param {object} action - Object containing the different state values to be set.

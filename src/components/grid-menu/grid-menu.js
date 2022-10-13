@@ -11,7 +11,7 @@ import {
   setAmountOfColumns,
   globalSetColumnGap
 } from '../../redux/reducers/columns'
-import { grid } from '../../redux/reducers/grid'
+import { gridReset } from '../../redux/reducers/grid'
 import { setViewCssCode } from '../../redux/reducers/css-code'
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -28,7 +28,7 @@ const GridMenu = () => {
   const [rowGap, setRowGap] = useState('')
   const [columnGap, setColumnGap] = useState('')
   const [errorMessage, setErrorMessage] = useState(null)
-  const userHasResetGrid = useSelector((state) => state.grid.reset)
+  const userHasResetGrid = useSelector((state) => state.gridReset.reset)
   const dispatch = useDispatch()
 
   /**
@@ -112,7 +112,7 @@ const GridMenu = () => {
    */
   const sendResetGridMessage = () => {
     dispatch(
-      grid({
+      gridReset({
         reset: !userHasResetGrid
       })
     )

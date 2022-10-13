@@ -29,7 +29,7 @@ const GridDisplayer = () => {
   const numberOfColumns = useSelector((state) => state.columns.numberOfColumns)
   const rowGap = useSelector((state) => state.rows.rowGap)
   const columnGap = useSelector((state) => state.columns.columnGap)
-  const userHasResetGrid = useSelector((state) => state.grid.reset)
+  const userHasResetGrid = useSelector((state) => state.gridReset.reset)
   const viewingCssCode = useSelector((state) => state.csscode.viewCssCode)
   const [startRow, setStartRow] = useState(0)
   const [startColumn, setStartColumn] = useState(0)
@@ -187,11 +187,6 @@ const GridDisplayer = () => {
         columnGap: undefined
       })
     )
-    // dispatch(
-    //   grid({
-    //     reset: false
-    //   })
-    // )
   }
 
   /**
