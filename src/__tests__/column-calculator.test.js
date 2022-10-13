@@ -1,5 +1,7 @@
-import { ColumnCalculator } from '../src/classes/column-calculator.js'
+import { ColumnCalculator } from '../classes/column-calculator.js'
 const columnCalculator = new ColumnCalculator()
+
+// const columnCalculator = require('../src/classes/column-calculator')
 
 describe('Validates if columns are set and can be get correctly', () => {
   test('Should be 3', () => {

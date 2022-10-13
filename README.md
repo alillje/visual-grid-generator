@@ -1,7 +1,8 @@
 # Visual Grid Generator
+### Go to the application:
+**https://visual-grid-generator.netlify.app/**
 
 ## CSS Grids made easy
-________________________
 Ever struggled with building layouts for your website?
 **Visual Grid Generator** is the easiest and fastest way for web developers to create a CSS Layout.
 
@@ -18,7 +19,7 @@ With **Visual Grid Generator**, you can build your layouts visually, and generat
 <img src="./release/img/examples/visual-grid-generator-example.gif" alt="example" width="800px">
 
 ## Development
-________________________
+
 This project was build with Javascript using <a href="https://reactjs.org/" target="_blank">React</a> version 18.2.0.
 In the project directory, you can run:
 
@@ -40,7 +41,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 
 ## Contributing
-________________________
+
 Want to contribute?
 
 * Fork the project on Github.

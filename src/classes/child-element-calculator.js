@@ -35,10 +35,10 @@ export class ChildElementCalculator {
   getChildrenPositionsAsCssCode (htmlIdentifier) {
     const childrenElementPositions = []
     for (const childrenElement of document.querySelectorAll(htmlIdentifier)) {
-      const identifier = childrenElement.getAttribute('id')
+      const htmlId = childrenElement.getAttribute('id')
       const styleAttributes = childrenElement.getAttribute('style')
       const positionCss = styleAttributes.substring(styleAttributes.length - 25)
-      const childrenElementPosition = `${identifier} { ${positionCss} }; `
+      const childrenElementPosition = `${htmlId} { ${positionCss} }; `
       childrenElementPositions.push(childrenElementPosition)
     }
     return childrenElementPositions

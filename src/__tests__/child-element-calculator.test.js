@@ -1,5 +1,7 @@
-import { ChildElementCalculator } from '../src/classes/child-element-calculator.js'
+import { ChildElementCalculator } from '../classes/child-element-calculator.js'
 const childElementCalculator = new ChildElementCalculator()
+
+// const childElementCalculator = require('../src/classes/child-element-calculator')
 
 describe('Validates if end rows position values can be get correctly', () => {
   test('Should be 3', () => {
@@ -74,5 +76,60 @@ describe('Validates if start column position values can be get correctly', () =>
     expect(
       childElementCalculator.getStartColumnPosition(div)
     ).toBe(6)
+  })
+})
+
+describe('Validates if html elements are removed from the DOM', () => {
+  test('All child elements have been removed', () => {
+    const body = document.querySelector('body')
+    const div = document.createElement('div')
+    const div2 = document.createElement('div')
+    body.appendChild(div)
+    body.appendChild(div2)
+    div.setAttribute('class', 'theTestingClass')
+    div2.setAttribute('class', 'theTestingClass')
+    childElementCalculator.removeChildElements('.theTestingClass')
+    expect(
+      body.childElementCount
+    ).toBe(0)
+  })
+})
+
+describe('Validates if css code can be generated from a html identifier', () => {
+  test('Should get an array of css code for each html element', () => {
+    const body = document.querySelector('body')
+    const div = document.createElement('div')
+    div.style.backgroundColor = 'rgb(153, 0, 153)'
+    div.style.gridArea = '1 / 3 / 3 / 5'
+    div.setAttribute('id', 'abc1')
+    div.setAttribute('class', 'templateBox')
+    const div2 = document.createElement('div')
+    div2.setAttribute('id', 'abc2')
+    div2.style.backgroundColor = 'rgb(153, 0, 153)'
+    div2.style.gridArea = '2 / 4 / 4 / 6'
+    div2.setAttribute('class', 'templateBox')
+    body.appendChild(div)
+    body.appendChild(div2)
+    expect(
+      childElementCalculator.getChildrenPositionsAsCssCode('.templateBox').length
+    ).toBe(2)
+  })
+})
+
+describe('Validates if an array of classnames can be generate from number of elements', () => {
+  test('Should get an array of css code for each html element', () => {
+    childElementCalculator.setNumberOfChildElements(3)
+    expect(
+      childElementCalculator.getClassNames().length
+    ).toBe(3)
+  })
+})
+
+describe('Validates if an array of classnames can be generate from number of elements', () => {
+  test('Should get an array of css code for each html element', () => {
+    childElementCalculator.setNumberOfChildElements(50)
+    expect(
+      childElementCalculator.getClassNames().length
+    ).toBe(50)
   })
 })
