@@ -19,8 +19,16 @@ The purpose of this application is to provide a way to start building grid layou
 
 To read more about CSS Grid Layouts, check out <a href="https://www.w3schools.com/css/css_grid.asp" alt="W3Schools" target="_blank">W3Schools</a>.
 ## Example
-
+<br>
 <img src="./release/img/examples/visual-grid-generator-example.gif" alt="example" width="800px">
+<br>
+
+## Supported web browsers
+Browsers supported include: 
+
+* Chrome
+
+* Firefox
 
 ## Development
 
