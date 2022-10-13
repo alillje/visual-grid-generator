@@ -135,9 +135,45 @@ Exempel där jag använder mig av min oberoende kod i en React-komponent (RowCal
 <img src="./img/code-examples/code-example-9.png" alt="examples" width="400px">
 <br>
 *./src/components/grid-displayer/grid-displayer.js*
+
 ### Kapitel 9
+Jag testar alla publika metoder i mina klasser. 
+Jag kan direkt säga att jag inte följer alla 3 regler ur *Test Driven Development*, speciellt inte regel nummer 1. *Att skriva tester innan jag skriver koden*. Det är dock någonting att sträva mot, och jag är glad att jag tagit mig tid att träna på att skriva tester så tidigt som möjligt i utvecklingen. *Att skriva tester
+
+Jag skriver "rena" enhets tester, enligt **Clean Tests**.
+Eftersom *Readability* enligt litteraturen är den största faktorn när man skriver enhetstester, har jag fokuserat på detta, och anser att jag har lyckets bra. 
+
+Jag har använt testramverket `jest` för att skriva mina enhetstester.
+
+I mina ögon är testerna självförklarande.
+
+Exmpel:
+<br>
+<img src="./img/code-examples/code-example-10.png" alt="examples" width="600px">
+<br>
 
 ### Kapitel 10
+I de fall jag har fält i mina klasser använder jag inga publika fält. 
+De är privata och i de fallen jag behöver hämta ett värde har jag implementerat getters.
+
+Enligt **Encapsulation** gör jag endast metoder som måste kunna användas utanför klassen publika, i annat fall är de privata. 
+
+Exempel:
+<br>
+<img src="./img/code-examples/code-example-11.png" alt="examples" width="600px">
+<br>
+*I Javascript skrivs privata fält och metoder med ett # framför*
+
+**Classes should be small**
+Mina klasser kan inte anses vara stora, jag har försökt dela upp de beroende på ansvarsområde. 
+
 
 ### Kapitel 11
+Min systemarkitektur är ren och uppdelad. 
+
+Jag har som tidigare nämnts separerat beroendet av react helt från mina POJOs (Pure Old Javascript Classes).
+
+Jag använder på alla sätt och vis **Optimize Decision Making**, och separation of concerns, på ett objektorienterat sätt, både i mina klasser och i mina React-komponenter som jag försöker skriva med ett objektorienterat tänk.
+
+Varje klass eller komponent ska inte ha för mycket ansvar och ansvarar för **Descision Making** i sin egen del av systemet. 
 
