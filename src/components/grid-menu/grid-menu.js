@@ -84,9 +84,13 @@ const GridMenu = () => {
    */
   const sendGridValuesToGlobalState = () => {
     try {
+      userInputAreValidNumbers()
       validator.isBiggerThanMaxAmmount(numberOfRows)
       validator.isBiggerThanMaxAmmount(numberOfColumns)
-      userInputAreValidNumbers()
+      validator.isPositive(numberOfRows)
+      validator.isPositive(numberOfColumns)
+      validator.isNotNegative(rowGap)
+      validator.isNotNegative(columnGap)
       sendRowAmmountToGlobalState()
       sendColumnAmmountToGlobalState()
       sendRowGapToGlobalState()

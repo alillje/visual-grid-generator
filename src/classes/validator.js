@@ -32,7 +32,7 @@ export class Validator {
   }
 
   /**
-   * Validates if a start value is bigger than an end value.
+   * Validates if a grid property value is parseable to an integer.
    *
    * @param {number} gridProperty - A property in as CSS grid layout.
    * @throws {Error} *
@@ -40,6 +40,30 @@ export class Validator {
   isParseableToNumber (gridProperty) {
     if (typeof gridProperty !== 'number' || Number.isNaN(gridProperty) || !Number.isInteger(gridProperty)) {
       throw new Error('Only integer values are allowed')
+    }
+  }
+
+  /**
+   * Validates if a grid property value is positive.
+   *
+   * @param {number} gridProperty - A property in as CSS grid layout.
+   * @throws {Error} *
+   */
+  isPositive (gridProperty) {
+    if (gridProperty < 1) {
+      throw new Error('Only positve values are allowed')
+    }
+  }
+
+  /**
+   * Validates if a grid property value is not negative.
+   *
+   * @param {number} gridProperty - A property in as CSS grid layout.
+   * @throws {Error} *
+   */
+  isNotNegative (gridProperty) {
+    if (gridProperty < 0) {
+      throw new Error('No negative values are allowed')
     }
   }
 
