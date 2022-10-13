@@ -83,44 +83,28 @@ const GridMenu = () => {
    * Responsible for calling methods to send user input values to the global state.
    */
   const sendGridValuesToGlobalState = () => {
-    if (!userInputAreValidNumbers()) {
-      setErrorMessage('Only integer values are allowed')
-    } else if (rowsAndColsAreLessThanAllowedMax()) {
-      setErrorMessage('Number of rows and columns can only be set to a maximum of 15')
-    } else {
-      setErrorMessage('Only integer values are allowed')
+    try {
+      validator.isBiggerThanMaxAmmount(numberOfRows)
+      validator.isBiggerThanMaxAmmount(numberOfColumns)
+      userInputAreValidNumbers()
       sendRowAmmountToGlobalState()
       sendColumnAmmountToGlobalState()
       sendRowGapToGlobalState()
       sendColumnGapToGlobalState()
       setErrorMessage(null)
+    } catch (error) {
+      setErrorMessage(error.message)
     }
   }
 
   /**
    * Validates if all user input parameters are valid numbers.
-   *
-   * @returns {boolean} - true if all values are valid, otherwise false
    */
   const userInputAreValidNumbers = () => {
-    let userInputIsValid = true
     const allInputParams = [numberOfRows, numberOfColumns, rowGap, columnGap]
     for (const inputParam of allInputParams) {
-      if (!validator.isParseableToNumber(parseInt(inputParam))) {
-        userInputIsValid = false
-        break
-      }
+      validator.isParseableToNumber(parseInt(inputParam))
     }
-    return userInputIsValid
-  }
-
-  /**
-   * Checks if user input for number of rows and columns are less than allowed size.
-   *
-   * @returns {boolean} - true if less than allowed size, otherwise false.
-   */
-  const rowsAndColsAreLessThanAllowedMax = () => {
-    return validator.isBiggerThanMaxAmmount(numberOfRows) && validator.isBiggerThanMaxAmmount(numberOfColumns)
   }
 
   /**

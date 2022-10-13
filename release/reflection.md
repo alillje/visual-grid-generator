@@ -101,9 +101,40 @@ Exempel:
 <br>
 
 ### Kapitel 7
+Jag hanterar fel i form av användarinput där jag validerar om det är nummer och antal rader och kolumner. 
+Jag skrev från början felhanteringen med endast if..else-satser, men efter att ha reflekterat och läst om kapitlet i boken ändrade jag i koden, där jag istället för att returnera true/false från metoderna som validerar, så kastar jag undantag i validerings-metoderna, för att sedan fånga felet med try..catch. 
+Detta alltså enligt **Use Exceptions Rather Than Return Codes**.
+
+Resultatet blev ca. 50 rader mindre kod och kod som blev betydligt enklare att läsa enligt nedan:
+
+<br>
+<img src="./img/code-examples/code-example-7.png" alt="examples" width="900px">
+<br>
+*./src/components/grid-displayer/grid-displayer.js*
+<br>
+<img src="./img/code-examples/code-example-8.png" alt="examples" width="900px">
+<br>
+
+*./src/classes/validator.js*
 
 ### Kapitel 8
+De mest uppenbara **Boundries** har varit detta projekts beroende av biblioteket `React`. 
 
+Detta har som tidigare nämnts varit en ganska stor utmaning, jag har haft en idé klar sedan jag skrev mitt bibliotek i den tidigare laborationen i denna kurs. 
+
+Jag har tampats med att skriva objektorienterad kod i med ett funktionellt programmeringsspråk. 
+
+Jag fick länge fundera över hur jag skulle tackla detta problem, och jag tycker att jag har hittat en mellanväg som fungerar. 
+Min upplevelse är att jag faktiskt använder mig av Clean Boundaries, då min objektorienterad kod är strukturerad i klasser, som inte har något beroende till `React`. 
+Då jag tidigare har skrivit i `React`har detta inte varit någonting jag behövt ta någin hänsyn till, men efter att ha gjort på det här sättet, flytta ut så mycket funktionalitet som möjligt till fristående klasser, oberoende av *third-party*-biblioteket, har jag faktsiskt skapat **Clean Boundaries**. 
+
+Detta gör även att koden som är skriven i mina klasser kan återanvändas i vilken miljö som helst. 
+
+Exempel där jag använder mig av min oberoende kod i en React-komponent (RowCalculator och ColumnCalculator är instanser av mina klasser):
+<br>
+<img src="./img/code-examples/code-example-9.png" alt="examples" width="400px">
+<br>
+*./src/components/grid-displayer/grid-displayer.js*
 ### Kapitel 9
 
 ### Kapitel 10

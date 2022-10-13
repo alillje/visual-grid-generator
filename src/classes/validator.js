@@ -35,19 +35,23 @@ export class Validator {
    * Validates if a start value is bigger than an end value.
    *
    * @param {number} gridProperty - A property in as CSS grid layout.
-   * @returns {boolean} - True if the argument is a parseble value, otherwise false.
+   * @throws {Error} *
    */
   isParseableToNumber (gridProperty) {
-    return (typeof gridProperty === 'number') && !Number.isNaN(gridProperty) && Number.isInteger(gridProperty)
+    if (typeof gridProperty !== 'number' || Number.isNaN(gridProperty) || !Number.isInteger(gridProperty)) {
+      throw new Error('Only integer values are allowed')
+    }
   }
 
   /**
    * Validates if a value is greater that the maximun allowed ammount value.
    *
    * @param {number} numberOfRowsOrColumns - The ammount of rows or columns.
-   * @returns {boolean} - True if the argument is a parseble value, otherwise false.
+   * @throws {Error} *
    */
   isBiggerThanMaxAmmount (numberOfRowsOrColumns) {
-    return numberOfRowsOrColumns > this.#maxAmmount
+    if (numberOfRowsOrColumns > this.#maxAmmount) {
+      throw new Error(`Number of rows and columns can only be set to a maximum of ${this.#maxAmmount}`)
+    }
   }
 }

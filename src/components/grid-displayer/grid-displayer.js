@@ -53,13 +53,6 @@ const GridDisplayer = () => {
   }
 
   /**
-   * Calls the childElementCalculator to remove all child elements.
-   */
-  const removeChildElements = () => {
-    childElementCalculator.removeChildElements('.templateBox')
-  }
-
-  /**
    * Creates a grid object.
    *
    * @returns {object} - An object containing all grid properties.
@@ -93,7 +86,7 @@ const GridDisplayer = () => {
    * Sets the parent grid element dimensions.
    */
   const setParentElementGrid = () => {
-    removeChildElements()
+    childElementCalculator.removeChildElements('.templateBox')
     setGridDimensions()
     gridlify.setGrid(createGrid(), '.gridDisplayerContainer')
     childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
