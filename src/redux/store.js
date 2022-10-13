@@ -10,7 +10,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import rows from './reducers/rows'
 import columns from './reducers/columns'
-import gridReset from './reducers/grid'
+import gridReset from './reducers/grid-reset'
 import csscode from './reducers/css-code'
 
 const store = configureStore({

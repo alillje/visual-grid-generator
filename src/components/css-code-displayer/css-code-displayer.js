@@ -15,11 +15,9 @@ const CssCodeDisplayer = ({ children }) => {
   const childrenCssCode = useSelector((state) => state.csscode.childrenCss)
 
   /**
-   * Closes the pop up by setting state to not viewing Css Code.
+   * Sets the global state to not viewing Css Code.
    */
-  const closePopUp = () => {
-    // console.log(parentCssCode)
-    // console.log(childrenCssCode)
+  const sendUserIsNotViewingCssToGlobalState = () => {
     dispatch(
       setViewCssCode({
         viewCssCode: false
@@ -30,14 +28,17 @@ const CssCodeDisplayer = ({ children }) => {
   return (
             <div className="cssCodeDisplayerContainer">
                 <div className="cssCodeDisplayerPopup">
-                    <div onClick={closePopUp} className="closeCssContainerButton">X</div>
+                  <div className="cssCodeDisplayerParentInfo">Parent Element</div>
+                    <div onClick={sendUserIsNotViewingCssToGlobalState} className="closeCssContainerButton">X</div>
                     <div className="parentCssContainer">
-                      {/* {parentCssCode ? <code>parent <br></br>{parentCssCode}</code> : null} */}
-                      {parentCssCode ? parentCssCode.split(';').map((line) => {
-                        return <code key={line}>{line};<br></br></code>
+                    <code>.parentElement </code>
+                      {parentCssCode ? parentCssCode.split('\n').map((line) => {
+                        return <code key={line}>{line}<br></br></code>
                       }) : null}
 
                     </div>
+                    <div className="cssCodeDisplayerChildInfo">Child Elements</div>
+
                     <div className="childrenCssContainer">
                       {childrenCssCode ? childrenCssCode.map((child) => {
                         return <code key={child}>{child}<br></br></code>

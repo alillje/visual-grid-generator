@@ -8,7 +8,7 @@
 
 import { createSlice } from '@reduxjs/toolkit'
 export const gridResetSlice = createSlice({
-  name: 'grid',
+  name: 'gridreset',
   initialState: {
     reset: false
   },

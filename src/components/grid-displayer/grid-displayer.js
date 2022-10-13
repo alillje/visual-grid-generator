@@ -13,7 +13,6 @@ import {
   setAmountOfColumns,
   globalSetColumnGap
 } from '../../redux/reducers/columns'
-// import { gridReset } from '../../redux/reducers/gridReset.js'
 import { setParentCssCode, setChildrenCssCode } from '../../redux/reducers/css-code'
 
 /**
@@ -224,6 +223,7 @@ const GridDisplayer = () => {
     } else if (viewingCssCode) {
       sendParentCssCodeToGlobalState()
       sendChildrenCssCodeToGlobalState()
+      setTemplateBoxNumber(1)
     } else {
       setParentElementGrid()
       setPositionsForChildElementsInGridLayout()
