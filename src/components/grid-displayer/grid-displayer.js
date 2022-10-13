@@ -13,7 +13,7 @@ import {
   setAmountOfColumns,
   globalSetColumnGap
 } from '../../redux/reducers/columns'
-// import { grid } from '../../redux/reducers/grid'
+// import { gridReset } from '../../redux/reducers/gridReset.js'
 import { setParentCssCode, setChildrenCssCode } from '../../redux/reducers/css-code'
 
 /**

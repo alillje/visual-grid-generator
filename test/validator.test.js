@@ -1,5 +1,5 @@
 import { Validator } from '../src/classes/validator.js'
-const validator = new Validator(15)
+const validator = new Validator(20)
 
 describe('Validates if a given ammount is bigger than the given max value (15)', () => {
   test('Should return false', () => {

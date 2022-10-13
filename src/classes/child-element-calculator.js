@@ -24,8 +24,6 @@ export class ChildElementCalculator {
     }
     return classNames
   }
-  // ...
-  // ...
 
   /**
    * Responsible for looking at a collection of HTML elements and their

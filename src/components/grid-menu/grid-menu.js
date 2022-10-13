@@ -22,7 +22,7 @@ import { useSelector, useDispatch } from 'react-redux'
  * @returns {React.ReactElement} - GridBox Component.
  */
 const GridMenu = () => {
-  const validator = new Validator(15)
+  const validator = new Validator(20)
   const [numberOfRows, setNumberOfRows] = useState('')
   const [numberOfColumns, setNumberOfColumns] = useState('')
   const [rowGap, setRowGap] = useState('')

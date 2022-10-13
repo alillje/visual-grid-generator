@@ -188,3 +188,151 @@ In development, start the application by running the `npm start` command in the 
 1. Only one area (the first) should be selected.
 
 
+## TC6 Only positive numbers when setting number of rows and columns
+
+* (Requirements 7, 8)
+
+### TC6.1
+*INPUT*
+1. Press `RESET GRID`
+2. Input the following values and press set grid:
+<br>
+<img src="./img/test-examples/test-13.png" width="250px" alt="test"><img>
+
+*OUTPUT*
+1. An error message should appear, saying `Only positve values are allowed`
+
+### TC6.2
+*INPUT*
+1. Press `RESET GRID`
+2. Input the following values and press set grid:
+<br>
+<img src="./img/test-examples/test-14.png" width="250px" alt="test"><img>
+
+*OUTPUT*
+1. An error message should appear, saying `Only positve values are allowed`
+
+### TC6.3
+*INPUT*
+1. Press `RESET GRID`
+2. Input the following values and press set grid:
+<br>
+<img src="./img/test-examples/test-15.png" width="250px" alt="test"><img>
+
+*OUTPUT*
+1. An error message should appear, saying `Only positve values are allowed`
+
+### TC6.4
+*INPUT*
+1. Press `RESET GRID`
+2. Input the following values and press set grid:
+<br>
+<img src="./img/test-examples/test-16.png" width="250px" alt="test"><img>
+
+*OUTPUT*
+1. An error message should appear, saying `Only positve values are allowed`
+
+## TC7 No negative numbers when setting row and column gap
+
+* (Requirements 9, 10)
+
+### TC7.1
+*INPUT*
+1. Press `RESET GRID`
+2. Input the following values and press set grid:
+<br>
+<img src="./img/test-examples/test-17.png" width="250px" alt="test"><img>
+
+*OUTPUT*
+1. An error message should appear, saying `No negative values are allowed`
+
+### TC7.2
+*INPUT*
+1. Press `RESET GRID`
+2. Input the following values and press set grid:
+<br>
+<img src="./img/test-examples/test-18.png" width="250px" alt="test"><img>
+
+*OUTPUT*
+1. An error message should appear, saying `No negative values are allowed`
+
+## TC8 Only create selection from left to right and top to bottom
+
+* (Requirements 1)
+
+### TC8.1
+*INPUT*
+1. Press `RESET GRID`
+2. Start a dragging selection from position (Row 1, Column 5)
+3. Keep the mouse pressed down and drag the mouse pointer to cell (Position Row 1, Column 1) and release the mouse button.
+
+*OUTPUT*
+1. No area should have been selected.
+
+### TC8.2
+*INPUT*
+1. Press `RESET GRID`
+2. Start a dragging selection from position (Row 5, Column 1)
+3. Keep the mouse pressed down and drag the mouse pointer to cell (Position Row 1, Column 1) and release the mouse button.
+
+
+*OUTPUT*
+1. No area should have been selected.
+
+*OUTPUT*
+1. No area should have been selected.
+
+### TC8.3
+*INPUT*
+1. Press `RESET GRID`
+2. Start a dragging selection from position (Row 5, Column 5)
+3. Keep the mouse pressed down and drag the mouse pointer to cell (Position Row 1, Column 1) and release the mouse button.
+
+
+*OUTPUT*
+1. No area should have been selected.
+
+## TC9 Setting values above max allowed
+
+* (Requirements 12)
+
+### TC9.1
+*INPUT*
+1. Press `RESET GRID`
+2. Input the following values and press set grid:
+<br>
+<img src="./img/test-examples/test-19.png" width="250px" alt="test"><img>
+
+*OUTPUT*
+1. An error message should appear, saying `Number of rows and columns can only be set to a maximum of 20`
+
+### TC9.2
+*INPUT*
+1. Press `RESET GRID`
+2. Input the following values and press set grid:
+<br>
+<img src="./img/test-examples/test-20.png" width="250px" alt="test"><img>
+
+*OUTPUT*
+1. An error message should appear, saying `Number of rows and columns can only be set to a maximum of 20`
+
+### TC9.3
+*INPUT*
+1. Press `RESET GRID`
+2. Input the following values and press set grid:
+<br>
+<img src="./img/test-examples/test-21.png" width="250px" alt="test"><img>
+
+*OUTPUT*
+1. An error message should appear, saying `Number of rows and columns can only be set to a maximum of 20`
+
+### TC9.4
+*INPUT*
+1. Press `RESET GRID`
+2. Input the following values and press set grid:
+<br>
+<img src="./img/test-examples/test-22.png" width="250px" alt="test"><img>
+
+*OUTPUT*
+1. An error message should appear, saying `Number of rows and columns can only be set to a maximum of 20`
+

@@ -24,16 +24,17 @@
 
 11. The user should only be able to select an area from top-to-bottom and from left-to-right. 
 
-12. The max value for number of rows and columns should be 15.
+12. The max value for number of rows and columns should be 20.
 
 
 ### Non-Funcitonal requirements
 
-13. Some basic instructions should be displayed to the user in the application main view.
+13. The purpose of the application is to provide a tool to help web developers to generate CSS code for a web page layout, by visualising the layout in real time and generate corresponding CSS Code. 
 
-14. The purpose of the application is to provide a tool to help web developers to generate CSS code for a web page layout, by visualising the layout in real time and generate corresponding CSS Code. 
 
-15. The application should be built using the front-end framework React. 
+14. Some basic instructions should be displayed to the user in the application main view.
+
+15. The user interface of the application should be built using the front-end framework React. 
 
 16. As far as possible, the code should be object oriented. 
 
