@@ -15,7 +15,7 @@ export class ColumnCalculator {
   /**
    * Sets an array represetation of column values based on number of rows.
    *
-   * @param {number} numberOfColumns - The number of rows to add.
+   * @param {number} numberOfColumns *
    */
   setColumns (numberOfColumns) {
     if (numberOfColumns > 0) {
@@ -26,8 +26,7 @@ export class ColumnCalculator {
   /**
    * Creates a collection of column values fro a given number of rows.
    *
-   * @param {number} numberOfColumns - The number of columns to add.
-   * @param ammountOfColumns
+   * @param {number} ammountOfColumns *
    * @returns {string[]} - Collection of columns values.
    */
   #addColumns (ammountOfColumns) {
@@ -41,7 +40,7 @@ export class ColumnCalculator {
   /**
    * Returns column values based on number of columns.
    *
-   * @returns {Array} - representing column values.
+   * @returns {string[]} - representing column values.
    */
   getColumns () {
     return this.#columns

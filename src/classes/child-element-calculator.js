@@ -43,7 +43,7 @@ export class ChildElementCalculator {
   }
 
   /**
-   * Responsible for removing a collecntion of HTML elements.
+   * Removes a collecntion of HTML elements.
    *
    * @param {string} htmlIdentifier *
    */

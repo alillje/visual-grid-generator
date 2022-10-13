@@ -19,19 +19,86 @@ Då jag har erfarenhet av båda teknikerna, inser jag att även om detta är ett
 
 Mina rena Javascript-klasser ligger i en egen map `./src/classes`
 
-I övrigt är en utmaning när man jobbar med Javascript i webbläsaren att få till en hög nivå av abstraktion i vissa metoder där man måste använda sig av `document´-objektet i vissa operationer.
+Den största delen av Javascript som finns i React-komponenterna finns i `./src/components/grid-displayer/grid-displayer.js`
+I början av denna komponent (GridDisplayer) sätts ett antal konstanter, något som är nödvändigt i detta fall då jag jobbar med React, men ser man förbi det, hoppas jag att man kan titta på metoderna i komponenterna och förstå vad de gör och att jag lagt ned mycket tid till att fundera på hur detta ska framställas så enkelt som möjligt och hur jag har försökt att jobba på en hög abstraktionsnivå.
+
+## Clean Code
+
+### Kapitel 2
+Jag har jobbat med att använda **Intention-Revealing names** i största möjliga mån. 
+Det har känts extra viktigt när jag har jobbat i ett front-end ramverk. 
+
+Detta gör namnen aningen långa, längre än jag tidigare velat ha metod och variabelnamn. Men efter att ha reflekterat över saken har jag kommit fram till att, så länge jag håller mig till namn som följer **Use Pronouncable Names**, så finns det flera mervärden att ha självförklarande namn. 
+De hjälper en att förstå vad funktionen gör utan att behöva läsa kommentarer, och de gör att metoderna/variablerna följer regeln för **Use Searchable Names**, vilket kan göra det lättare att navigera i koden. Givetvis är det en balansgång, och jag inser att det finns en gräns för hur långt ett namn bör vara. Detta är en avvägning man får göra i fall till fall.
+
+Exempel:
+<br>
+<img src="./img/code-examples/code-example-3.png" alt="examples" width="700px">
+<br>
+
+
+### Kapitel 3
+
+En utmaning när man jobbar med Javascript i webbläsaren att få till en hög nivå av abstraktion i vissa metoder där man måste använda sig av `document´-objektet i vissa operationer.
 
 Exempel: 
 
-<img src="./img/code-examples/code-example-1.png" alt="examples" width="700px">
+<img src="./img/code-examples/code-example-1.png" alt="examples" width="900px">
 <br>
-I mina ögon är denna metod för lång, men alternativet ser ut som någonting i stil med detta?
+I mina ögon är denna metod för lång, men alternativet ser ut som någonting i stil med detta:
 <br>
-<img src="./img/code-examples/code-example-2.png" alt="examples" width="700px">
+<img src="./img/code-examples/code-example-2.png" alt="examples" width="900px">
 <br>
 
 Detta inträffar på ett antal ställen i min kod, och även om jag jobbar med att höja abstraktionsnivån i de allra flesta metoder, måste denna typen av kod ligga någonstans.
 Jag föredrar i dessa fall att skapa lokala variabler, för ökad _readability_, och kompromissar alltså bort regeln _small_.
+I ovan exempel har jag även försökt **Use Descriptive Name**, vilket som tidigare nämnts är fallet genomgående i hela kodbasen.
 
-## Clean Code
+### Kapitel 4
+Jag använder inga radkommentarer överhuvudtaget i detta projekt. 
+Min målsättning är och har varit att **Explain Yourself in Code**.
+Alltså, 
+
+Jag använder dock JSDocs till alla mina metoder. Efter att ha läst boken märker jag hur jag inte behöver skriva lång förklaringar ovanför varje metod, utan bara kortare beskrivningar, som i ärlighetens namn även de kan kännas överflödiga.
+
+Så dessvärre använder jag mig i mitt tycke i vissa fall av **Redundant comments**, som tar längre tid att läsa än själva koden. 
+
+Min känsla är dock att jag har utvecklats på detta och försöker har förklaringar så korta som möjligt och inte förklara samma sak som koden själv är menad att förklara. 
+
+Jag försöker använda kommentarerna för att förklara typer och argument för att underlätta för utvecklare som ska använda metoden efter mig. 
+
+Jag har slutat skriva förklaringar till parametrar som är självförklarande. 
+Exempel:
+
+<br>
+<img src="./img/code-examples/code-example-4.png" alt="examples" width="900px">
+<br>
+
+
+### Kapitel 5
+För att bibehålla en god struktur på koden, använder jag mig av en automatisk formaterare, precis som föreslås i boken. 
+
+När jag själv läser kod tycker jag att de viktigaste sakerna är **Vertical Density** , **Vertical Distance** , **Indentation**.
+
+Dessa parametrar gör koden mycket "luftigare" och _extremt_ mycket lättare/effektivare att läsa.
+
+
+Har även haft som målsättning att följa regeln för **Dependant Functions**, och lägga funktioner som är beroende av varandra så nära varandra som möjligt, för att undvika att man ska behöva leta eller söka efter en funktion som kallas inuti en annan. 
+
+Nedan är ett exempel på alla koncept från boken som tagits upp i min reflektion för kapitel 5: 
+<br>
+<img src="./img/code-examples/code-example-5.png" alt="examples" width="900px">
+<br>
+
+### Kapitel 6
+
+### Kapitel 7
+
+### Kapitel 8
+
+### Kapitel 9
+
+### Kapitel 10
+
+### Kapitel 11
 

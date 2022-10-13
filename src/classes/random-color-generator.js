@@ -16,24 +16,24 @@ export class RandomColorGenerator {
   }
 
   /**
-   * Returns CSS code, represning a color.
+   * Sets the current color.
+   *
+   * @param {string} newColor - The new color to set.
+   */
+  #setColor (newColor) {
+    while (this.#color !== newColor) {
+      this.#color = newColor
+    }
+  }
+
+  /**
+   * Returns CSS code represnting a color.
    *
    * @returns {string} - The random color as CSS code.
    */
   getRandomColor () {
     this.#setColor(Object.values(CssColors)[this.#getRandomNumber()])
     return this.#color
-  }
-
-  /**
-   * Sets the current color.
-   *
-   * @param {*} newColor - The new color to set.
-   */
-  #setColor (newColor) {
-    while (this.#color !== newColor) {
-      this.#color = newColor
-    }
   }
 
   /**
