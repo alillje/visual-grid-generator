@@ -112,8 +112,18 @@ Jag har använt automatisk och manuelt testning. Nedan beskrivs krav, testspecif
 
 ## Automatic Unit Tests 
 
+### Test suite 4
+* Date 13/10 2022
+* version (git commit hash) e7c6939e1ee16c4a987ce96f70dc2f31335b5a46
+
+*Notes:* Fix tests that previously failed, added more unit tests.
+
+<img src="./img/test-suites/13oct22-2.png" alt="Test suite" width="400px"></img>
+
+
+
 ### Test suite 3
-* Date 12/10 2022
+* Date 13/10 2022
 * version (git commit hash) ea4c16bdfc19e64623203bab7c096908d10c10c6
 
 *Notes:* Refactor some functions that now fail their tests, need to re-implementerat these tests to the new code.
