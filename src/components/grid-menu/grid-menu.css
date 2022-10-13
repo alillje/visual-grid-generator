@@ -4,7 +4,6 @@
   grid-template-columns: 1fr;
   grid-row-gap: 5px;
   grid-column-gap: 5px;
-;
 }
 
 .gridMenuContainer {
@@ -32,4 +31,37 @@
   color: #d75656;
   padding: 0px 2px 6px 2px;
   font-size: 14px;
+}
+
+@media screen and (max-width: 1200px) {
+  .gridMenuWrapper {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-row-gap: 5px;
+    grid-column-gap: 5px;
+    
+  }
+
+  .gridMenuContainer {
+    grid-area: 1 / 1 / 1 / 1;
+    height: 450px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: none;
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+
+  .gridMenuContainer {
+    grid-area: 1 / 1 / 2 / 1;
+    height: 510px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
 }
