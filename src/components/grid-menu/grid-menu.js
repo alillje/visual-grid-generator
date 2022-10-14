@@ -1,11 +1,11 @@
-import * as React from 'react'
 import './grid-menu.css'
-import { Validator } from '../../classes/validator.js'
+import * as React from 'react'
 import { useState, useEffect } from 'react'
 import FormControl from '@mui/material/FormControl'
 import OutlinedInput from '@mui/material/OutlinedInput'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
+import { useSelector, useDispatch } from 'react-redux'
 import { setAmountOfRows, globalSetRowGap } from '../../redux/reducers/rows'
 import {
   setAmountOfColumns,
@@ -13,7 +13,7 @@ import {
 } from '../../redux/reducers/columns'
 import { gridReset } from '../../redux/reducers/grid-reset'
 import { setViewCssCode } from '../../redux/reducers/css-code'
-import { useSelector, useDispatch } from 'react-redux'
+import { Validator } from '../../classes/validator.js'
 
 /**
  * GridMenu Component.
@@ -85,12 +85,7 @@ const GridMenu = () => {
   const sendGridValuesToGlobalState = () => {
     try {
       userInputAreValidNumbers()
-      validator.isBiggerThanMaxAmmount(numberOfRows)
-      validator.isBiggerThanMaxAmmount(numberOfColumns)
-      validator.isPositive(numberOfRows)
-      validator.isPositive(numberOfColumns)
-      validator.isNotNegative(rowGap)
-      validator.isNotNegative(columnGap)
+      validateAllUserInputNumbers()
       sendRowAmmountToGlobalState()
       sendColumnAmmountToGlobalState()
       sendRowGapToGlobalState()
@@ -99,6 +94,18 @@ const GridMenu = () => {
     } catch (error) {
       setErrorMessage(error.message)
     }
+  }
+
+  /**
+   * Validates all user input numbers by calling the Validator class.
+   */
+  const validateAllUserInputNumbers = () => {
+    validator.isBiggerThanMaxAmmount(numberOfRows)
+    validator.isBiggerThanMaxAmmount(numberOfColumns)
+    validator.isPositive(numberOfRows)
+    validator.isPositive(numberOfColumns)
+    validator.isNotNegative(rowGap)
+    validator.isNotNegative(columnGap)
   }
 
   /**
