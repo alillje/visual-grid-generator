@@ -61,3 +61,6 @@ Want to contribute?
 * Implement tests for new feature.
 * Run tests.
 * Create a pull request.
+<br>
+<br>
+*Copyright (c) 2022 Andreas Lillje*
