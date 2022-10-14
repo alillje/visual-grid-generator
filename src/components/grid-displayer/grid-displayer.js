@@ -39,7 +39,6 @@ const GridDisplayer = () => {
   const [startColumn, setStartColumn] = useState(0)
   const [templateBoxNumber, setTemplateBoxNumber] = useState(1)
   const [userIsSelectingAnArea, setUserIsSelectingAnArea] = useState(false)
-  let classNames = childElementCalculator.getClassNames()
   let endRow
   let endColumn
 
@@ -49,6 +48,30 @@ const GridDisplayer = () => {
   const setGridDimensions = () => {
     rowCalculator.setRows(numberOfRows)
     columnCalculator.setColumns(numberOfColumns)
+  }
+
+  /**
+   * Sets the parent grid element dimensions.
+   */
+  const setParentElementGrid = () => {
+    clearGridFromChildElements()
+    setGridDimensions()
+    gridlify.setGrid(createGrid(), '.gridDisplayerContainer')
+  }
+
+  /**
+   * Clears the grid from all children elements by calling ChildElementCalculator.
+   */
+  const clearGridFromChildElements = () => {
+    childElementCalculator.removeChildElements('.templateBox')
+  }
+
+  /**
+   * Sets positions for children elemnts by calling the Child Element Calculator.
+   */
+  const setPositionsForChildElementsInGridLayout = () => {
+    childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
+    childElementCalculator.setChildElementCoordinates(numberOfRows, numberOfColumns)
   }
 
   /**
@@ -77,23 +100,6 @@ const GridDisplayer = () => {
       endRow: parseInt(endRow) + 1,
       endColumn: parseInt(endColumn) + 1
     }
-  }
-
-  /**
-   * Sets the parent grid element dimensions.
-   */
-  const setParentElementGrid = () => {
-    clearGridFromChildElements()
-    setGridDimensions()
-    gridlify.setGrid(createGrid(), '.gridDisplayerContainer')
-    childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
-  }
-
-  /**
-   * Clears the grid from all children elements by calling ChildElementCalculator.
-   */
-  const clearGridFromChildElements = () => {
-    childElementCalculator.removeChildElements('.templateBox')
   }
 
   /**
@@ -168,17 +174,28 @@ const GridDisplayer = () => {
   }
 
   /**
-   * Sets positions for children elemnts in the parent element grid layout.
+   * Sends the CSS code representation for the parent element
+   * representing the main layout area to the global state.
    */
-  const setPositionsForChildElementsInGridLayout = () => {
-    classNames = childElementCalculator.getClassNames()
-    let count = 0
-    for (let i = 0; i < numberOfRows; i++) {
-      for (let j = 0; j < numberOfColumns; j++) {
-        gridlify.setPosition({ startRow: i + 1, startColumn: j + 1 }, `.${classNames[count]}`)
-        count++
-      }
-    }
+  const sendParentCssCodeToGlobalState = () => {
+    setGridDimensions()
+    dispatch(
+      setParentCssCode({
+        parentCss: gridlify.getGridCss({ rows: rowCalculator.getRows(), columns: columnCalculator.getColumns(), rowGap, columnGap })
+      })
+    )
+  }
+
+  /**
+   * Sends the CSS code representation for the child elements
+   * representing the selected areas to the global state.
+   */
+  const sendChildrenCssCodeToGlobalState = () => {
+    dispatch(
+      setChildrenCssCode({
+        childrenCss: childElementCalculator.getChildrenPositionsAsCssCode('.templateBox')
+      })
+    )
   }
 
   /**
@@ -240,31 +257,6 @@ const GridDisplayer = () => {
   }
 
   /**
-   * Sends the CSS code representation for the parent element
-   * representing the main layout area to the global state.
-   */
-  const sendParentCssCodeToGlobalState = () => {
-    setGridDimensions()
-    dispatch(
-      setParentCssCode({
-        parentCss: gridlify.getGridCss({ rows: rowCalculator.getRows(), columns: columnCalculator.getColumns(), rowGap, columnGap })
-      })
-    )
-  }
-
-  /**
-   * Sends the CSS code representation for the child elements
-   * representing the selected areas to the global state.
-   */
-  const sendChildrenCssCodeToGlobalState = () => {
-    dispatch(
-      setChildrenCssCode({
-        childrenCss: childElementCalculator.getChildrenPositionsAsCssCode('.templateBox')
-      })
-    )
-  }
-
-  /**
    * React useEffect callback method re-renders the component when
    * one of the values in the `Dependency Array`is updated or changed.
    */
@@ -284,7 +276,7 @@ const GridDisplayer = () => {
 
   return (
       <div className="gridDisplayerContainer" onMouseDown={(event) => setStartCoordinates(event)} onMouseUp={(event) => setEndCoordinates(event)}>
-        {classNames.map((className) => {
+        {childElementCalculator.getClassNames().map((className) => {
           return (
           <div key={childElementCalculator.getClassNames().indexOf(className)} className={`gridBox ${className}`}></div>
           )

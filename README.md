@@ -4,6 +4,7 @@
 
 ## CSS Grids made easy
 Ever struggled with building layouts for your website?
+<br>
 **Visual Grid Generator** is the easiest and fastest way for web developers to create a CSS Layout.
 
 With **Visual Grid Generator**, you can build your layouts visually, and generate the CSS code you need. 
@@ -15,6 +16,7 @@ With **Visual Grid Generator**, you can build your layouts visually, and generat
 * Get the CSS code for the entire layout and all child elements.
 
 Starting in web development, I found that setting grids with CSS could be confusing and complicated. 
+<br>
 The purpose of this application is to provide a way to start building grid layouts in an easy manner. 
 
 To read more about CSS Grid Layouts, check out <a href="https://www.w3schools.com/css/css_grid.asp" alt="W3Schools" target="_blank">W3Schools</a>.
@@ -24,7 +26,7 @@ To read more about CSS Grid Layouts, check out <a href="https://www.w3schools.co
 <br>
 
 ## Supported web browsers
-Browsers supported include: 
+Browsers currently supported include: 
 
 * Chrome
 
@@ -36,10 +38,12 @@ This project was build with Javascript using <a href="https://reactjs.org/" targ
 In the project directory, you can run:
 
 ### `npm install`
+
 Installs all necessary dependencies for the project.
 
 ### `npm start`
 
+Make sure to run npm install before running this script. 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
