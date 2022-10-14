@@ -7,6 +7,73 @@ Jag har använt automatisk och manuelt testning. Nedan beskrivs krav, testspecif
 
 ## Manual testning
 
+### Test Suite 3
+* Date 13/10 2022
+* Version (git commit hash) 6cfaee85844e86536497cdbb8986e37591f0ca4f
+
+#### Notes
+- TC8.1 & TC8.2 FAILS. User is able to select from right to left and down to up with should not be possible.
+
+| Test      | 1 |
+| --------- |:----:|
+| TC1.1     | OK |
+| TC1.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK 
+
+| Test      | 2 |
+| --------- |:----:|
+| TC2.1     | OK |
+| TC2.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK 
+
+| Test      | 3 |
+| --------- |:----:|
+| TC3.1     | OK |
+| TC3.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK 
+
+| Test      | 4 |
+| --------- |:----:|
+| TC4.1     | OK |
+| TC4.2     | O |
+| COVERAGE & SUCCESS   | 1/2 OK 
+
+| Test      | 5 |
+| --------- |:----:|
+| TC5.1     | OK |
+| TC5.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK
+
+| Test      | 6 |
+| --------- |:----:|
+| TC6.1     | OK |
+| TC6.2     | OK |
+| TC6.3     | OK |
+| TC6.4     | OK |
+| COVERAGE & SUCCESS   | 4/4 OK
+
+| Test      | 7 |
+| --------- |:----:|
+| TC7.1     | OK |
+| TC7.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK
+
+| Test      | 8 |
+| --------- |:----:|
+| TC8.1     | FAIL |
+| TC8.2     | FAIL |
+| TC8.3     | OK |
+| COVERAGE & SUCCESS   | 2/3 OK
+
+| Test      | 9 |
+| --------- |:----:|
+| TC9.1     | OK |
+| TC9.2     | OK |
+| TC9.3     | OK |
+| TC9.4     | OK |
+| COVERAGE & SUCCESS   | 4/4 OK
+
+
 ### Test Suite 2
 * Date 13/10 2022
 * Version (git commit hash) ea4c16bdfc19e64623203bab7c096908d10c10c6
@@ -114,9 +181,11 @@ Jag har använt automatisk och manuelt testning. Nedan beskrivs krav, testspecif
 
 ### Test suite 7
 * Date 14/10 2022
-* version (git commit hash) 
+* version (git commit hash) 6cfaee85844e86536497cdbb8986e37591f0ca4f
 
-*Notes:* 
+*Notes:* Fixed the test script that was run and threw an error in last test suite. Implemented new tests for new methods.
+
+<img src="./img/test-suites/14oct22-2.png" alt="Test suite" width="400px"></img>
 
 
 ### Test suite 6
