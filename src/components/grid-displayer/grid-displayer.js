@@ -11,7 +11,7 @@ import { setParentCssCode, setChildrenCssCode } from '../../redux/reducers/css-c
 import { RandomColorGenerator } from '../../classes/random-color-generator.js'
 import { RowCalculator } from '../../classes/row-calculator.js'
 import { ColumnCalculator } from '../../classes/column-calculator.js'
-import { ChildElementCalculator } from '../../classes/child-element-calculator'
+import { ChildElementController } from '../../classes/child-element-controller'
 import { Validator } from '../../classes/validator.js'
 import { gridlify } from '../../../node_modules/gridlify/lib/index.js'
 
@@ -29,8 +29,8 @@ const GridDisplayer = () => {
   const rowCalculator = new RowCalculator()
   const columnCalculator = new ColumnCalculator()
   const validator = new Validator()
-  const childElementCalculator = new ChildElementCalculator()
-  childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
+  const childElementController = new ChildElementController()
+  childElementController.setNumberOfChildElements(numberOfRows * numberOfColumns)
   const rowGap = useSelector((state) => state.rows.rowGap)
   const columnGap = useSelector((state) => state.columns.columnGap)
   const userHasResetGrid = useSelector((state) => state.gridReset.reset)
@@ -63,15 +63,15 @@ const GridDisplayer = () => {
    * Clears the grid from all children elements by calling ChildElementCalculator.
    */
   const clearGridFromChildElements = () => {
-    childElementCalculator.removeChildElements('.templateBox')
+    childElementController.removeChildElements('.templateBox')
   }
 
   /**
    * Sets positions for children elemnts by calling the Child Element Calculator.
    */
   const setPositionsForChildElementsInGridLayout = () => {
-    childElementCalculator.setNumberOfChildElements(numberOfRows * numberOfColumns)
-    childElementCalculator.setChildElementCoordinates(numberOfRows, numberOfColumns)
+    childElementController.setNumberOfChildElements(numberOfRows * numberOfColumns)
+    childElementController.setChildElementCoordinates(numberOfRows, numberOfColumns)
   }
 
   /**
@@ -110,8 +110,8 @@ const GridDisplayer = () => {
   const setStartCoordinates = (event) => {
     if (!validator.isAlreadySelected(event.target)) {
       setUserIsSelectingAnArea(true)
-      setStartRow(childElementCalculator.getStartRowPosition(event.target))
-      setStartColumn(childElementCalculator.getStartColumnPosition(event.target))
+      setStartRow(childElementController.getStartRowPosition(event.target))
+      setStartColumn(childElementController.getStartColumnPosition(event.target))
     }
   }
 
@@ -135,8 +135,8 @@ const GridDisplayer = () => {
   const setEndCoordinates = (event) => {
     if (userIsSelectingAnArea && !validator.isAlreadySelected(event.target) && !endIsLessThanStartCoordinate(event.target)) {
       createAndAppendChildElement()
-      setRowEndCoordinate(childElementCalculator.getEndRowPosition(event.target))
-      setColumnEndCoordinate(childElementCalculator.getEndColumnPosition(event.target))
+      setRowEndCoordinate(childElementController.getEndRowPosition(event.target))
+      setColumnEndCoordinate(childElementController.getEndColumnPosition(event.target))
       gridlify.setPosition(createPositions(), `#box${templateBoxNumber}`)
       setTemplateBoxNumber(templateBoxNumber + 1)
     }
@@ -168,8 +168,8 @@ const GridDisplayer = () => {
    * @returns {boolean} true if start row and column are bigger than end values.
    */
   const endIsLessThanStartCoordinate = (htmlElement) => {
-    const invalidRowCordinates = validator.endIsLessThanStartValue(startRow, childElementCalculator.getEndRowPosition(htmlElement))
-    const invalidColumnCordinates = validator.endIsLessThanStartValue(startColumn, childElementCalculator.getEndColumnPosition(htmlElement))
+    const invalidRowCordinates = validator.endIsLessThanStartValue(startRow, childElementController.getEndRowPosition(htmlElement))
+    const invalidColumnCordinates = validator.endIsLessThanStartValue(startColumn, childElementController.getEndColumnPosition(htmlElement))
     return invalidRowCordinates && invalidColumnCordinates
   }
 
@@ -193,7 +193,7 @@ const GridDisplayer = () => {
   const sendChildrenCssCodeToGlobalState = () => {
     dispatch(
       setChildrenCssCode({
-        childrenCss: childElementCalculator.getChildrenPositionsAsCssCode('.templateBox')
+        childrenCss: childElementController.getChildrenPositionsAsCssCode('.templateBox')
       })
     )
   }
@@ -276,9 +276,9 @@ const GridDisplayer = () => {
 
   return (
       <div className="gridDisplayerContainer" onMouseDown={(event) => setStartCoordinates(event)} onMouseUp={(event) => setEndCoordinates(event)}>
-        {childElementCalculator.getClassNames().map((className) => {
+        {childElementController.getClassNames().map((className) => {
           return (
-          <div key={childElementCalculator.getClassNames().indexOf(className)} className={`gridBox ${className}`}></div>
+          <div key={childElementController.getClassNames().indexOf(className)} className={`gridBox ${className}`}></div>
           )
         })}
       </div>

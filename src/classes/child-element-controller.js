@@ -3,7 +3,7 @@ import { gridlify } from '../../node_modules/gridlify/lib/index.js'
 /**
  * ChildElementCalculator class, responsible for calculating child element properties.
  */
-export class ChildElementCalculator {
+export class ChildElementController {
   #numberOfChildElements
   /**
    * Sets the number of child elements.

@@ -1,10 +1,10 @@
-import * as React from 'react'
 import './grid-container.css'
+import * as React from 'react'
 import GridDisplayer from '../grid-displayer/grid-displayer'
 
 /**
- * GridBox Component.
- * Displays a grid box.
+ * GridContainer Component.
+ * Displays a grid container component.
  *
  * @returns {React.ReactElement} - GridBox Component.
  */
