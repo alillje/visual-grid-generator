@@ -1,5 +1,5 @@
-import * as React from 'react'
 import './footer.css'
+import * as React from 'react'
 
 /**
  * Footer Component.

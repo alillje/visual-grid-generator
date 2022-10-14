@@ -1,7 +1,9 @@
+import { gridlify } from '../../node_modules/gridlify/lib/index.js'
+
 /**
- * ColumnCalculator class, responsible for calculating child element properties.
+ * ChildElementCalculator class, responsible for calculating child element properties.
  */
-export class ChildElementCalculator {
+export class ChildElementController {
   #numberOfChildElements
   /**
    * Sets the number of child elements.
@@ -10,6 +12,23 @@ export class ChildElementCalculator {
    */
   setNumberOfChildElements (numberOfChildElements) {
     this.#numberOfChildElements = numberOfChildElements
+  }
+
+  /**
+   * Sets positions for children elemnts
+   * based on the number of rows and cols in the parent element grid layout
+   *
+   * @param {number} numberOfRows *
+   * @param {number} numberOfColumns *
+   */
+  setChildElementCoordinates (numberOfRows, numberOfColumns) {
+    let count = 0
+    for (let i = 0; i < numberOfRows; i++) {
+      for (let j = 0; j < numberOfColumns; j++) {
+        gridlify.setPosition({ startRow: i + 1, startColumn: j + 1 }, `.${this.getClassNames()[count]}`)
+        count++
+      }
+    }
   }
 
   /**

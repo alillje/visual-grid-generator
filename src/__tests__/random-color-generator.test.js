@@ -1,4 +1,4 @@
-import { CssColors } from '../classes/enum/colors.js'
+import { CssColors } from '../classes/enum/css-colors.js'
 import { RandomColorGenerator } from '../classes/random-color-generator.js'
 const randomColorGenerator = new RandomColorGenerator()
 

@@ -1,10 +1,10 @@
 import './layout.css'
 import * as React from 'react'
+import { useSelector } from 'react-redux'
 import Header from '../header/header'
 import GridMenu from '../grid-menu/grid-menu'
 import Footer from '../footer/footer'
 import InfoDisplayer from '../info-displayer/info-displayer'
-import { useSelector } from 'react-redux'
 import CssCodeDisplayer from '../css-code-displayer/css-code-displayer'
 
 /**

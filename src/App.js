@@ -1,5 +1,5 @@
-import * as React from 'react'
 import './App.css'
+import * as React from 'react'
 import Layout from './components/layout/layout'
 import GridContainer from './components/grid-container/grid-container'
 

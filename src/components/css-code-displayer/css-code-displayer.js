@@ -4,12 +4,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setViewCssCode } from '../../redux/reducers/css-code'
 
 /**
- * CssCodeDisplayer Component.
+ * CssCodeDisplayer Component, displays a CssCodeDisplayer.
  *
- * @param {React.ReactElement} children - The React Element to insert into the component.
- * @returns {React.ReactElement} - Layout Component.
+ * @returns {React.ReactElement} - CssCodeDisplayer Component.
  */
-const CssCodeDisplayer = ({ children }) => {
+const CssCodeDisplayer = () => {
   const dispatch = useDispatch()
   const parentCssCode = useSelector((state) => state.csscode.parentCss)
   const childrenCssCode = useSelector((state) => state.csscode.childrenCss)

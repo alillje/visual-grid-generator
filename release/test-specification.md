@@ -7,16 +7,23 @@ Automatic unit tests are defined in the `test`-folder, in the root of the projec
 
 The automatic unit test, tests the following requriements:
 
-* Example req
-* Example req
-* Example req
+* 1
+* 2
+* 4
+* 6
+* 7
+* 8
+* 9
+* 10
+* 11
+* 12
 
 
 ### Manual Tests
 _________
 
 *Prerequisites*
-If not already done, run the `npm install`command in the terminal.
+If not already done, run the `npm install` command in the terminal.
 
 In development, start the application by running the `npm start` command in the terminal.
 
@@ -150,9 +157,6 @@ In development, start the application by running the `npm start` command in the 
 1. The grid should be reset to its initial state, as follows:
 <br>
 <img src="./img/test-examples/test-11.png" width="500px" alt="test"><img>
-2. The menu should be reset to its initial state, as follows:
-<br>
-<img src="./img/test-examples/test-12.png" height="400px" alt="test"><img>
 
 ## TC5 Selecting an already selected area
 
