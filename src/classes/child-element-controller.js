@@ -57,7 +57,7 @@ export class ChildElementController {
       const htmlId = childrenElement.getAttribute('id')
       const styleAttributes = childrenElement.getAttribute('style')
       const positionCss = styleAttributes.substring(styleAttributes.length - 25)
-      const childrenElementPosition = `${htmlId} { ${positionCss} }; `
+      const childrenElementPosition = `${htmlId} { ${positionCss} } `
       childrenElementPositions.push(childrenElementPosition)
     }
     return childrenElementPositions
