@@ -67,4 +67,4 @@ Want to contribute?
 * Create a pull request.
 <br>
 <br>
-*Copyright (c) 2022 Andreas Lillje*
+Copyright (c) 2022 Andreas Lillje

@@ -1,5 +1,9 @@
 ## Reflektion
 
+*Applikationen är driftsatt här*
+<br>
+https://visual-grid-generator.netlify.app/ 
+
 ### Inledning
 Inledningsvis vill jag påtala det uppenbara. 
 Jag har använt ett front-end ramverk för att skapa gränssnittet för denna applikation.
