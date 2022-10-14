@@ -244,6 +244,17 @@ Jag har använt automatisk och manuelt testning. Nedan beskrivs krav, testspecif
 
 ## Automatic Unit Tests
 
+
+
+### Test suite 7
+* Date 14/10 2022
+* version (git commit hash) 8237dc5ecb34d50d05f632fccda66e64134dd8a3
+
+*Notes:* Test fails, further investigation.
+
+<img src="./img/test-suites/14oct22-3.png" alt="Test suite" width="400px"></img>
+
+
 ### Test suite 7
 * Date 14/10 2022
 * version (git commit hash) 6cfaee85844e86536497cdbb8986e37591f0ca4f

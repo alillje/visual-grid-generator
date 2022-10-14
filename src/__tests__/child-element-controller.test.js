@@ -42,7 +42,6 @@ describe('Validates if end column position values can be get correctly', () => {
 describe('Validates if start row position values can be get correctly', () => {
   test('Should be 1', () => {
     const div = document.createElement('div')
-    div.style.backgroundColor = 'rgb(153, 0, 153)'
     div.style.gridArea = '1 / 3 / 3 / 5'
     expect(
       childElementController.getStartRowPosition(div)
@@ -50,7 +49,6 @@ describe('Validates if start row position values can be get correctly', () => {
   })
   test('Should be 2', () => {
     const div = document.createElement('div')
-    div.style.backgroundColor = 'rgb(153, 0, 153)'
     div.style.gridArea = '2 / 6 / 6 / 7'
     expect(
       childElementController.getStartRowPosition(div)
