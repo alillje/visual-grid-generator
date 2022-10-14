@@ -170,7 +170,7 @@ const GridDisplayer = () => {
   const endIsLessThanStartCoordinate = (htmlElement) => {
     const invalidRowCordinates = validator.endIsLessThanStartValue(startRow, childElementController.getEndRowPosition(htmlElement))
     const invalidColumnCordinates = validator.endIsLessThanStartValue(startColumn, childElementController.getEndColumnPosition(htmlElement))
-    return invalidRowCordinates && invalidColumnCordinates
+    return invalidRowCordinates || invalidColumnCordinates
   }
 
   /**
