@@ -77,22 +77,6 @@ describe('Validates if start column position values can be get correctly', () =>
   })
 })
 
-describe('Validates if html elements are removed from the DOM', () => {
-  test('All child elements have been removed', () => {
-    const body = document.querySelector('body')
-    const div = document.createElement('div')
-    const div2 = document.createElement('div')
-    body.appendChild(div)
-    body.appendChild(div2)
-    div.setAttribute('class', 'theTestingClass')
-    div2.setAttribute('class', 'theTestingClass')
-    childElementController.removeChildElements('.theTestingClass')
-    expect(
-      body.childElementCount
-    ).toBe(0)
-  })
-})
-
 describe('Validates if css code can be generated from a html identifier', () => {
   test('Should get an array of css code for each html element', () => {
     const body = document.querySelector('body')
@@ -129,5 +113,38 @@ describe('Validates if an array of classnames can be generate from number of ele
     expect(
       childElementController.getClassNames().length
     ).toBe(50)
+  })
+})
+
+describe('Validates if child element coordinates are set correctly', () => {
+  const body = document.querySelector('body')
+  for (let i = 1; i <= 25; i++) {
+    const div = document.createElement('div')
+    div.setAttribute('class', `child${i}`)
+    body.appendChild(div)
+  }
+  childElementController.setNumberOfChildElements(25)
+  childElementController.setChildElementCoordinates(5, 5)
+  test('Should position an html element', () => {
+  })
+  expect(
+    document.querySelector('.child1').outerHTML
+  ).toBe('<div class="child1" style="grid-row: 1 / 1; grid-column: 1 / 1;"></div>')
+})
+
+describe('Validates if html elements are removed from the DOM', () => {
+  test('All child elements have been removed', () => {
+    document.body.innerHTML = ''
+    const body = document.querySelector('body')
+    const div = document.createElement('div')
+    const div2 = document.createElement('div')
+    body.appendChild(div)
+    body.appendChild(div2)
+    div.setAttribute('class', 'theTestingClass')
+    div2.setAttribute('class', 'theTestingClass')
+    childElementController.removeChildElements('.theTestingClass')
+    expect(
+      body.childElementCount
+    ).toBe(0)
   })
 })
