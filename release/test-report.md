@@ -110,7 +110,23 @@ Jag har använt automatisk och manuelt testning. Nedan beskrivs krav, testspecif
 | TC5.2     | OK |
 | COVERAGE & SUCCESS   | 2/2 OK
 
-## Automatic Unit Tests 
+## Automatic Unit Tests
+
+### Test suite 7
+* Date 14/10 2022
+* version (git commit hash) 
+
+*Notes:* 
+
+
+### Test suite 6
+* Date 14/10 2022
+* version (git commit hash) e53ed4eed609231951e1e276c609ce50f69e08d5
+
+*Notes:* After code refactoring, i ran the test suite. Failed some test. Will investigate and report.
+
+<img src="./img/test-suites/14oct22-1.png" alt="Test suite" width="400px"></img>
+
 
 ### Test suite 5
 * Date 13/10 2022
