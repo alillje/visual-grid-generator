@@ -1,3 +1,7 @@
+/**
+ * @author Andreas Lillje <a.lillje@gmail.com>
+ */
+
 import './header.css'
 import * as React from 'react'
 import Logo from './img/visual-grid-generator-logo.png'

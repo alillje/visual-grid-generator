@@ -1,7 +1,11 @@
+/**
+ * @author Andreas Lillje <a.lillje@gmail.com>
+ */
+
 import { gridlify } from '../../node_modules/gridlify/lib/index.js'
 
 /**
- * ChildElementCalculator class, responsible for calculating child element properties.
+ * ChildElementCalculator class, responsible for controlling child element properties.
  */
 export class ChildElementController {
   #numberOfChildElements

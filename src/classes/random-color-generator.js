@@ -1,7 +1,11 @@
+/**
+ * @author Andreas Lillje <a.lillje@gmail.com>
+ */
+
 import { CssColors } from './enum/css-colors.js'
 
 /**
- * RandomColorGenerator class, responsible for generating a random color.
+ * RandomColorGenerator class, responsible for generating random colors.
  */
 export class RandomColorGenerator {
   /**

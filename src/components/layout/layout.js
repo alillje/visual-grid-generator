@@ -1,3 +1,7 @@
+/**
+ * @author Andreas Lillje <a.lillje@gmail.com>
+ */
+
 import './layout.css'
 import * as React from 'react'
 import { useSelector } from 'react-redux'

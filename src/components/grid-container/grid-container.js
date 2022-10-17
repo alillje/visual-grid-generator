@@ -1,3 +1,7 @@
+/**
+ * @author Andreas Lillje <a.lillje@gmail.com>
+ */
+
 import './grid-container.css'
 import * as React from 'react'
 import GridDisplayer from '../grid-displayer/grid-displayer'

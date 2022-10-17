@@ -43,7 +43,7 @@
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
   .layoutContainer {
     width: 100%;
     height: 100%;
@@ -69,13 +69,13 @@
   .layoutFooter {
     grid-area: 5 / 1 / 6 / 6;
   }
-  
+
   .layoutInfo {
     grid-area: 4 / 2 / 4 / 5;
   }
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 900px) {
   .layoutContainer {
     width: 100%;
     height: 100%;
@@ -92,7 +92,7 @@
     grid-area: 1 / 0 / 3 / 1;
     margin-bottom: 50px;
   }
-  
+
   .layoutRight {
     grid-area: 3 / 1 / 4 / 7;
   }
@@ -100,7 +100,7 @@
   .layoutFooter {
     grid-area: 5 / 2 / 6 / 3;
   }
-  
+
   .layoutInfo {
     grid-area: 4 / 2 / 4 / 3;
   }

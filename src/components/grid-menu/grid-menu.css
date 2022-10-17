@@ -22,7 +22,6 @@
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   background-color: #1e1e1e;
   padding-bottom: 10px;
-
 }
 
 .errorMessageContainer {
@@ -41,7 +40,6 @@
     grid-template-columns: 1fr;
     grid-row-gap: 5px;
     grid-column-gap: 5px;
-    
   }
 
   .gridMenuContainer {
@@ -58,9 +56,7 @@
   }
 }
 
-
 @media screen and (max-width: 900px) {
-
   .gridMenuContainer {
     grid-area: 1 / 1 / 2 / 1;
     height: 510px;
