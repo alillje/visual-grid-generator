@@ -34,6 +34,8 @@ Browsers currently supported include:
 
 ## Development
 
+**Development notes can be found separately in DEVELOPER.md in the root of the project.**
+
 This project was build with Javascript using <a href="https://reactjs.org/" target="_blank">React</a> version 18.2.0.
 In the project directory, you can run:
 
@@ -55,6 +57,18 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+## Reflection
+reflection.md is located in the `./release`-folder
+
+## Tests
+test-specification.md is located in the `./release`-folder
+<br>
+test-report.md is located in the `./release`-folder
+
+## Requirements
+test-specification.md is located in the `./release`-folder.
+<br>
+test-report.md is located in the `./release`-folder.
 
 ## Contributing
 
