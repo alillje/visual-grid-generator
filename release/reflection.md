@@ -31,7 +31,13 @@ Mina rena Javascript-klasser ligger i en egen map `./src/classes`
 Den största delen av Javascript som finns i React-komponenterna finns i `./src/components/grid-displayer/grid-displayer.js`
 I början av denna komponent (GridDisplayer) sätts ett antal konstanter, något som är nödvändigt i detta fall då jag jobbar med React, men ser man förbi det, hoppas jag att man kan titta på metoderna i komponenterna och förstå vad de gör och att jag lagt ned mycket tid till att fundera på hur detta ska framställas så enkelt som möjligt och hur jag har försökt att jobba på en hög abstraktionsnivå.
 
-Mitt paket från L! `gridlify`, används i `./src/components/grid-displayer/grid-displayer.js`.
+Mitt paket från L1, `gridlify` (https://github.com/alillje/gridlify), används i `./src/classes/child-element-controller.js` samt i `./src/components/grid-displayer/grid-displayer.js`.
+
+### Krav
+Alla krav finns beskrivna i `./src/release/requirements.md` 
+
+### Testning
+Alla automatiska tester, alla manuella test-fall och testrapport finns att hitta i `./src/release/test-specification.md` samt `./src/release/test-report`.
 
 ## Clean Code
 

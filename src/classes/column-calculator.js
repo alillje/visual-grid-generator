@@ -1,5 +1,9 @@
 /**
- * ColumnCalculator class, responsible for calculate the rows.
+ * @author Andreas Lillje <a.lillje@gmail.com>
+ */
+
+/**
+ * ColumnCalculator class, responsible for calculating column values.
  */
 export class ColumnCalculator {
   #columns

@@ -1,3 +1,7 @@
+/**
+ * @author Andreas Lillje <a.lillje@gmail.com>
+ */
+
 import './info-displayer.css'
 import * as React from 'react'
 

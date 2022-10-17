@@ -1,5 +1,9 @@
 /**
- * RowCalculator class, responsible for calculate the rows.
+ * @author Andreas Lillje <a.lillje@gmail.com>
+ */
+
+/**
+ * RowCalculator class, responsible for calculate row values.
  */
 export class RowCalculator {
   #rows

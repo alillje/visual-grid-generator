@@ -1,3 +1,10 @@
+/**
+ * @author Andreas Lillje <a.lillje@gmail.com>
+ */
+
+/**
+ * Validator class, responsible for validating various values.
+ */
 export class Validator {
   #maxAmmount
 

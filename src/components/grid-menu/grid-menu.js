@@ -1,3 +1,7 @@
+/**
+ * @author Andreas Lillje <a.lillje@gmail.com>
+ */
+
 import './grid-menu.css'
 import * as React from 'react'
 import { useState, useEffect } from 'react'

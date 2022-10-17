@@ -1,3 +1,7 @@
+/**
+ * @author Andreas Lillje <a.lillje@gmail.com>
+ */
+
 import './css-code-displayer.css'
 import * as React from 'react'
 import { useSelector, useDispatch } from 'react-redux'

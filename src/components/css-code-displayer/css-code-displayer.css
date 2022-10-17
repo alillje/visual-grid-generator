@@ -23,24 +23,24 @@
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border: 1px solid #878af15c;
   border: 0.5px solid rgba(97, 142, 150, 0.377);
-  /* border-image: linear-gradient(45deg, #c5be39, rgb(194, 20, 43)) 10; */
   border-radius: 20px;
 }
 
 .parentCssContainer {
   grid-area: 2 / 2 / 3 / 5;
-  color: #ecf7b3;
-  background-color: #34304a;
+  color: #f1f2d9;
+  background-color: #2b2a34;
   border-radius: 10px;
   padding: 5px;
   border: 1px solid #e6f0ba26;
+  letter-spacing: 0.7px;
 }
 
 .childrenCssContainer {
   grid-area: 4 / 2 / 5 / 5;
-  color: #ecf7b3;
+  color: #f1f2d9;
   overflow: scroll;
-  background-color: #34304a;
+  background-color: #2b2a34;
   border-radius: 10px;
   padding: 5px;
   border: 1px solid #e6f0ba26;
@@ -68,7 +68,6 @@
   align-self: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   letter-spacing: 3px;
-
 }
 
 .cssCodeDisplayerChildInfo {

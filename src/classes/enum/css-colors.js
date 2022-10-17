@@ -2,7 +2,6 @@
  * Module for CSS colors.
  *
  * @author Andreas Lillje
- * version 1.0.0
  */
 
 /**

@@ -1,3 +1,7 @@
+/**
+ * @author Andreas Lillje <a.lillje@gmail.com>
+ */
+
 import './grid-displayer.css'
 import * as React from 'react'
 import { useState, useEffect } from 'react'
@@ -123,7 +127,7 @@ const GridDisplayer = () => {
     const childElement = window.document.createElement('div')
     childElement.classList.add('templateBox')
     childElement.setAttribute('id', `box${templateBoxNumber}`)
-    childElement.style.backgroundColor = randomColorGenerator.getRandomColor()
+    childElement.textContent = `box${templateBoxNumber}`
     window.document.querySelector('.gridDisplayerContainer').appendChild(childElement)
   }
 
@@ -138,9 +142,20 @@ const GridDisplayer = () => {
       setRowEndCoordinate(childElementController.getEndRowPosition(event.target))
       setColumnEndCoordinate(childElementController.getEndColumnPosition(event.target))
       gridlify.setPosition(createPositions(), `#box${templateBoxNumber}`)
+      setBackgroundColorForChildElement(`#box${templateBoxNumber}`)
       setTemplateBoxNumber(templateBoxNumber + 1)
     }
     setUserIsSelectingAnArea(false)
+  }
+
+  /**
+   * Sets the background color of one of the appended child elements to a random color
+   * using the random color generator.
+   *
+   * @param {string} childElementIdentifier *
+   */
+  const setBackgroundColorForChildElement = (childElementIdentifier) => {
+    document.querySelector(childElementIdentifier).style.backgroundColor = randomColorGenerator.getRandomColor()
   }
 
   /**
@@ -263,15 +278,14 @@ const GridDisplayer = () => {
   useEffect(() => {
     if (userHasResetGrid) {
       resetGrid()
-      setTemplateBoxNumber(1)
     } else if (viewingCssCode) {
       sendParentCssCodeToGlobalState()
       sendChildrenCssCodeToGlobalState()
-      setTemplateBoxNumber(1)
     } else {
       setParentElementGrid()
       setPositionsForChildElementsInGridLayout()
     }
+    setTemplateBoxNumber(1)
   }, [numberOfRows, numberOfColumns, rowGap, columnGap, userHasResetGrid, viewingCssCode])
 
   return (
