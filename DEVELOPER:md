@@ -51,3 +51,7 @@ To address lint issues, run the following command:
 To fix lint issues, run the following command:
 
 `npm run lint:fix`
+
+## Resources
+
+[npm](https://docs.npmjs.com/about-npm)
