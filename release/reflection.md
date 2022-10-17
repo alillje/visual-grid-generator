@@ -3,6 +3,11 @@
 *Applikationen är driftsatt här*
 <br>
 https://visual-grid-generator.netlify.app/ 
+<br>
+Repositorium för L1:
+<br>
+https://github.com/alillje/gridlify
+<br>
 
 ### Inledning
 Inledningsvis vill jag påtala det uppenbara. 
@@ -99,11 +104,14 @@ Nedan är ett exempel på alla koncept från boken som tagits upp i min reflekti
 ### Kapitel 6
 Mina klasser är inte strukturerade som **Data Structures**, utan för att instansieras med objekt, som döljer sin data, men visar beteenden (I form av metoder). 
 
-Jag har inga data strukurer alls i detta projekt, alltså klasser vars enda uppgift är att hålla data. 
-
 Exempel:
 <br>
 <img src="./img/code-examples/code-example-6.png" alt="examples" width="900px">
+<br>
+
+Jag har en enum-modul som skulle kunnan anses vara en datastruktur, då dess enda uppgift är att hålla värden.
+
+<img src="./img/code-examples/code-example-12.png" alt="examples" width="900px">
 <br>
 
 ### Kapitel 7
@@ -132,7 +140,7 @@ Jag har tampats med att skriva objektorienterad kod i med ett funktionellt progr
 
 Jag fick länge fundera över hur jag skulle tackla detta problem, och jag tycker att jag har hittat en mellanväg som fungerar. 
 Min upplevelse är att jag faktiskt använder mig av Clean Boundaries, då min objektorienterad kod är strukturerad i klasser, som inte har något beroende till `React`. 
-Då jag tidigare har skrivit i `React`har detta inte varit någonting jag behövt ta någin hänsyn till, men efter att ha gjort på det här sättet, flytta ut så mycket funktionalitet som möjligt till fristående klasser, oberoende av *third-party*-biblioteket, har jag faktsiskt skapat **Clean Boundaries**. 
+Då jag tidigare har skrivit i `React` har detta inte varit någonting jag behövt ta någin hänsyn till, men efter att ha gjort på det här sättet, flytta ut så mycket funktionalitet som möjligt till fristående klasser, oberoende av *third-party*-biblioteket, har jag faktsiskt skapat **Clean Boundaries**. 
 
 Detta gör även att koden som är skriven i mina klasser kan återanvändas i vilken miljö som helst. 
 
