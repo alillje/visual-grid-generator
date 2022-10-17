@@ -1,11 +1,75 @@
 # Test Report
 
-*NOTE: Här har jag sedan tidigare skrivit krav, testspecifikation och testrapporter på engelska och infogar de därför som de är nedan.*
-
-Jag har ställt upp krav, beskrivit i testspecifikationen vilka testfall som testar vilka krav.
-Jag har använt automatisk och manuelt testning. Nedan beskrivs krav, testspecifikation och testrapporter
 
 ## Manual testning
+### Test Suite 5
+* Date 17/10 2022
+* Version (git commit hash) 670807b90a8a018091dc04de6b6565581b277527
+
+#### Notes
+- All OK.
+
+| Test      | 1 |
+| --------- |:----:|
+| TC1.1     | OK |
+| TC1.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK 
+
+| Test      | 2 |
+| --------- |:----:|
+| TC2.1     | OK |
+| TC2.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK 
+
+| Test      | 3 |
+| --------- |:----:|
+| TC3.1     | OK |
+| TC3.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK 
+
+| Test      | 4 |
+| --------- |:----:|
+| TC4.1     | OK |
+| TC4.2     | O |
+| COVERAGE & SUCCESS   | 1/2 OK 
+
+| Test      | 5 |
+| --------- |:----:|
+| TC5.1     | OK |
+| TC5.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK
+
+| Test      | 6 |
+| --------- |:----:|
+| TC6.1     | OK |
+| TC6.2     | OK |
+| TC6.3     | OK |
+| TC6.4     | OK |
+| COVERAGE & SUCCESS   | 4/4 OK
+
+| Test      | 7 |
+| --------- |:----:|
+| TC7.1     | OK |
+| TC7.2     | OK |
+| COVERAGE & SUCCESS   | 2/2 OK
+
+| Test      | 8 |
+| --------- |:----:|
+| TC8.1     | OK |
+| TC8.2     | OK |
+| TC8.3     | OK |
+| COVERAGE & SUCCESS   | 3/3 OK
+
+| Test      | 9 |
+| --------- |:----:|
+| TC9.1     | OK |
+| TC9.2     | OK |
+| TC9.3     | OK |
+| TC9.4     | OK |
+| COVERAGE & SUCCESS   | 4/4 OK
+
+
+
 ### Test Suite 4
 * Date 14/10 2022
 * Version (git commit hash) 9477e218262d35d81fe5b28d6030f328810eca3a
@@ -243,6 +307,15 @@ Jag har använt automatisk och manuelt testning. Nedan beskrivs krav, testspecif
 | COVERAGE & SUCCESS   | 2/2 OK
 
 ## Automatic Unit Tests
+
+### Test suite 8
+* Date 14/10 2022
+* version (git commit hash) 670807b90a8a018091dc04de6b6565581b277527
+
+*Notes:* -.
+
+<img src="./img/test-suites/17oct22-1.png" alt="Test suite" width="400px"></img>
+
 
 ### Test suite 8
 * Date 14/10 2022

@@ -33,6 +33,12 @@ I början av denna komponent (GridDisplayer) sätts ett antal konstanter, något
 
 Mitt paket från L1, `gridlify` (https://github.com/alillje/gridlify), används i `./src/classes/child-element-controller.js` samt i `./src/components/grid-displayer/grid-displayer.js`.
 
+### Krav
+Alla krav finns beskrivna i `./src/release/requirements.md` 
+
+### Testning
+Alla automatiska tester, alla manuella test-fall och testrapport finns att hitta i `./src/release/test-specification.md` samt `./src/release/test-report`.
+
 ## Clean Code
 
 ### Kapitel 2
