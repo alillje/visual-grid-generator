@@ -28,9 +28,9 @@ To read more about CSS Grid Layouts, check out <a href="https://www.w3schools.co
 ## Supported web browsers
 Browsers currently supported include: 
 
-* Chrome
+* Chrome (Desktop)
 
-* Firefox
+* Firefox (Desktop)
 
 ## Development
 

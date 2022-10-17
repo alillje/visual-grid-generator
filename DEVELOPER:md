@@ -1,0 +1,53 @@
+# For developers
+## Contributing
+To contribute, please follow the following steps.
+
+* Fork the project on Github.
+* Run npm install to install dev dependencies.
+* Implement/fix your feature, comment your code. Follow the code style of the project, including indentation.
+* Implement tests for new feature.
+* Run tests.
+* Create a pull request.
+
+## Requirements
+The requirements are located in `requirements.md` in the `./release`-folder.
+
+If you are interesed in contributing, please add new requirements to `requrements.md` before implementing new features.
+
+
+## Testing
+The testing is described in `test-specification.md`, located in the `./release`-folder.
+<br>
+The test reports are located in `test-reports.md`, located in the `./release`-folder.
+<br>
+<br>
+### Unit tests
+The testing framework [Jest](https://jestjs.io/), is used to run all automated tests.
+
+The tests are located in the `./src/__tests__`-folder.
+
+To run all automated tests, run the following command:
+
+`npm test`
+
+### Manual test cases
+All manual tests cases are describet in `test-specification.md`, located in the `./release`-folder.
+<br>
+<br>
+All requirements are tested with at least one automated test _or_ a manul test case.
+<br>
+If you are interesed in contributing, please make sure to implement tests in the same manner. 
+
+
+
+## Code standard
+The library uses [ESLint](https://eslint.org/) to format the code.
+It uses the [eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react) configuration to follow a standard.
+
+To address lint issues, run the following command:
+
+`npm run lint`
+
+To fix lint issues, run the following command:
+
+`npm run lint:fix`
