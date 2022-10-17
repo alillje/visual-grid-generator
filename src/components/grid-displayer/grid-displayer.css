@@ -31,6 +31,8 @@
   background-color: #b61e1e;
   opacity: 30%;
   z-index: 1000;
+  color: #ffffff;
+  text-align: center;
 }
 
 @media screen and (max-width: 900px) {

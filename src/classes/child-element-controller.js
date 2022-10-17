@@ -45,8 +45,7 @@ export class ChildElementController {
   }
 
   /**
-   * Responsible for looking at a collection of HTML elements and their
-   * positions in a grid layout.
+   * Responsible for extracting grid-positioning css from a collection of HTML elements.
    *
    * @param {string} htmlIdentifier *
    * @returns {string[]} - All representations of the CSS code corresponding to the elements.
@@ -56,7 +55,7 @@ export class ChildElementController {
     for (const childrenElement of document.querySelectorAll(htmlIdentifier)) {
       const htmlId = childrenElement.getAttribute('id')
       const styleAttributes = childrenElement.getAttribute('style')
-      const positionCss = styleAttributes.split(';')[1]
+      const positionCss = styleAttributes.split(';')[0]
       const childrenElementPosition = `${htmlId} { ${positionCss}; } `
       childrenElementPositions.push(childrenElementPosition)
     }
