@@ -16,10 +16,25 @@ jobs:
         run: |
           npm install 
           npm test
-      - run: |
-          echo @alillje:https://npm.pkg.github.com/ > build/.npmrc
-          echo '//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> build/.npmrc
-      - run: npm publish
-        working-directory: ./build
-        env:
-          NPM_TOKEN: ${{ secrets.GH_TOKEN }}
+    publish:
+     runs-on: ubuntu-latest
+     steps:
+       - uses: actions/checkout@v2
+       - uses: actions/setup-node@v2
+          with:
+            node-version: 16
+    build:
+      permissions:
+        contents: read
+        packages: read
+
+        - run: npm ci
+          env:
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - run: |
+            echo @alillje:https://npm.pkg.github.com/ > build/.npmrc
+            echo '//npm.pkg.github.com/:_authToken=${NPM_TOKEN}' >> build/.npmrc
+        - run: npm publish
+          working-directory: ./build
+          env:
+            NPM_TOKEN: ${{ secrets.GH_TOKEN }}
