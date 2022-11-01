@@ -225,3 +225,24 @@ describe('Validates if a html element is selected', () => {
     ).toBe(false)
   })
 })
+
+describe('Validates if a html element is a selectable area', () => {
+  test('Should return true', () => {
+    const div = document.createElement('div')
+    div.setAttribute('class', 'gridBox')
+    expect(
+      validator.isSelectableArea(
+        div
+      )
+    ).toBe(true)
+  })
+  test('Should return false', () => {
+    const div = document.createElement('div')
+    div.setAttribute('class', 'testBox')
+    expect(
+      validator.isSelectableArea(
+        div
+      )
+    ).toBe(false)
+  })
+})
