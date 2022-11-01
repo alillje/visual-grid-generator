@@ -85,4 +85,14 @@ export class Validator {
       throw new Error(`Number of rows and columns can only be set to a maximum of ${this.#maxAmmount}`)
     }
   }
+
+  /**
+   * Validates if the area can be selected.
+   *
+   * @param {object} htmlElement *
+   * @returns {boolean} - True if html element is a selectable area, other false.
+   */
+  isSelectableArea (htmlElement) {
+    return htmlElement.getAttribute('class').substring(0, 7) === 'gridBox'
+  }
 }
