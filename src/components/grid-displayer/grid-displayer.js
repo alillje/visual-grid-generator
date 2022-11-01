@@ -112,7 +112,7 @@ const GridDisplayer = () => {
    * @param {object} event - An event object.
    */
   const setStartCoordinates = (event) => {
-    if (!validator.isAlreadySelected(event.target)) {
+    if (!validator.isAlreadySelected(event.target) && validator.isSelectableArea(event.target)) {
       setUserIsSelectingAnArea(true)
       setStartRow(childElementController.getStartRowPosition(event.target))
       setStartColumn(childElementController.getStartColumnPosition(event.target))
